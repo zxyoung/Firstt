@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.demo.dao.ResumeDao" >
+  <resultMap id="BaseResultMap" type="com.zhang.demo.model.Resume" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sno" property="sno" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="CHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="school" property="school" jdbcType="CHAR" />
+    <result column="phone" property="phone" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zhang.demo.model.ResumeWithBLOBs" extends="BaseResultMap" >
+    <result column="major" property="major" jdbcType="LONGVARCHAR" />
+    <result column="major_course" property="majorCourse" jdbcType="LONGVARCHAR" />
+    <result column="experiencn" property="experiencn" jdbcType="LONGVARCHAR" />
+    <result column="introduction" property="introduction" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sno, name, age, school, phone, email
+  </sql>
+  <sql id="Blob_Column_List" >
+    major, major_course, experiencn, introduction
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from stu_resume
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stu_resume
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhang.demo.model.ResumeWithBLOBs" >
+    insert into stu_resume (id, sno, name, age, 
+      school, phone, email, major, 
+      major_course, experiencn, introduction
+      )
+    values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER}, #{name,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, 
+      #{school,jdbcType=CHAR}, #{phone,jdbcType=INTEGER}, #{email,jdbcType=CHAR}, #{major,jdbcType=LONGVARCHAR}, 
+      #{majorCourse,jdbcType=LONGVARCHAR}, #{experiencn,jdbcType=LONGVARCHAR}, #{introduction,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.demo.model.ResumeWithBLOBs" >
+    insert into stu_resume
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="school != null" >
+        school,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="major != null" >
+        major,
+      </if>
+      <if test="majorCourse != null" >
+        major_course,
+      </if>
+      <if test="experiencn != null" >
+        experiencn,
+      </if>
+      <if test="introduction != null" >
+        introduction,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=CHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="school != null" >
+        #{school,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=CHAR},
+      </if>
+      <if test="major != null" >
+        #{major,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="majorCourse != null" >
+        #{majorCourse,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="experiencn != null" >
+        #{experiencn,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="introduction != null" >
+        #{introduction,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.ResumeWithBLOBs" >
+    update stu_resume
+    <set >
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=CHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="school != null" >
+        school = #{school,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=CHAR},
+      </if>
+      <if test="major != null" >
+        major = #{major,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="majorCourse != null" >
+        major_course = #{majorCourse,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="experiencn != null" >
+        experiencn = #{experiencn,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="introduction != null" >
+        introduction = #{introduction,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zhang.demo.model.ResumeWithBLOBs" >
+    update stu_resume
+    set sno = #{sno,jdbcType=INTEGER},
+      name = #{name,jdbcType=CHAR},
+      age = #{age,jdbcType=INTEGER},
+      school = #{school,jdbcType=CHAR},
+      phone = #{phone,jdbcType=INTEGER},
+      email = #{email,jdbcType=CHAR},
+      major = #{major,jdbcType=LONGVARCHAR},
+      major_course = #{majorCourse,jdbcType=LONGVARCHAR},
+      experiencn = #{experiencn,jdbcType=LONGVARCHAR},
+      introduction = #{introduction,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.Resume" >
+    update stu_resume
+    set sno = #{sno,jdbcType=INTEGER},
+      name = #{name,jdbcType=CHAR},
+      age = #{age,jdbcType=INTEGER},
+      school = #{school,jdbcType=CHAR},
+      phone = #{phone,jdbcType=INTEGER},
+      email = #{email,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

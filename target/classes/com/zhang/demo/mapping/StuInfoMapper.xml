@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.demo.dao.StuInfoDao" >
+  <resultMap id="BaseResultMap" type="com.zhang.demo.model.StuInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+    <result column="sno" property="sno" jdbcType="INTEGER" />
+    <result column="password" property="password" jdbcType="CHAR" />
+    <result column="major" property="major" jdbcType="CHAR" />
+    <result column="origin" property="origin" jdbcType="CHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="entry_year" property="entryYear" jdbcType="DATE" />
+    <result column="gra_year" property="graYear" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stu_name, sno, password, major, origin, sex, entry_year, gra_year
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from stu_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll">
+  	select * from StuInfo;
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stu_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhang.demo.model.StuInfo" >
+    insert into stu_info (id, stu_name, sno, 
+      password, major, origin, sex, 
+      entry_year, gra_year)
+    values (#{id,jdbcType=INTEGER}, #{stuName,jdbcType=VARCHAR}, #{sno,jdbcType=INTEGER}, 
+      #{password,jdbcType=CHAR}, #{major,jdbcType=CHAR}, #{origin,jdbcType=CHAR}, #{sex,jdbcType=CHAR}, 
+      #{entryYear,jdbcType=DATE}, #{graYear,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.demo.model.StuInfo" >
+    insert into stu_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stuName != null" >
+        stu_name,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="major != null" >
+        major,
+      </if>
+      <if test="origin != null" >
+        origin,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="entryYear != null" >
+        entry_year,
+      </if>
+      <if test="graYear != null" >
+        gra_year,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stuName != null" >
+        #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="major != null" >
+        #{major,jdbcType=CHAR},
+      </if>
+      <if test="origin != null" >
+        #{origin,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="entryYear != null" >
+        #{entryYear,jdbcType=DATE},
+      </if>
+      <if test="graYear != null" >
+        #{graYear,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.StuInfo" >
+    update stu_info
+    <set >
+      <if test="stuName != null" >
+        stu_name = #{stuName,jdbcType=VARCHAR},
+      </if>
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=CHAR},
+      </if>
+      <if test="major != null" >
+        major = #{major,jdbcType=CHAR},
+      </if>
+      <if test="origin != null" >
+        origin = #{origin,jdbcType=CHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="entryYear != null" >
+        entry_year = #{entryYear,jdbcType=DATE},
+      </if>
+      <if test="graYear != null" >
+        gra_year = #{graYear,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.StuInfo" >
+    update stu_info
+    set stu_name = #{stuName,jdbcType=VARCHAR},
+      sno = #{sno,jdbcType=INTEGER},
+      password = #{password,jdbcType=CHAR},
+      major = #{major,jdbcType=CHAR},
+      origin = #{origin,jdbcType=CHAR},
+      sex = #{sex,jdbcType=CHAR},
+      entry_year = #{entryYear,jdbcType=DATE},
+      gra_year = #{graYear,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
