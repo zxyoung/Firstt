@@ -18,4 +18,6 @@ public interface StuInfoDao {
     int updateByPrimaryKey(StuInfo record);
     
     List<StuInfo> getAllStuInfo();
+    
+    StuInfo selectStuInfoBySno(Integer sno);
 }

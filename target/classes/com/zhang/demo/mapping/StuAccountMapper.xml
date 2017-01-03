@@ -1,83 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhang.demo.dao.StuAccountDao" >
-  <resultMap id="BaseResultMap" type="com.zhang.demo.model.StuAccount" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="sno" property="sno" jdbcType="INTEGER" />
-    <result column="password" property="password" jdbcType="CHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, sno, password
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from stu_account
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  
-  <select id="selectBySno">
-  	select
-  	<include refid="Base_Column_List" />
-  	from stu_account
-  	where sno = #{sno,jdbcType=INTEGER}
-  </select>
-  
-  <select id="getAllAccount">
-  	select * from StuAccount;
-  </select>
-  
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from stu_account
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.zhang.demo.model.StuAccount" >
-    insert into stu_account (id, sno, password
-      )
-    values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER}, #{password,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.zhang.demo.model.StuAccount" >
-    insert into stu_account
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="sno != null" >
-        sno,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="sno != null" >
-        #{sno,jdbcType=INTEGER},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.StuAccount" >
-    update stu_account
-    <set >
-      <if test="sno != null" >
-        sno = #{sno,jdbcType=INTEGER},
-      </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=CHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.StuAccount" >
-    update stu_account
-    set sno = #{sno,jdbcType=INTEGER},
-      password = #{password,jdbcType=CHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+<mapper namespace="com.zhang.demo.dao.StuAccountDao">
+	<resultMap id="BaseResultMap" type="com.zhang.demo.model.StuAccount">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="sno" property="sno" jdbcType="INTEGER" />
+		<result column="password" property="password" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, sno, password
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from stu_account
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+	<select id="selectBySno" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from stu_account
+		where sno = #{sno,jdbcType=INTEGER}
+	</select>
+
+	<select id="getAllAccount" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from stu_account order by sno 
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from stu_account
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.zhang.demo.model.StuAccount">
+		insert into stu_account (id, sno, password
+		)
+		values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER},
+		#{password,jdbcType=CHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.zhang.demo.model.StuAccount">
+		insert into stu_account
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="sno != null">
+				sno,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="sno != null">
+				#{sno,jdbcType=INTEGER},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.StuAccount">
+		update stu_account
+		<set>
+			<if test="sno != null">
+				sno = #{sno,jdbcType=INTEGER},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=CHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.StuAccount">
+		update stu_account
+		set sno = #{sno,jdbcType=INTEGER},
+		password = #{password,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
 </mapper>

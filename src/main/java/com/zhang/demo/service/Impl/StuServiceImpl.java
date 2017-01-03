@@ -39,7 +39,7 @@ public class StuServiceImpl implements StuService {
 	}
 
 	public StuInfo selectStuInfoByPrimaryKey(Integer id) {
-		return selectStuInfoByPrimaryKey(id);
+		return stuInfoDao.selectByPrimaryKey(id);
 	}
 
 	public int updateStuInfoByPrimaryKeySelective(StuInfo record) {
@@ -53,6 +53,11 @@ public class StuServiceImpl implements StuService {
 	public List<StuInfo> getAllStuInfo() {
 		return stuInfoDao.getAllStuInfo();
 	}
+	
+	public StuInfo selectStuInfoBySno(Integer sno) {
+		return stuInfoDao.selectStuInfoBySno(sno);
+	}
+
 
 	/********************************** 学生账号相关操作 **********************************/
 

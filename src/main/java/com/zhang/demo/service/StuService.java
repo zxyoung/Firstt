@@ -7,7 +7,8 @@ import com.zhang.demo.model.StuInfo;
 
 public interface StuService {
 	
-	//学生信息相关操作
+	/********************************学生信息相关操作****************************************/
+	
 	/**
 	 * 删除一条记录
 	 * @param id
@@ -35,6 +36,13 @@ public interface StuService {
 	 * @return
 	 */
 	StuInfo selectStuInfoByPrimaryKey(Integer id);
+	
+	/**
+	 * 根据学号查找记录
+	 * @param sno
+	 * @return
+	 */
+	StuInfo selectStuInfoBySno(Integer sno);
 
 	/**
 	 * 更新记录
@@ -56,7 +64,11 @@ public interface StuService {
 	 */
 	List<StuInfo> getAllStuInfo();
 	
-	//账号相关操作
+
+	
+	/************************************学生账号相关操作***************************************/
+	
+	
 	/**
 	 * 删除账号
 	 * @param id
