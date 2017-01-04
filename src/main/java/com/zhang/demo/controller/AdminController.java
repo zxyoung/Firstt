@@ -1,6 +1,5 @@
 package com.zhang.demo.controller;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,6 @@ import com.zhang.demo.model.StuAccount;
 import com.zhang.demo.model.StuInfo;
 import com.zhang.demo.service.StuService;
 
-import sun.print.resources.serviceui;
 
 /**
  * 管理员的可执行操作
@@ -178,12 +176,12 @@ public class AdminController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value="/{id}/deleteStuAccount")
-	public String deleteStuAccount(@PathVariable("id") Integer id){
-		if (id == null) {
+	@RequestMapping(value="/{sno}/deleteStuAccount")
+	public String deleteStuAccount(@PathVariable("sno") Integer sno){
+		if (sno == null) {
 			return "redirect:/admin/listStuAccount";
 		}
-		int id1 = stuService.deleteAccountByPrimaryKey(id);
+		int id1 = stuService.deleteAccountBySno(sno);
 		//To-do
 		return "redirect:/admin/listStuAccount";
 	}

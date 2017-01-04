@@ -27,15 +27,25 @@
 	<select id="getAllAccount" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from stu_account order by sno 
+		from stu_account order by sno
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from stu_account
+		delete from
+		stu_account
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
+
+	<!-- 按学号删除 -->
+	<delete id="deleteAccountBySno" parameterType="java.lang.Integer">
+		delete from
+		stu_account
+		where sno = #{sno,jdbcType=INTEGER}
+	</delete>
+
 	<insert id="insert" parameterType="com.zhang.demo.model.StuAccount">
-		insert into stu_account (id, sno, password
+		insert into stu_account (id,
+		sno, password
 		)
 		values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER},
 		#{password,jdbcType=CHAR}

@@ -74,7 +74,7 @@ public interface StuService {
 	 * @param id
 	 * @return
 	 */
-    int deleteAccountByPrimaryKey(Integer id);
+    int deleteAccountBySno(Integer id);
     
     /**
      * 增加一个账号

@@ -64,8 +64,8 @@ public class StuServiceImpl implements StuService {
 	/**
 	 * 
 	 */
-	public int deleteAccountByPrimaryKey(Integer id) {
-		return stuAccountDao.deleteByPrimaryKey(id);
+	public boolean deleteAccountBySno(Integer id) {
+		return stuAccountDao.deleteAccountBySno(id);
 	}
 
 	public int insertAccount(StuAccount record) {

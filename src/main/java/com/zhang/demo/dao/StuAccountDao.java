@@ -7,12 +7,19 @@ import com.zhang.demo.model.StuInfo;
 
 public interface StuAccountDao {
 	/**
-	 * 删除账号
+	 * 按主键删除账号
 	 * 
 	 * @param id
 	 * @return
 	 */
 	int deleteByPrimaryKey(Integer id);
+	
+	/**
+	 * 按学号删除账号
+	 * @param sno
+	 * @return
+	 */
+	boolean deleteAccountBySno(Integer sno);
 
 	/**
 	 * 新增一个账号
