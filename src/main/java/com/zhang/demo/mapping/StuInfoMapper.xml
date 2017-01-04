@@ -24,7 +24,7 @@
   </select>
   
   <!-- 查找所有 -->
-  <select id="selectAll">
+  <select id="getAllStuInfo" resultMap="BaseResultMap">
   	select
   	<include refid="Base_Column_List" />
   	from stu_info

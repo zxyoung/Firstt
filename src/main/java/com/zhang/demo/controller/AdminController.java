@@ -2,6 +2,7 @@ package com.zhang.demo.controller;
 
 import java.util.List;
 
+import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,7 @@ public class AdminController {
 	}
 	
 	/**
-	 * 删除指定id的用户
+	 * 管理员删除指定id的学生信息
 	 * @param id
 	 * @return
 	 */
@@ -76,26 +77,28 @@ public class AdminController {
 	}
 	
 	/**
-	 * 修改学生信息
+	 * 管理员修改学生信息
 	 * @param request
 	 * @param id
 	 * @return
 	 */
 	@RequestMapping("/{id}/update")
-	String updateStuInfo(HttpServletRequest request, @PathVariable("id") Integer id){
+	String updateStuInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model){
 		//To-do
 		//用Request  接受参数，构造StuInfo实体，然后进行更新操作
 		StuInfo stuInfo = new StuInfo();
 		String stuName = request.getParameter("stuName");
-		String sex = request.getParameter("sno"); 
-		Integer sno = Integer.parseInt(request.getParameter("sno"));
+		String sex = request.getParameter("sex"); 
+		Integer sno = Integer.parseInt(request.getParameter("sno").trim());
 		String password = request.getParameter("password");
 		String major = request.getParameter("major");
 		String origin =request.getParameter("origin");
-		//To-Do
-		//时间还需要格式化
-		Integer entry_year = Integer.parseInt(request.getParameter("entry_year"));
-		Integer gra_year = Integer.parseInt(request.getParameter("gra_year"));
+		Integer entry_year = Integer.parseInt(request.getParameter("entry_year").trim());
+		Integer gra_year = Integer.parseInt(request.getParameter("gra_year").trim());
+		
+		if(sno == null || entry_year == null || gra_year == null){
+			return "redirect:/admin/listStuInfo";
+		}
 		
 		stuInfo.setId(id);
 		stuInfo.setStuName(stuName);
@@ -108,8 +111,10 @@ public class AdminController {
 		stuInfo.setGraYear(gra_year);
 		
 		Integer j = stuService.updateStuInfoByPrimaryKeySelective(stuInfo);
+		model.addAttribute("stuInfo", stuInfo);
 		//To-do回到列表页 或 回到修改后的界面
-		return "redirect:/admin/listStuInfo";
+//		/firstt/admin/4131001/detailStuInfo
+		return "redirect:/admin/"+sno+"/detailStuInfo";
 	}
 	
 	
