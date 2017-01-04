@@ -94,8 +94,8 @@ public class AdminController {
 		String origin =request.getParameter("origin");
 		//To-Do
 		//时间还需要格式化
-//		String entry_year = request.getParameter("entry_year");
-//		String gra_year = request.getParameter("gra_year");
+		Integer entry_year = Integer.parseInt(request.getParameter("entry_year"));
+		Integer gra_year = Integer.parseInt(request.getParameter("gra_year"));
 		
 		stuInfo.setId(id);
 		stuInfo.setStuName(stuName);
@@ -104,7 +104,8 @@ public class AdminController {
 		stuInfo.setSno(sno);
 		stuInfo.setMajor(major);
 		stuInfo.setOrigin(origin);
-
+		stuInfo.setEntryYear(entry_year);
+		stuInfo.setGraYear(gra_year);
 		
 		Integer j = stuService.updateStuInfoByPrimaryKeySelective(stuInfo);
 		//To-do回到列表页 或 回到修改后的界面
@@ -182,6 +183,9 @@ public class AdminController {
 			return "redirect:/admin/listStuAccount";
 		}
 		boolean flag = stuService.deleteAccountBySno(sno);
+		if(flag == false){
+			return "出现错误！";
+		}
 		//To-do
 		return "redirect:/admin/listStuAccount";
 	}

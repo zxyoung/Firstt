@@ -1,7 +1,6 @@
 package com.zhang.demo.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class StuInfo implements Serializable {
     /**
@@ -23,9 +22,9 @@ public class StuInfo implements Serializable {
 
     private String sex;
 
-    private Date entryYear;
+    private Integer entryYear;
 
-    private Date graYear;
+    private Integer graYear;
 
 
     public Integer getId() {
@@ -84,19 +83,19 @@ public class StuInfo implements Serializable {
         this.sex = sex == null ? null : sex.trim();
     }
 
-    public Date getEntryYear() {
+    public Integer getEntryYear() {
         return entryYear;
     }
 
-    public void setEntryYear(Date entryYear) {
+    public void setEntryYear(Integer entryYear) {
         this.entryYear = entryYear;
     }
 
-    public Date getGraYear() {
+    public Integer getGraYear() {
         return graYear;
     }
 
-    public void setGraYear(Date graYear) {
+    public void setGraYear(Integer graYear) {
         this.graYear = graYear;
     }
 }

@@ -9,8 +9,8 @@
     <result column="major" property="major" jdbcType="CHAR" />
     <result column="origin" property="origin" jdbcType="CHAR" />
     <result column="sex" property="sex" jdbcType="CHAR" />
-    <result column="entry_year" property="entryYear" jdbcType="DATE" />
-    <result column="gra_year" property="graYear" jdbcType="DATE" />
+    <result column="entry_year" property="entryYear" jdbcType="INTEGER" />
+    <result column="gra_year" property="graYear" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, stu_name, sno, password, major, origin, sex, entry_year, gra_year
@@ -49,7 +49,7 @@
       entry_year, gra_year)
     values (#{id,jdbcType=INTEGER}, #{stuName,jdbcType=VARCHAR}, #{sno,jdbcType=INTEGER}, 
       #{password,jdbcType=CHAR}, #{major,jdbcType=CHAR}, #{origin,jdbcType=CHAR}, #{sex,jdbcType=CHAR}, 
-      #{entryYear,jdbcType=DATE}, #{graYear,jdbcType=DATE})
+      #{entryYear,jdbcType=INTEGER}, #{graYear,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zhang.demo.model.StuInfo" >
     insert into stu_info
@@ -105,10 +105,10 @@
         #{sex,jdbcType=CHAR},
       </if>
       <if test="entryYear != null" >
-        #{entryYear,jdbcType=DATE},
+        #{entryYear,jdbcType=INTEGER},
       </if>
       <if test="graYear != null" >
-        #{graYear,jdbcType=DATE},
+        #{graYear,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -134,10 +134,10 @@
         sex = #{sex,jdbcType=CHAR},
       </if>
       <if test="entryYear != null" >
-        entry_year = #{entryYear,jdbcType=DATE},
+        entry_year = #{entryYear,jdbcType=INTEGER},
       </if>
       <if test="graYear != null" >
-        gra_year = #{graYear,jdbcType=DATE},
+        gra_year = #{graYear,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -150,8 +150,8 @@
       major = #{major,jdbcType=CHAR},
       origin = #{origin,jdbcType=CHAR},
       sex = #{sex,jdbcType=CHAR},
-      entry_year = #{entryYear,jdbcType=DATE},
-      gra_year = #{graYear,jdbcType=DATE}
+      entry_year = #{entryYear,jdbcType=INTEGER},
+      gra_year = #{graYear,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
