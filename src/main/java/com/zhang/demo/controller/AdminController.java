@@ -181,7 +181,7 @@ public class AdminController {
 		if (sno == null) {
 			return "redirect:/admin/listStuAccount";
 		}
-		int id1 = stuService.deleteAccountBySno(sno);
+		boolean flag = stuService.deleteAccountBySno(sno);
 		//To-do
 		return "redirect:/admin/listStuAccount";
 	}
