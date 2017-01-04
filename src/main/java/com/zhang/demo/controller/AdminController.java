@@ -112,7 +112,7 @@ public class AdminController {
 		
 		Integer j = stuService.updateStuInfoByPrimaryKeySelective(stuInfo);
 		model.addAttribute("stuInfo", stuInfo);
-		//To-do回到列表页 或 回到修改后的界面
+		//To-do回到列表页 或 回到修改的界面
 //		/firstt/admin/4131001/detailStuInfo
 		return "redirect:/admin/"+sno+"/detailStuInfo";
 	}

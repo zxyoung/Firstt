@@ -17,10 +17,10 @@
 					姓名：<input name="stuName" type="text" value="${stuInfo.stuName}">
 				</div>
 				<div class="panel panel-default text-center">
-					性别：<input name="sex" type="text" disabled value="${stuInfo.sex}">
+					性别：<input name="sex" type="text" disabled readonly="readonly" value="${stuInfo.sex}">
 				</div>
 				<div class="panel panel-default text-center">
-					学号：<input name="sno" type="text" readonly="readonly" disabled value="${stuInfo.sno}">
+					学号：<input name="sno" type="text" readonly="readonly" value="${stuInfo.sno}">
 				</div>
 				<div class="panel panel-default text-center">
 					密码：<input name="password" type="password" value="${stuInfo.password}">
@@ -32,14 +32,13 @@
 					生源地：<input name="origin" type="text" value="${stuInfo.origin}">
 				</div>
 				<div class="panel panel-default text-center">
-					入学时间：<input name="entry_year" type="text"
-						value="${stuInfo.entryYear}">
+					入学时间：<input name="entry_year" type="text" value="${stuInfo.entryYear}">
 				</div>
 				<div class="panel panel-default text-center">
 					毕业时间：<input name="gra_year" type="text" value="${stuInfo.graYear}">
 				</div>
 
-				<input type="submit" value="修改" />
+				<input type="submit" value="确认修改" />
 			</div>
 		</form>
 
