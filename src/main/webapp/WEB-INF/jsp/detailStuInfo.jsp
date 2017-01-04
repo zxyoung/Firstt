@@ -38,7 +38,7 @@
 					毕业时间：<input name="gra_year" type="text" value="${stuInfo.graYear}">
 				</div>
 
-				<input type="submit" value="确认修改" />
+				<input type="submit" value="修改" />
 			</div>
 		</form>
 
