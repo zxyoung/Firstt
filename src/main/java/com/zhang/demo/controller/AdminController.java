@@ -153,14 +153,19 @@ public class AdminController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/selectAccountSno")
+	@RequestMapping(value="/selectAccountSno",method=RequestMethod.POST)
 	public String selectAccountBySno(HttpServletRequest request, Model model){
-		Integer sno = Integer.parseInt(request.getParameter("sno"));
-		StuAccount account = stuService.selectBySno(sno);
-		model.addAttribute("account", account);
+		Integer sno = Integer.parseInt(request.getParameter("sno").trim());
+		StuInfo stuInfo = stuService.selectStuInfoBySno(sno);
 		
+		//有待处理异常
+		if(stuInfo != null){
+			model.addAttribute("stuInfo", stuInfo);
+			return "detailStuInfo";
+			
+		}
 		//To-do 调到相应页面
-		return "stuAccount";
+		return "error";
 	}
 	
 	/**

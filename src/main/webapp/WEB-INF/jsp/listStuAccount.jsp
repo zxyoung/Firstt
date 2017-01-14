@@ -24,6 +24,12 @@
 				<h2 align="center">学生账号列表</h2>
 				<input style="text-align:right" type="button" value="添加学生" onclick="window.location.href='addStuAccount';" />
 			</div>
+
+			<form action="/firstt/admin/selectAccountSno" method="post">
+				<input type="text" name="sno" /> 
+				<input type="submit" value="搜索" />
+			</form>
+			
 			<div class="panel-body">
 				<table class="table table-hover">
 					<thead>
