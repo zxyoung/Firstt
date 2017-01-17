@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">${company.cname} 公司的详细信息</div>
+			<div class="panel-heading">${company.cname}公司的详细信息</div>
 		</div>
 		<form action="/firstt/admin/${company.id}/update" method="post">
 			<div class="panel-body">
@@ -24,7 +24,7 @@
 					企业性质：<input name="property" type="text" value="${company.property}">
 				</div>
 				<div class="panel panel-default text-center">
-					email：<input name="email" type="password" value="${company.email}">
+					email：<input name="email" type="text" value="${company.email}">
 				</div>
 				<div class="panel panel-default text-center">
 					企业代码：<input name="code" type="text" value="${company.code}">
@@ -36,10 +36,10 @@
 					公司电话：<input name="phone" type="text" value="${company.phone}">
 				</div>
 				<div class="panel panel-default text-center">
-					公司简介：<input name="detail" type="text" value="${company.detail}">
+					公司简介：
+					<textarea rows="5" cols="25">${company.detail}</textarea>
 				</div>
-
-				<input type="submit" value="修改" />
+				<td><a class="btn btn-info" style="center" href="javascript:window.opener=null;window.close();">关闭</a></td>
 			</div>
 		</form>
 

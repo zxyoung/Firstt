@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zhang.demo.model.Company;
+import com.zhang.demo.model.Notice;
 import com.zhang.demo.model.StuAccount;
 import com.zhang.demo.model.StuInfo;
 import com.zhang.demo.service.CompanyService;
+import com.zhang.demo.service.NoticeService;
 import com.zhang.demo.service.StuService;
 
 /**
@@ -34,7 +36,63 @@ public class AdminController {
 	@Autowired
 	CompanyService companyService;
 
+	@Autowired
+	NoticeService noticeService;
+
 	/*************************************** 企业信息操作 *********************************************/
+
+	/**
+	 * 查看招聘信息
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/listNoticeInfo")
+	public String getAllNoticeInfo(Model model) {
+		List<Notice> list = noticeService.getAllNotice();
+		if (list == null) {
+			return "跳向相应错误处理页面";
+		}
+		model.addAttribute("list", list);
+		return "listNotice";
+	}
+
+	/**
+	 * 刪除招聘信息
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/noticeDetail")
+	public String noticeDetail(@PathVariable("id") Integer id, Model model) {
+		if (id == null) {
+			return "跳向错误处理页面";
+		}
+		Notice notice = noticeService.selectByPrimaryKey(id);
+		if (notice != null) {
+			model.addAttribute("notice", notice);
+			return "NoticeInfo";
+		}
+		return "跳向错误处理页面";
+	}
+
+	/**
+	 * 删除招聘信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/deleteNotice")
+	public String deleteNotice(@PathVariable("id") Integer id) {
+		if (id == null) {
+			return "error";
+		}
+		int delNotice = noticeService.deleteByPrimaryKey(id);
+		if (delNotice < 1) {
+			return "error";
+		}
+		return "redirect:/admin/listNoticeInfo";
+	}
 
 	/**
 	 * 列出所有企业信息
@@ -55,7 +113,8 @@ public class AdminController {
 	/**
 	 * 刪除公司的信息
 	 * 
-	 * @param id	公司信息在表中的id
+	 * @param id
+	 *            公司信息在表中的id
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}/deleteCompany")

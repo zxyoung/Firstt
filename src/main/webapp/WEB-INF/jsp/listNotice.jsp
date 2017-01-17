@@ -4,7 +4,7 @@
 <%@ include file="common/tag.jsp"%>
 <html>
 <head>
-<title>注册公司信息</title>
+<title>用户列表页</title>
 <%@include file="common/head.jsp"%>
 
 <script type="text/javascript">
@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">
-				<h2 align="center">公司信息列表</h2>
+				<h2 align="center">招聘信息</h2>
 
 				<!-- <input style="text-align: right" type="button" value="添加用户"
 					onclick="window.location.href='addUser';" /> -->
@@ -31,18 +31,18 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>公司名称</th>
-							<th>企业性质</th>
+							<th>标题</th>
+							<th>创建时间</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="company" items="${list}">
-							<td>${company.cname}</td>
-							<td>${company.property}</td>
+						<c:forEach var="notice" items="${list}">
+							<td>${notice.title}</td>
+							<td>${notice.fbtime}</td>
 							<td><a class="btn btn-info"
-								href="/firstt/admin/${company.id}/companyDetail" target="_blank">详细信息</a></td>
+								href="/firstt/admin/${notice.id}/noticeDetail" target="_blank">详细信息</a></td>
 							<td><a class="btn btn-info"
-								href="/firstt/admin/${company.id}/deleteCompany">删除</a></td>
+								href="/firstt/admin/${notice.id}/deleteNotice">删除</a></td>
 							<tr />
 						</c:forEach>
 					</tbody>

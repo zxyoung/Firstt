@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.demo.dao.NoticeDao">
+	<resultMap id="BaseResultMap" type="com.zhang.demo.model.Notice">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="code" property="code" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="CHAR" />
+		<result column="content" property="content" jdbcType="CHAR" />
+		<result column="fbtime" property="fbtime" jdbcType="DATE" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, code, title, content, fbtime
+	</sql>
+	
+	<!-- 获得所有信息 -->
+	<select id="getAllNotice" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from zhaopin
+		order by fbtime
+	</select>
+	
+	
+	<!-- 按代码查找 -->
+	<select id="selectByCode" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from zhaopin
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+	
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from zhaopin
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from zhaopin
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.zhang.demo.model.Notice">
+		insert into zhaopin (id, code, title,
+		content, fbtime)
+		values (#{id,jdbcType=INTEGER}, #{code,jdbcType=INTEGER},
+		#{title,jdbcType=CHAR},
+		#{content,jdbcType=CHAR}, #{fbtime,jdbcType=DATE})
+	</insert>
+	<insert id="insertSelective" parameterType="com.zhang.demo.model.Notice">
+		insert into zhaopin
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="code != null">
+				code,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+			<if test="fbtime != null">
+				fbtime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="code != null">
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=CHAR},
+			</if>
+			<if test="content != null">
+				#{content,jdbcType=CHAR},
+			</if>
+			<if test="fbtime != null">
+				#{fbtime,jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.Notice">
+		update zhaopin
+		<set>
+			<if test="code != null">
+				code = #{code,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				title = #{title,jdbcType=CHAR},
+			</if>
+			<if test="content != null">
+				content = #{content,jdbcType=CHAR},
+			</if>
+			<if test="fbtime != null">
+				fbtime = #{fbtime,jdbcType=DATE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.Notice">
+		update zhaopin
+		set code = #{code,jdbcType=INTEGER},
+		title = #{title,jdbcType=CHAR},
+		content = #{content,jdbcType=CHAR},
+		fbtime = #{fbtime,jdbcType=DATE}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>
