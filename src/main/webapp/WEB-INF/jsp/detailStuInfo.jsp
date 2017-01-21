@@ -39,7 +39,7 @@
 				</div>
 
 				<input type="submit" class="btn btn-info" value="修改" />
-				<td><a class="btn btn-info" style="center" href="javascript:window.opener=null;window.close();">关闭</a></td>
+				<a class="btn btn-info" style="center" href="javascript:window.opener=null;window.close();">关闭</a>
 			</div>
 		</form>
 

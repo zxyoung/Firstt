@@ -38,7 +38,7 @@
 					<tbody>
 						<c:forEach var="notice" items="${list}">
 							<td>${notice.title}</td>
-							<td>${notice.fbtime}</td>
+							<td><fmt:formatDate value="${notice.fbtime}" pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
 							<td><a class="btn btn-info"
 								href="/firstt/admin/${notice.id}/noticeDetail" target="_blank">详细信息</a></td>
 							<td><a class="btn btn-info"

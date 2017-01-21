@@ -39,7 +39,7 @@
 					公司简介：
 					<textarea rows="5" cols="25">${company.detail}</textarea>
 				</div>
-				<td><a class="btn btn-info" style="center" href="javascript:window.opener=null;window.close();">关闭</a></td>
+				<a class="btn btn-info" style="center" href="javascript:window.opener=null;window.close();">关闭</a>
 			</div>
 		</form>
 

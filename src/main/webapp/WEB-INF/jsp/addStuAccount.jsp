@@ -5,12 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>增加用户</title>
+
+<script type="text/javascript">
+	function check(obj){
+		var username = obj;
+		var checkUserNameResult = document.getElementById("checkUserNameResult");
+		if(username.trim().length==0){
+			checkUserNameResult.innerHTML="输入不能为空";
+			obj.focus();
+		}else{
+			checkUserNameResult.innerHTML="";
+		}
+	}
+</script>
+
 </head>
 <body>
 	<form action="/firstt/admin/addStuAccount" method="post">
-		学号：<input type="text" name="sno" /><br />
-		<!-- 密码：<input type="password" name="password" value=""><br/>   -->
-		<!--年龄：<input type="text" name="age" value=""><br/>    -->
+		<td>学号：</td>
+		<td><input type="text" name="sno" onblur="check(this.value);"/></td>
+			<span id="checkUserNameResult" style="color:red"></span><br/>
 		<input type="submit" value="提交">
 	</form>
 </body>
