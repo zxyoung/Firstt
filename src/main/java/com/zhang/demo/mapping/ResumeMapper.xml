@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.demo.dao.ResumeDao">
+	<resultMap id="BaseResultMap" type="com.zhang.demo.model.Resume">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="sno" property="sno" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="CHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="school" property="school" jdbcType="CHAR" />
+		<result column="phone" property="phone" jdbcType="INTEGER" />
+		<result column="email" property="email" jdbcType="CHAR" />
+		<result column="major" property="major" jdbcType="CHAR" />
+		<result column="experience" property="experience" jdbcType="CHAR" />
+		<result column="selfintro" property="selfintro" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, sno, name, age, school, phone, email, major, experience, selfintro
+	</sql>
+	
+	<select id="getAllResume" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from resume order by sno
+	</select>
+	
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from resume
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from resume
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.zhang.demo.model.Resume">
+		insert into resume (id, sno, name, age,
+		school, phone, email, major,
+		experience, selfintro)
+		values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER},
+		#{name,jdbcType=CHAR}, #{age,jdbcType=INTEGER},
+		#{school,jdbcType=CHAR}, #{phone,jdbcType=INTEGER},
+		#{email,jdbcType=CHAR}, #{major,jdbcType=CHAR},
+		#{experience,jdbcType=CHAR}, #{selfintro,jdbcType=CHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.zhang.demo.model.Resume">
+		insert into resume
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="sno != null">
+				sno,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="age != null">
+				age,
+			</if>
+			<if test="school != null">
+				school,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="major != null">
+				major,
+			</if>
+			<if test="experience != null">
+				experience,
+			</if>
+			<if test="selfintro != null">
+				selfintro,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="sno != null">
+				#{sno,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=CHAR},
+			</if>
+			<if test="age != null">
+				#{age,jdbcType=INTEGER},
+			</if>
+			<if test="school != null">
+				#{school,jdbcType=CHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=INTEGER},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=CHAR},
+			</if>
+			<if test="major != null">
+				#{major,jdbcType=CHAR},
+			</if>
+			<if test="experience != null">
+				#{experience,jdbcType=CHAR},
+			</if>
+			<if test="selfintro != null">
+				#{selfintro,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.Resume">
+		update resume
+		<set>
+			<if test="sno != null">
+				sno = #{sno,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=CHAR},
+			</if>
+			<if test="age != null">
+				age = #{age,jdbcType=INTEGER},
+			</if>
+			<if test="school != null">
+				school = #{school,jdbcType=CHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=INTEGER},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=CHAR},
+			</if>
+			<if test="major != null">
+				major = #{major,jdbcType=CHAR},
+			</if>
+			<if test="experience != null">
+				experience = #{experience,jdbcType=CHAR},
+			</if>
+			<if test="selfintro != null">
+				selfintro = #{selfintro,jdbcType=CHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.Resume">
+		update resume
+		set sno = #{sno,jdbcType=INTEGER},
+		name = #{name,jdbcType=CHAR},
+		age = #{age,jdbcType=INTEGER},
+		school = #{school,jdbcType=CHAR},
+		phone = #{phone,jdbcType=INTEGER},
+		email = #{email,jdbcType=CHAR},
+		major = #{major,jdbcType=CHAR},
+		experience = #{experience,jdbcType=CHAR},
+		selfintro = #{selfintro,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

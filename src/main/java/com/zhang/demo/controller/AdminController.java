@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sun.org.apache.regexp.internal.recompile;
 import com.zhang.demo.model.Company;
 import com.zhang.demo.model.Notice;
+import com.zhang.demo.model.Resume;
 import com.zhang.demo.model.StuAccount;
 import com.zhang.demo.model.StuInfo;
 import com.zhang.demo.service.CompanyService;
 import com.zhang.demo.service.NoticeService;
+import com.zhang.demo.service.ResumeService;
 import com.zhang.demo.service.StuService;
 
 /**
@@ -38,6 +41,9 @@ public class AdminController {
 
 	@Autowired
 	NoticeService noticeService;
+	
+	@Autowired
+	ResumeService resumeService;
 
 	/*************************************** 企业信息操作 *********************************************/
 
@@ -152,6 +158,33 @@ public class AdminController {
 	}
 
 	/*************************************** 学生信息操作 *********************************************/
+	
+	/**
+	 * 获得所有简历
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/listResume")
+	public String getAllResume(Model model){
+		List<Resume> list = resumeService.getAllResume();
+		model.addAttribute("list", list);
+		return "listResume";
+	}
+	
+	/**
+	 * 查看简历详细信息
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/resumeDetail") 
+	public String getResumeDetail(@PathVariable("id") Integer id, Model model){
+		Resume resume = resumeService.selectByPrimaryKey(id);
+		
+		model.addAttribute("resume", resume);
+		return "detailResume";
+	}
+	
 	/**
 	 * 查看所有学生信息
 	 * 
