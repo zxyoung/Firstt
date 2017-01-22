@@ -2,15 +2,50 @@
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <html>
-<body>
-<h2>Hello World!</h2>
-<input type="button" value="see" onclick="window.location.href='/firstt/user/list';">
+ 
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页</title>
 
-<form action="/firstt/user/ad" method="post">
-	用户名：<input type="text" name="username">
-	密码：<input type="password" name="password">
-	年龄：<input type="text" name="age" value="">
-	<input type="submit" value="提交">
-</form>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--[endif]-->
+</head>
+<body>
+	<h1>你好，世界！</h1>
+	<div
+		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px; background-color: orange">
+		<h2 style="text-align: center">
+			<a href="index.jsp">西安邮电大学</a>
+		</h2>
+
+		<div style="text-align: right">
+			<a href="######" class="btn btn-info" onclick="window.open('login.jsp')">登录</a> <a
+				href="######" id="register" onclick="window.open('register.jsp')">企业注册</a>
+		</div>
+
+	</div>
+	<div
+		style="position: absolute; top: 100px; left: 0px; width: 20%; height: 600px; background-color: blue">
+		这是下方左部</div>
+
+	<div style="position: absolute; top: 100px; left: 20%; height: 600px;">
+		这是下方右部</div>
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
+</html>
 </html>
