@@ -2,6 +2,8 @@ package com.zhang.demo.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zhang.demo.model.StuInfo;
 
 public interface StuInfoDao {
@@ -20,4 +22,6 @@ public interface StuInfoDao {
     List<StuInfo> getAllStuInfo();
     
     StuInfo selectStuInfoBySno(Integer sno);
+    
+    StuInfo selectBySnoAndPassword(@Param("sno") Integer sno, @Param("password") String password);
 }

@@ -16,6 +16,14 @@
     id, stu_name, sno, password, major, origin, sex, entry_year, gra_year
   </sql>
   
+  <select id="selectBySnoAndPassword" resultMap="BaseResultMap" parameterType="Map">
+  	select * from stu_info
+  	where 
+  	sno = #{sno,jdbcType=INTEGER}
+  	and password = #{password,jdbcType=CHAR}
+  </select>
+  
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

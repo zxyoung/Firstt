@@ -84,4 +84,8 @@ public class StuServiceImpl implements StuService {
 		return stuAccountDao.selectBySno(sno);
 	}
 
+	public StuInfo StudentLogin(Integer sno, String password) {
+		return stuInfoDao.selectBySnoAndPassword(sno, password);
+	}
+
 }

@@ -2,7 +2,6 @@ package com.zhang.demo.controller;
 
 import java.util.List;
 
-import javax.jws.WebParam.Mode;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sun.org.apache.regexp.internal.recompile;
 import com.zhang.demo.model.Company;
 import com.zhang.demo.model.Notice;
 import com.zhang.demo.model.Resume;

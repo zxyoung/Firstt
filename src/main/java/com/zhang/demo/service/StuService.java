@@ -64,6 +64,14 @@ public interface StuService {
 	 */
 	List<StuInfo> getAllStuInfo();
 	
+	/**
+	 * 登录所需要的学号和密码
+	 * @param sno
+	 * @param password
+	 * @return
+	 */
+	StuInfo StudentLogin(Integer sno, String password);
+	
 
 	
 	/************************************学生账号相关操作***************************************/
