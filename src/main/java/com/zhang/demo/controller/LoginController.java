@@ -47,14 +47,13 @@ public class LoginController {
 		//登录错误处理
 		if(stuInfo == null){
 			System.out.println("null error!");
+			
+			//要加一个登陆错误处理页面
+			return "error";
 		}
 		//登录成功跳转
 		model.addAttribute("uname", stuInfo);
-		
-//		System.out.println("123!!");
-		
 		return "loginSuccess";
-
 	}
 
 }

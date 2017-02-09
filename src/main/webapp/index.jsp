@@ -24,8 +24,8 @@ function show() {
 	window.open('login.jsp');
 }
 </script>
-    
-    
+
+
 </head>
 <body>
 	<h1>你好，世界！</h1>
@@ -33,11 +33,11 @@ function show() {
 		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px; background-color: orange">
 		<h2 style="text-align: center">
 			<a href="index.jsp">西安邮电大学</a>
-		</h2> 
+		</h2>
 
 		<div style="text-align: right">
-			<a href="/firstt/login/stu" target="_blank" class="btn btn-info">登录</a> <a
-				href="######" id="register" onclick="window.open('register.jsp')">企业注册</a>
+			<a href="/firstt/login/stu" target="_blank" class="btn btn-info">登录</a>
+			<a href="######" id="register" onclick="window.open('register.jsp')">企业注册</a>
 		</div>
 
 	</div>
@@ -46,7 +46,11 @@ function show() {
 		这是下方左部</div>
 
 	<div style="position: absolute; top: 100px; left: 20%; height: 600px;">
-		这是下方右部</div>
+		这是下方右部
+
+		
+
+	</div>
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
