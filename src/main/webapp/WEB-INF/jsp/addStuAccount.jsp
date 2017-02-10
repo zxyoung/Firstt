@@ -22,8 +22,8 @@
 </head>
 <body>
 	<form action="/firstt/admin/addStuAccount" method="post">
-		<td>学号：</td>
-		<td><input type="text" name="sno" onblur="check(this.value);"/></td>
+		学号:
+		<input type="text" name="sno" onblur="check(this.value);"/>
 			<span id="checkUserNameResult" style="color:red"></span><br/>
 		<input type="submit" value="提交">
 	</form>

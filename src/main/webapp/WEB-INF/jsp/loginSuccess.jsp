@@ -25,20 +25,22 @@
 	<div
 		style="position: absolute; top: 100px; left: 5px; width: 20%; height: 600px; background-color: pink">
 		<div align="center">这是下方左部</div>
-		<h2 align="center">${sessionScope.uname.getStuName()}登录成功!!!</h2>
-		<h2 align="center">欢迎您,${sessionScope.uname.stuName }</h2>
-
+		<h2 align="center">${sessionScope.stu.getStuName()}登录成功!!!</h2>
+		<h2 align="center">欢迎您,${sessionScope.stu.stuName }</h2>
+		${sessionScope.stu.id }<br/>
+		${stuInfo.id }
+		
 		<div align="center">
-			<a target="display" href="http://www.baidu.com"><h2>个人信息</h2></a>
+			<h2><a target="display" href="http://www.baidu.com">个人信息</a></h2>
 		</div>
 		<div align="center">
-			<a target="display" href="http://www.qq.com"><h2>简历</h2></a>
+			<h2><a target="display" href="http://www.qq.com">简历</a></h2>
 		</div>
 		<div align="center">
-			<a target="display" href="#########"><h2>就业信息</h2></a>
+			<h2><a target="display" href="#########">就业信息</a></h2>
 		</div>
 		<div align="center">
-			<a href="#########"><h2>退出</h2></a>
+			<h2><a href="/firstt/login/logout">退出</a></h2>
 		</div>
 
 
