@@ -19,4 +19,6 @@ public interface ResumeDao {
     
     List<Resume> getAllResume();
     
+    Resume selectBySno(Integer sno);
+    
 }

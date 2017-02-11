@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>成功</title>
+<title>欢迎您使用</title>
 </head>
 <body>
 	<!-- 用这些session去处理对应id的操作 -->
@@ -27,17 +27,16 @@
 		<div align="center">这是下方左部</div>
 		<h2 align="center">${sessionScope.stu.getStuName()}登录成功!!!</h2>
 		<h2 align="center">欢迎您,${sessionScope.stu.stuName }</h2>
-		${sessionScope.stu.id }<br/>
+		${sessionScope.stu.sno }<br/>
 		${stuInfo.id }
-		
 		<div align="center">
-			<h2><a target="display" href="http://www.baidu.com">个人信息</a></h2>
+			<h2><a target="display" href="/firstt/student/${stuInfo.id}/stuInfo">个人信息</a></h2>
 		</div>
 		<div align="center">
-			<h2><a target="display" href="http://www.qq.com">简历</a></h2>
+			<h2><a target="display" href="/firstt/student/${stuInfo.sno}/detailResume">简历</a></h2>
 		</div>
 		<div align="center">
-			<h2><a target="display" href="#########">就业信息</a></h2>
+			<h2><a target="display" href="/firstt/student/${stuInfo.sno}/resultForm">就业信息</a></h2>
 		</div>
 		<div align="center">
 			<h2><a href="/firstt/login/logout">退出</a></h2>

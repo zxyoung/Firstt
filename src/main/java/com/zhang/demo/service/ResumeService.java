@@ -18,4 +18,6 @@ public interface ResumeService {
 	int updateByPrimaryKey(Resume record);
 
 	List<Resume> getAllResume();
+	
+	Resume selectBySno(Integer sno);
 }

@@ -44,4 +44,8 @@ public class ResumeServiceImpl implements ResumeService{
 		return resumeDao.getAllResume();
 	}
 
+	public Resume selectBySno(Integer sno) {
+		return resumeDao.selectBySno(sno);
+	}
+
 }

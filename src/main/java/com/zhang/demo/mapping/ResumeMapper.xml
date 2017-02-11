@@ -17,6 +17,14 @@
 		id, sno, name, age, school, phone, email, major, experience, selfintro
 	</sql>
 	
+	<select id="selectBySno" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from resume
+		where sno = #{sno,jdbcType=INTEGER}
+	</select>
+	
+	
 	<select id="getAllResume" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
