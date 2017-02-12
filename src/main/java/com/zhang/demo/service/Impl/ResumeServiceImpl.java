@@ -48,4 +48,5 @@ public class ResumeServiceImpl implements ResumeService{
 		return resumeDao.selectBySno(sno);
 	}
 
+
 }

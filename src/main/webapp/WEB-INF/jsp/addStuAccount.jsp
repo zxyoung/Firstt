@@ -25,6 +25,7 @@
 		学号:
 		<input type="text" name="sno" onblur="check(this.value);"/>
 			<span id="checkUserNameResult" style="color:red"></span><br/>
+		
 		<input type="submit" value="提交">
 	</form>
 </body>

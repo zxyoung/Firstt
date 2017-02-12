@@ -2,6 +2,7 @@ package com.zhang.demo.dao;
 
 import java.util.List;
 
+
 import com.zhang.demo.model.Resume;
 
 public interface ResumeDao {
@@ -20,5 +21,7 @@ public interface ResumeDao {
     List<Resume> getAllResume();
     
     Resume selectBySno(Integer sno);
+    
+    
     
 }

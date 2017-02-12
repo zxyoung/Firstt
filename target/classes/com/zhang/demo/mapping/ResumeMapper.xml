@@ -165,4 +165,5 @@
 		selfintro = #{selfintro,jdbcType=CHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+
 </mapper>

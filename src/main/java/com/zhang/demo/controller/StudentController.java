@@ -59,10 +59,17 @@ public class StudentController {
 		model.addAttribute("resume", resume);
 		return "detailResume";
 	}
-	
-	@RequestMapping(value="/addResume")
-	public String addResume(HttpServletRequest request, HttpSession session){
-//		Integer id = Integer.parseInt(request.getParameter("id"));
+
+	/**
+	 * 新增一个简历
+	 * 
+	 * @param request
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/addResume")
+	public String addResume(HttpServletRequest request, HttpSession session) {
+		// Integer id = Integer.parseInt(request.getParameter("id"));
 		Integer sno = Integer.parseInt(request.getParameter("sno").trim());
 		String name = request.getParameter("name");
 		Integer age = Integer.parseInt(request.getParameter("age"));
@@ -72,9 +79,9 @@ public class StudentController {
 		String major = request.getParameter("major");
 		String experience = request.getParameter("experience");
 		String selfintro = request.getParameter("experience");
-		
+
 		Resume resume = new Resume();
-//		resume.setId(id);
+		// resume.setId(id);
 		resume.setSno(sno);
 		resume.setName(name);
 		resume.setAge(age);
@@ -84,37 +91,40 @@ public class StudentController {
 		resume.setMajor(major);
 		resume.setExperience(experience);
 		resume.setSelfintro(selfintro);
-		
+
 		int flag = resumeService.insert(resume);
-		
-		//提交失败重新填写表单
-		if(flag != 1){
+
+		// 提交失败重新填写表单
+		if (flag != 1) {
 			return "redirect:/newResume";
 		}
-		
-		//提交成功则去详情页查看
-		return "redirect:/student/"+sno+"/detailResume";
+		// 提交成功则去详情页查看
+		return "redirect:/student/" + sno + "/detailResume";
 	}
 
 	/**
-	 * 更新简历
-	 * @param request
-	 * @param model
+	 * 修改简历
+	 *  
+	 * @param request	
+	 * @param model		
 	 * @return
 	 */
-	@RequestMapping(value = "/{sno}/updateResume")
-	public String updateResume(HttpServletRequest request, Model model) {
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		Integer sno = Integer.parseInt(request.getParameter("sno"));
+	@RequestMapping(value = "/{id}/updateResume")
+	public String updateResume(@PathVariable("id") Integer id, HttpServletRequest request) {
 		String name = request.getParameter("name");
-		Integer age = Integer.parseInt(request.getParameter("age"));
+		Integer sno = Integer.parseInt(request.getParameter("sno"));
+		Integer age = Integer.parseInt(request.getParameter("age").trim());
 		String school = request.getParameter("school");
-		Integer phone = Integer.parseInt(request.getParameter("phone"));
+		Integer phone = Integer.parseInt(request.getParameter("phone").trim());
 		String email = request.getParameter("email");
 		String major = request.getParameter("major");
 		String experience = request.getParameter("experience");
-		String selfintro = request.getParameter("experience");
-		
+		String selfintro = request.getParameter("selfintro");
+
+		if (sno == null || age == null || phone == null) {
+			return "errorPage";
+		}
+
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setSno(sno);
@@ -126,12 +136,29 @@ public class StudentController {
 		resume.setMajor(major);
 		resume.setExperience(experience);
 		resume.setSelfintro(selfintro);
-		
-		int flag = resumeService.updateByPrimaryKey(resume);
-		if(flag != 1){
+
+		int flag = resumeService.updateByPrimaryKeySelective(resume);
+
+		if (flag != 1) {
 			return "detailResume";
 		}
 		return "redirect:/student/" + sno + "/detailResume";
+	}
+
+	/**
+	 * 删除简历
+	 * 
+	 * @param id
+	 *            简历的id
+	 * @return 返回影响的数据的条数
+	 */
+	@RequestMapping(value = "/{id}/deleteResume")
+	public String deleteResumeById(@PathVariable("id") Integer id) {
+		int flag = resumeService.deleteByPrimaryKey(id);
+		if (flag != 1) {
+			return "errorPage";
+		}
+		return "newResume";
 	}
 
 }
