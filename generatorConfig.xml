@@ -41,7 +41,7 @@
 		</javaClientGenerator>
 
 		<!-- 修改表的名字即可 -->
-		<table schema="zhang" tableName="resume" domainObjectName="Resume" enableCountByExample="false"
+		<table schema="zhang" tableName="employmentinfo" domainObjectName="EmploymentInfo" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
 			<property name="useActualColumnNames" value="false" />

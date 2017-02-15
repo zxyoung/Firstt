@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.demo.dao.DesireDao" >
+  <resultMap id="BaseResultMap" type="com.zhang.demo.model.Desire" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sno" property="sno" jdbcType="INTEGER" />
+    <result column="passport" property="passport" jdbcType="CHAR" />
+    <result column="examNum" property="examnum" jdbcType="CHAR" />
+    <result column="willingone" property="willingone" jdbcType="CHAR" />
+    <result column="willingtwo" property="willingtwo" jdbcType="CHAR" />
+    <result column="willingthree" property="willingthree" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sno, passport, examNum, willingone, willingtwo, willingthree
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from desire
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from desire
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhang.demo.model.Desire" >
+    insert into desire (id, sno, passport, 
+      examNum, willingone, willingtwo, 
+      willingthree)
+    values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER}, #{passport,jdbcType=CHAR}, 
+      #{examnum,jdbcType=CHAR}, #{willingone,jdbcType=CHAR}, #{willingtwo,jdbcType=CHAR}, 
+      #{willingthree,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.demo.model.Desire" >
+    insert into desire
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="passport != null" >
+        passport,
+      </if>
+      <if test="examnum != null" >
+        examNum,
+      </if>
+      <if test="willingone != null" >
+        willingone,
+      </if>
+      <if test="willingtwo != null" >
+        willingtwo,
+      </if>
+      <if test="willingthree != null" >
+        willingthree,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="passport != null" >
+        #{passport,jdbcType=CHAR},
+      </if>
+      <if test="examnum != null" >
+        #{examnum,jdbcType=CHAR},
+      </if>
+      <if test="willingone != null" >
+        #{willingone,jdbcType=CHAR},
+      </if>
+      <if test="willingtwo != null" >
+        #{willingtwo,jdbcType=CHAR},
+      </if>
+      <if test="willingthree != null" >
+        #{willingthree,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.Desire" >
+    update desire
+    <set >
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="passport != null" >
+        passport = #{passport,jdbcType=CHAR},
+      </if>
+      <if test="examnum != null" >
+        examNum = #{examnum,jdbcType=CHAR},
+      </if>
+      <if test="willingone != null" >
+        willingone = #{willingone,jdbcType=CHAR},
+      </if>
+      <if test="willingtwo != null" >
+        willingtwo = #{willingtwo,jdbcType=CHAR},
+      </if>
+      <if test="willingthree != null" >
+        willingthree = #{willingthree,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.Desire" >
+    update desire
+    set sno = #{sno,jdbcType=INTEGER},
+      passport = #{passport,jdbcType=CHAR},
+      examNum = #{examnum,jdbcType=CHAR},
+      willingone = #{willingone,jdbcType=CHAR},
+      willingtwo = #{willingtwo,jdbcType=CHAR},
+      willingthree = #{willingthree,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

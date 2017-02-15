@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.demo.dao.EmploymentInfoDao">
+	<resultMap id="BaseResultMap" type="com.zhang.demo.model.EmploymentInfo">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="sno" property="sno" jdbcType="INTEGER" />
+		<result column="passport" property="passport" jdbcType="CHAR" />
+		<result column="email" property="email" jdbcType="CHAR" />
+		<result column="gowhere" property="gowhere" jdbcType="CHAR" />
+		<result column="companyName" property="companyname" jdbcType="CHAR" />
+		<result column="ccode" property="ccode" jdbcType="INTEGER" />
+		<result column="cproperties" property="cproperties" jdbcType="CHAR" />
+		<result column="ctrade" property="ctrade" jdbcType="CHAR" />
+		<result column="location" property="location" jdbcType="CHAR" />
+		<result column="jobtitle" property="jobtitle" jdbcType="CHAR" />
+		<result column="contacts" property="contacts" jdbcType="CHAR" />
+		<result column="contactsPhone" property="contactsphone"
+			jdbcType="CHAR" />
+		<result column="cemail" property="cemail" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, sno, passport, email, gowhere, companyName, ccode, cproperties,
+		ctrade, location,
+		jobtitle, contacts, contactsPhone, cemail
+	</sql>
+	
+	<!-- 按外键学号查找就业信息 -->
+	<select id="selectBySno" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from employmentinfo
+		where sno = #{sno,jdbcType=INTEGER}
+	</select>
+		
+	
+	<!-- 列出所有的学生邮箱 -->
+	<select id="getAllEmail" resultMap="BaseResultMap">
+		select email from employmentinfo
+	</select>
+	
+	
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from employmentinfo
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from employmentinfo
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.zhang.demo.model.EmploymentInfo">
+		insert into employmentinfo (id, sno, passport,
+		email, gowhere, companyName,
+		ccode, cproperties, ctrade,
+		location, jobtitle, contacts,
+		contactsPhone, cemail)
+		values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER},
+		#{passport,jdbcType=CHAR},
+		#{email,jdbcType=CHAR}, #{gowhere,jdbcType=CHAR}, #{companyname,jdbcType=CHAR},
+		#{ccode,jdbcType=INTEGER}, #{cproperties,jdbcType=CHAR},
+		#{ctrade,jdbcType=CHAR},
+		#{location,jdbcType=CHAR}, #{jobtitle,jdbcType=CHAR}, #{contacts,jdbcType=CHAR},
+		#{contactsphone,jdbcType=CHAR}, #{cemail,jdbcType=CHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.zhang.demo.model.EmploymentInfo">
+		insert into employmentinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="sno != null">
+				sno,
+			</if>
+			<if test="passport != null">
+				passport,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="gowhere != null">
+				gowhere,
+			</if>
+			<if test="companyname != null">
+				companyName,
+			</if>
+			<if test="ccode != null">
+				ccode,
+			</if>
+			<if test="cproperties != null">
+				cproperties,
+			</if>
+			<if test="ctrade != null">
+				ctrade,
+			</if>
+			<if test="location != null">
+				location,
+			</if>
+			<if test="jobtitle != null">
+				jobtitle,
+			</if>
+			<if test="contacts != null">
+				contacts,
+			</if>
+			<if test="contactsphone != null">
+				contactsPhone,
+			</if>
+			<if test="cemail != null">
+				cemail,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="sno != null">
+				#{sno,jdbcType=INTEGER},
+			</if>
+			<if test="passport != null">
+				#{passport,jdbcType=CHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=CHAR},
+			</if>
+			<if test="gowhere != null">
+				#{gowhere,jdbcType=CHAR},
+			</if>
+			<if test="companyname != null">
+				#{companyname,jdbcType=CHAR},
+			</if>
+			<if test="ccode != null">
+				#{ccode,jdbcType=INTEGER},
+			</if>
+			<if test="cproperties != null">
+				#{cproperties,jdbcType=CHAR},
+			</if>
+			<if test="ctrade != null">
+				#{ctrade,jdbcType=CHAR},
+			</if>
+			<if test="location != null">
+				#{location,jdbcType=CHAR},
+			</if>
+			<if test="jobtitle != null">
+				#{jobtitle,jdbcType=CHAR},
+			</if>
+			<if test="contacts != null">
+				#{contacts,jdbcType=CHAR},
+			</if>
+			<if test="contactsphone != null">
+				#{contactsphone,jdbcType=CHAR},
+			</if>
+			<if test="cemail != null">
+				#{cemail,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.EmploymentInfo">
+		update employmentinfo
+		<set>
+			<if test="sno != null">
+				sno = #{sno,jdbcType=INTEGER},
+			</if>
+			<if test="passport != null">
+				passport = #{passport,jdbcType=CHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=CHAR},
+			</if>
+			<if test="gowhere != null">
+				gowhere = #{gowhere,jdbcType=CHAR},
+			</if>
+			<if test="companyname != null">
+				companyName = #{companyname,jdbcType=CHAR},
+			</if>
+			<if test="ccode != null">
+				ccode = #{ccode,jdbcType=INTEGER},
+			</if>
+			<if test="cproperties != null">
+				cproperties = #{cproperties,jdbcType=CHAR},
+			</if>
+			<if test="ctrade != null">
+				ctrade = #{ctrade,jdbcType=CHAR},
+			</if>
+			<if test="location != null">
+				location = #{location,jdbcType=CHAR},
+			</if>
+			<if test="jobtitle != null">
+				jobtitle = #{jobtitle,jdbcType=CHAR},
+			</if>
+			<if test="contacts != null">
+				contacts = #{contacts,jdbcType=CHAR},
+			</if>
+			<if test="contactsphone != null">
+				contactsPhone = #{contactsphone,jdbcType=CHAR},
+			</if>
+			<if test="cemail != null">
+				cemail = #{cemail,jdbcType=CHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.EmploymentInfo">
+		update employmentinfo
+		set sno = #{sno,jdbcType=INTEGER},
+		passport = #{passport,jdbcType=CHAR},
+		email = #{email,jdbcType=CHAR},
+		gowhere = #{gowhere,jdbcType=CHAR},
+		companyName = #{companyname,jdbcType=CHAR},
+		ccode = #{ccode,jdbcType=INTEGER},
+		cproperties = #{cproperties,jdbcType=CHAR},
+		ctrade = #{ctrade,jdbcType=CHAR},
+		location = #{location,jdbcType=CHAR},
+		jobtitle = #{jobtitle,jdbcType=CHAR},
+		contacts = #{contacts,jdbcType=CHAR},
+		contactsPhone = #{contactsphone,jdbcType=CHAR},
+		cemail = #{cemail,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>
