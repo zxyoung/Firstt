@@ -37,7 +37,7 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}/stuInfo")
-	public String stuInfo(@PathVariable("id") Integer id, Model model) {
+	public String detailStuInfo(@PathVariable("id") Integer id, Model model) {
 		StuInfo stuInfo = stuService.selectStuInfoByPrimaryKey(id);
 
 		model.addAttribute("stuInfo", stuInfo);
@@ -53,7 +53,7 @@ public class StudentController {
 	 * @return
 	 */
 	@RequestMapping(value = "/{sno}/detailResume")
-	public String Resume(@PathVariable("sno") Integer sno, Model model) {
+	public String detailResume(@PathVariable("sno") Integer sno, Model model) {
 
 		Resume resume = resumeService.selectBySno(sno);
 
@@ -114,7 +114,7 @@ public class StudentController {
 	 * @param model		
 	 * @return
 	 */
-	@RequestMapping(value = "/{id}/updateResume")
+	@RequestMapping(value = "/{id}/updateResume",method=RequestMethod.POST)
 	public String updateResume(@PathVariable("id") Integer id, HttpServletRequest request) {
 		String name = request.getParameter("name");
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
@@ -180,13 +180,60 @@ public class StudentController {
 		
 		if(info == null){
 			System.out.println("error!");
-			return "errorPage";
+			return "newEmploy";
 		}
 		model.addAttribute("employ", info);
 		return "detailEmployment";
 	}
 	
 	
+	@RequestMapping(value="/addEmploymentInfo")
+	public String addNewEmploymentInfo(HttpServletRequest request, HttpSession session){
+		Integer sno = Integer.parseInt(request.getParameter("sno"));
+		String passport = request.getParameter("passport");
+		String  email = request.getParameter("email").trim();
+		String gowhere = request.getParameter("gowhere");
+		String companyname = request.getParameter("companyname").trim();
+		Integer ccode = Integer.parseInt(request.getParameter("ccode"));
+		String cproperties = request.getParameter("cproperties");
+		String ctrade = request.getParameter("ctrade");
+		String location = request.getParameter("location");
+		String jobtitle = request.getParameter("jobtitle");
+		String contacts = request.getParameter("contacts");
+		String contactsphone = request.getParameter("contactsphone");
+		String cemail = request.getParameter("cemail");
+		
+		EmploymentInfo info = new EmploymentInfo();
+		info.setSno(sno);
+		info.setPassport(passport);
+		info.setEmail(email);
+		info.setGowhere(gowhere);
+		info.setCompanyname(companyname);
+		info.setCcode(ccode);
+		info.setCproperties(cproperties);
+		info.setCtrade(ctrade);
+		info.setLocation(location);
+		info.setJobtitle(jobtitle);
+		info.setContacts(contacts);
+		info.setContactsphone(contactsphone);
+		info.setCemail(cemail);
+		
+		int flag = employmentService.insert(info);
+		if(flag != 1){
+			System.out.println("insert error!");
+			return "errorPage";
+		}
+		
+		return "redirect:/student/" + sno + "/EmploymentInfo";
+	}
+	
+	
+	/**
+	 * 更新就业信息
+	 * @param id
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value="/{id}/updateEmployInfo",method=RequestMethod.POST)
 	public String updateEmploymentInfo(@PathVariable("id") Integer id, HttpServletRequest request){
 		Integer sno = Integer.parseInt(request.getParameter("sno"));

@@ -42,7 +42,7 @@
 					自我介绍：
 					<textarea name="selfintro" rows="5" cols="25"></textarea>
 				</div>
-				<input type="submit" value="提交">
+				<input type="submit" class="btn btn-info" value="提交">
 			</div>
 		</form>
 

@@ -15,7 +15,7 @@ import com.zhang.demo.service.StuService;
 @Controller
 @RequestMapping("/login")
 // @SessionAttributes("student")
-public class LoginController {
+public class StuLoginController {
 
 	@Autowired
 	StuService stuService;
