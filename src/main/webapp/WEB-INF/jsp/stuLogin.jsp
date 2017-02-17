@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>登录页面</title>
+<title>学生入口</title>
 
 <script type="text/javascript">
 	function check(obj){

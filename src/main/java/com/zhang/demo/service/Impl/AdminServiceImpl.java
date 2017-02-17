@@ -37,4 +37,8 @@ public class AdminServiceImpl implements AdminService{
 	public int updateByPrimaryKey(Admin record) {
 		return adminDao.updateByPrimaryKey(record);
 	}
+
+	public Admin selectByUsernameAndPassword(String username, String password) {
+		return adminDao.adminLoginSelect(username, password);
+	}
 }

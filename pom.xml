@@ -26,6 +26,14 @@
 			<!-- 表示开发的时候引入，发布的时候不会加载此包 -->
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- spring Mail 邮件包 -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		
 		<!-- spring核心包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>

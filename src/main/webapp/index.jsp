@@ -36,7 +36,8 @@ function show() {
 		</h2>
 
 		<div style="text-align: right">
-			<a href="/firstt/login/stu" target="_blank" class="btn btn-info">登录</a>
+			<a href="/firstt/login/stuLogin" target="_blank" class="btn btn-info">学生入口</a>
+			<a href="/firstt/login/adminLogin" target="_blank" class="btn btn-info">管理员入口</a>
 			<a href="######" id="register" onclick="window.open('register.jsp')">企业注册</a>
 		</div>
 
