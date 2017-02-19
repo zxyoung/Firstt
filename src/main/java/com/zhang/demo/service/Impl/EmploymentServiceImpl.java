@@ -48,4 +48,8 @@ public class EmploymentServiceImpl implements EmploymentService{
 		return employmentInfoDao.selectBySno(sno);
 	}
 
+	public List<EmploymentInfo> getAllEmployInfo() {
+		return employmentInfoDao.getAllEmployInfo();
+	}
+
 }

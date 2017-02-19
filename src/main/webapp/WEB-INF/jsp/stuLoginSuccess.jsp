@@ -39,7 +39,7 @@
 			<h2><a target="display" href="/firstt/student/${stuInfo.sno}/EmploymentInfo">就业信息</a></h2>
 		</div>
 		<div align="center">
-			<h2><a href="/firstt/login/logout">退出</a></h2>
+			<h2><a href="/firstt/login/stulogout">退出</a></h2>
 		</div>
 
 

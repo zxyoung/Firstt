@@ -20,4 +20,6 @@ public interface EmploymentInfoDao {
     EmploymentInfo selectBySno(Integer sno);
     
     List<String> getAllEmail();
+    
+    List<EmploymentInfo> getAllEmployInfo();
 }

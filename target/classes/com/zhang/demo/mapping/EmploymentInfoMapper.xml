@@ -31,6 +31,12 @@
 		from employmentinfo
 		where sno = #{sno,jdbcType=INTEGER}
 	</select>
+	
+	<select id="getAllEmployInfo" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from employmentinfo order by sno
+	</select>
 		
 	
 	<!-- 列出所有的学生邮箱 -->

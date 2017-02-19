@@ -74,7 +74,7 @@ public class LoginController {
 	 * @param sessionStatus
 	 * @return
 	 */
-	@RequestMapping(value="/adimlogout")
+	@RequestMapping(value="/adminlogout")
 	public String AdminLoginOut(HttpSession session, SessionStatus sessionStatus){
 		
 		System.out.println("logout:" + session.getAttribute("adminSession"));
@@ -129,7 +129,7 @@ public class LoginController {
 		System.out.println("logout "+session.getAttribute("stu")); 
 		sessionStatus.setComplete();
 		
-		return "login";
+		return "stuLogin";
 	}
 
 }
