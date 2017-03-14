@@ -22,6 +22,7 @@ import com.zhang.demo.service.EmploymentService;
 import com.zhang.demo.service.NoticeService;
 import com.zhang.demo.service.ResumeService;
 import com.zhang.demo.service.StuService;
+import com.zhang.demo.UtilEmail.*;
 
 /**
  * 管理员的可执行操作
@@ -86,7 +87,36 @@ public class AdminController {
 	 */
 	@RequestMapping(value="/sendEmail")
 	public void sendEmail(){
+		
+		String username = "15664646679@163.com";
+		String password = "woshi2k10";
+
+		String subject = "邮箱提醒：来自学校的一封邮件11";
+
+		String context = "您好！若您的工作有变动，请您回学校就业网站更新就业信息(若无，则忽略此邮件)";
+
+		
 		List<String> emailList = employmentService.getAllEmail();
+//		System.out.println(employmentService.getAllEmail());
+		
+		MailSenderInfo mailInfo = new MailSenderInfo();
+		mailInfo.setMailServerHost("smtp.163.com");
+		mailInfo.setMailServerPort("25");
+		mailInfo.setValidate(true);
+		mailInfo.setUserName(username);
+		mailInfo.setPassword(password); //邮箱密码
+		mailInfo.setFromAddress(username);
+		mailInfo.setToAddress("zxyoung94@gmail.com");
+		mailInfo.setSubject(subject);
+		mailInfo.setContent(context);
+		// 这个类主要来发送邮件
+		SimpleMailSender sms = new SimpleMailSender();
+		sms.sendTextMail(mailInfo);// 发送文体格式
+//		sms.sendHtmlMail(mailInfo);// 发送html格式
+		
+		
+		System.out.println("123");
+		
 		
 	}
 	
