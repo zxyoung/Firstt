@@ -44,8 +44,9 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.getAllNotice();
 	}
 
-	public Notice selectByCode(Integer code) {
+	public List<Notice> selectByCode(Integer code) {
 		return noticeDao.selectByCode(code);
 	}
+
 
 }

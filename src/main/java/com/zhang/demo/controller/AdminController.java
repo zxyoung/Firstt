@@ -141,7 +141,7 @@ public class AdminController {
 	}
 
 	/**
-	 * 刪除招聘信息
+	 * 查看招聘信息
 	 * @param id
 	 * @param model
 	 * @return

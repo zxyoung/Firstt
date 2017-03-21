@@ -1,11 +1,10 @@
 package com.zhang.demo.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.helpers.DateTimeDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.zhang.demo.model.Company;
 import com.zhang.demo.model.Notice;
 import com.zhang.demo.service.CompanyService;
@@ -51,51 +49,87 @@ public class CompanyController {
 		model.addAttribute("code", code);
 		return "addNotice";
 	}
-	
+
+	/**
+	 * 创建招聘信息
+	 * 
+	 * @param request
+	 * @param code
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/{code}/createNotice")
 	public String createNotice(HttpServletRequest request, @PathVariable("code") Integer code, Model model) {
-		
+
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		
+
 		Notice notice = new Notice();
-		
+
 		notice.setCode(code);
 		notice.setTitle(title);
 		notice.setContent(content);
 		notice.setFbtime(new Date());
-		
+
 		int flag = noticeService.insert(notice);
-		
-		if(flag != 1){
+
+		if (flag != 1) {
 			System.out.println("error");
+			System.out.println(flag);
 			return "错误处理页面";
 		}
 		System.out.println("success");
-		
-		//To-Do
-		return "redirect:/company/listNotice";
+
+		// To-Do
+		return "redirect:/company/" + code + "/detailNotice";
 	}
-	
-	
 
 	/**
-	 * 查看招聘信息
+	 * 查看所有招聘信息
 	 * 
-	 * @param request
+	 * @param id
+	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/{code}/detailNotice")
-	public String detailNotice(@PathVariable("code") Integer code, Model model) {
-
-		Notice notice = noticeService.selectByCode(code);
-
-		if (notice != null) {
+	public String noticeDetail(@PathVariable("code") Integer code, Model model) {
+		if (code == null) {
+			return "跳向错误处理页面";
+		}
+		List<Notice> list = noticeService.selectByCode(code); 
+		if (list != null) {
+			model.addAttribute("list", list);
+			return "listCompanyNotice";
+		}
+		return "跳向错误处理页面";
+	}
+	
+	@RequestMapping(value="/{id}/noticeDetail")
+	public String detialNotice(@PathVariable("id") Integer id, Model model){
+		Notice notice = noticeService.selectByPrimaryKey(id);
+		if(notice != null){
 			model.addAttribute("notice", notice);
 			return "NoticeInfo";
 		}
+		return "跳向错误处理页面";
+	}
 
-		return "错误处理页面";
+	/**
+	 * 删除招聘信息
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/deleteNotice")
+	public String deleteNotice(@PathVariable("id") Integer id) {
+		if (id == null) {
+			return "error";
+		}
+		int delNotice = noticeService.deleteByPrimaryKey(id);
+		if (delNotice < 1) {
+			return "error";
+		}
+		return "redirect:/admin/listNoticeInfo";
 	}
 
 	/**

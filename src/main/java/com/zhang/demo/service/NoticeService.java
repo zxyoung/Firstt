@@ -20,5 +20,5 @@ public interface NoticeService {
 	
 	List<Notice> getAllNotice();
 	
-	Notice selectByCode(Integer code);
+	List<Notice> selectByCode(Integer code);
 }
