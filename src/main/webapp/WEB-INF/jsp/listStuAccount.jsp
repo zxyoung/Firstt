@@ -14,6 +14,14 @@
 	function hide() {
 		document.getElementById("pic").style.visibility = "hidden";
 	}
+	
+	function firm(){
+		if(confirm("是否要刪除该条信息?")){
+			location.href="/firstt/admin/${company.id}/deleteCompany";
+		}
+		else{
+		}
+	}
 </script>
 </head>
 
@@ -44,7 +52,7 @@
 							<td>${stu.password}</td>
 							<td><a class="btn btn-info"
 								href="/firstt/admin/${stu.sno}/detailStuInfo" target="_blank">Show Detail</a></td>
-							<td><a class="btn btn-info"
+							<td><a class="btn btn-info" onclick="firm()"
 								href="/firstt/admin/${stu.sno}/deleteStuAccount">Delete</a></td>
 							<tr />
 						</c:forEach>

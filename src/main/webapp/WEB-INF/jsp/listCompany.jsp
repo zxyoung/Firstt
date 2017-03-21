@@ -8,11 +8,16 @@
 <%@include file="common/head.jsp"%>
 
 <script type="text/javascript">
-//	function show() {
-//		window.open('addUser.jsp');
-//	}
 	function hide() {
 		document.getElementById("pic").style.visibility = "hidden";
+	}
+	
+	function firm(){
+		if(confirm("是否要刪除该条信息?")){
+			location.href="/firstt/admin/${company.id}/deleteCompany";
+		}
+		else{
+		}
 	}
 </script>
 </head>
@@ -41,7 +46,7 @@
 							<td>${company.property}</td>
 							<td><a class="btn btn-info"
 								href="/firstt/admin/${company.id}/companyDetail" target="_blank">详细信息</a></td>
-							<td><a class="btn btn-info"
+							<td><a class="btn btn-info" onclick="firm()"
 								href="/firstt/admin/${company.id}/deleteCompany">删除</a></td>
 							<tr />
 						</c:forEach>

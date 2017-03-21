@@ -2,6 +2,8 @@ package com.zhang.demo.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zhang.demo.model.Company;
 
 public interface CompanyDao {
@@ -18,4 +20,8 @@ public interface CompanyDao {
     int updateByPrimaryKey(Company record);
     
     List<Company> getAllCompany();
+    
+//    Company selectByCode(Integer code);
+    
+    Company CompanyLoginSelect(@Param("cname") String cname, @Param("password") String password);
 }

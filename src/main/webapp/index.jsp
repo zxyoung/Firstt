@@ -28,6 +28,8 @@ function show() {
 
 </head>
 <body>
+	<jsp:forward page="/WEB-INF/jsp/HomePage.jsp"></jsp:forward>
+	<!-- 
 	<h1>你好，世界！</h1>
 	<div
 		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px; background-color: orange">
@@ -58,5 +60,6 @@ function show() {
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
+	-->
 </body>
 </html>

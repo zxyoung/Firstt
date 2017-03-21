@@ -1,159 +1,181 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhang.demo.dao.CompanyDao" >
-  <resultMap id="BaseResultMap" type="com.zhang.demo.model.Company" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="cname" property="cname" jdbcType="CHAR" />
-    <result column="password" property="password" jdbcType="CHAR" />
-    <result column="location" property="location" jdbcType="CHAR" />
-    <result column="phone" property="phone" jdbcType="BIGINT" />
-    <result column="property" property="property" jdbcType="CHAR" />
-    <result column="email" property="email" jdbcType="CHAR" />
-    <result column="code" property="code" jdbcType="INTEGER" />
-    <result column="cltime" property="cltime" jdbcType="INTEGER" />
-    <result column="detail" property="detail" jdbcType="CHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, cname, password, location, phone, property, email, code, cltime, detail
-  </sql>
-  
-  <select id="getAllCompany" resultMap="BaseResultMap">
-  	select
-  	<include refid="Base_Column_List"/>
-  	from company
-  </select>
-  
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from company
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from company
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.zhang.demo.model.Company" >
-    insert into company (id, cname, password, 
-      location, phone, property, 
-      email, code, cltime, detail
-      )
-    values (#{id,jdbcType=INTEGER}, #{cname,jdbcType=CHAR}, #{password,jdbcType=CHAR}, 
-      #{location,jdbcType=CHAR}, #{phone,jdbcType=BIGINT}, #{property,jdbcType=CHAR}, 
-      #{email,jdbcType=CHAR}, #{code,jdbcType=INTEGER}, #{cltime,jdbcType=INTEGER}, #{detail,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.zhang.demo.model.Company" >
-    insert into company
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="cname != null" >
-        cname,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="location != null" >
-        location,
-      </if>
-      <if test="phone != null" >
-        phone,
-      </if>
-      <if test="property != null" >
-        property,
-      </if>
-      <if test="email != null" >
-        email,
-      </if>
-      <if test="code != null" >
-        code,
-      </if>
-      <if test="cltime != null" >
-        cltime,
-      </if>
-      <if test="detail != null" >
-        detail,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="cname != null" >
-        #{cname,jdbcType=CHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=CHAR},
-      </if>
-      <if test="location != null" >
-        #{location,jdbcType=CHAR},
-      </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=BIGINT},
-      </if>
-      <if test="property != null" >
-        #{property,jdbcType=CHAR},
-      </if>
-      <if test="email != null" >
-        #{email,jdbcType=CHAR},
-      </if>
-      <if test="code != null" >
-        #{code,jdbcType=INTEGER},
-      </if>
-      <if test="cltime != null" >
-        #{cltime,jdbcType=INTEGER},
-      </if>
-      <if test="detail != null" >
-        #{detail,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.Company" >
-    update company
-    <set >
-      <if test="cname != null" >
-        cname = #{cname,jdbcType=CHAR},
-      </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=CHAR},
-      </if>
-      <if test="location != null" >
-        location = #{location,jdbcType=CHAR},
-      </if>
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=BIGINT},
-      </if>
-      <if test="property != null" >
-        property = #{property,jdbcType=CHAR},
-      </if>
-      <if test="email != null" >
-        email = #{email,jdbcType=CHAR},
-      </if>
-      <if test="code != null" >
-        code = #{code,jdbcType=INTEGER},
-      </if>
-      <if test="cltime != null" >
-        cltime = #{cltime,jdbcType=INTEGER},
-      </if>
-      <if test="detail != null" >
-        detail = #{detail,jdbcType=CHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.Company" >
-    update company
-    set cname = #{cname,jdbcType=CHAR},
-      password = #{password,jdbcType=CHAR},
-      location = #{location,jdbcType=CHAR},
-      phone = #{phone,jdbcType=BIGINT},
-      property = #{property,jdbcType=CHAR},
-      email = #{email,jdbcType=CHAR},
-      code = #{code,jdbcType=INTEGER},
-      cltime = #{cltime,jdbcType=INTEGER},
-      detail = #{detail,jdbcType=CHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+<mapper namespace="com.zhang.demo.dao.CompanyDao">
+	<resultMap id="BaseResultMap" type="com.zhang.demo.model.Company">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="cname" property="cname" jdbcType="CHAR" />
+		<result column="password" property="password" jdbcType="CHAR" />
+		<result column="location" property="location" jdbcType="CHAR" />
+		<result column="phone" property="phone" jdbcType="BIGINT" />
+		<result column="property" property="property" jdbcType="CHAR" />
+		<result column="email" property="email" jdbcType="CHAR" />
+		<result column="code" property="code" jdbcType="INTEGER" />
+		<result column="cltime" property="cltime" jdbcType="INTEGER" />
+		<result column="detail" property="detail" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, cname, password, location, phone, property, email,
+		code, cltime,
+		detail
+	</sql>
+
+	<!-- <select id="selectByCode"> select <include refid="Base_Column_List" 
+		/> from company where code = #{code,jdbcType=INTEGER} </select> -->
+
+	<select id="CompanyLoginSelect" resultMap="BaseResultMap"
+		parameterType="Map">
+		select
+		<include refid="Base_Column_List" />
+		from company
+		where cname = #{cname,jdbcType=CHAR}
+		and password =
+		#{password,jdbcType=CHAR}
+	</select>
+
+	<select id="getAllCompany" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from company
+	</select>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from company
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		company
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.zhang.demo.model.Company">
+		insert into company (id,
+		cname, password,
+		location, phone, property,
+		email, code, cltime, detail
+		)
+		values (#{id,jdbcType=INTEGER}, #{cname,jdbcType=CHAR},
+		#{password,jdbcType=CHAR},
+		#{location,jdbcType=CHAR},
+		#{phone,jdbcType=BIGINT}, #{property,jdbcType=CHAR},
+		#{email,jdbcType=CHAR}, #{code,jdbcType=INTEGER},
+		#{cltime,jdbcType=INTEGER}, #{detail,jdbcType=CHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.zhang.demo.model.Company">
+		insert into company
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="cname != null">
+				cname,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="location != null">
+				location,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="property != null">
+				property,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="code != null">
+				code,
+			</if>
+			<if test="cltime != null">
+				cltime,
+			</if>
+			<if test="detail != null">
+				detail,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="cname != null">
+				#{cname,jdbcType=CHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=CHAR},
+			</if>
+			<if test="location != null">
+				#{location,jdbcType=CHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=BIGINT},
+			</if>
+			<if test="property != null">
+				#{property,jdbcType=CHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=CHAR},
+			</if>
+			<if test="code != null">
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="cltime != null">
+				#{cltime,jdbcType=INTEGER},
+			</if>
+			<if test="detail != null">
+				#{detail,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.Company">
+		update company
+		<set>
+			<if test="cname != null">
+				cname = #{cname,jdbcType=CHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=CHAR},
+			</if>
+			<if test="location != null">
+				location = #{location,jdbcType=CHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=BIGINT},
+			</if>
+			<if test="property != null">
+				property = #{property,jdbcType=CHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=CHAR},
+			</if>
+			<if test="code != null">
+				code = #{code,jdbcType=INTEGER},
+			</if>
+			<if test="cltime != null">
+				cltime = #{cltime,jdbcType=INTEGER},
+			</if>
+			<if test="detail != null">
+				detail = #{detail,jdbcType=CHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.Company">
+		update company
+		set
+		cname = #{cname,jdbcType=CHAR},
+		password = #{password,jdbcType=CHAR},
+		location = #{location,jdbcType=CHAR},
+		phone = #{phone,jdbcType=BIGINT},
+		property = #{property,jdbcType=CHAR},
+		email = #{email,jdbcType=CHAR},
+		code = #{code,jdbcType=INTEGER},
+		cltime = #{cltime,jdbcType=INTEGER},
+		detail = #{detail,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
 </mapper>

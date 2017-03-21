@@ -45,4 +45,13 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyDao.getAllCompany();
 	}
 
+	public Company companyLoginSelect(String cname, String password) {
+		return companyDao.CompanyLoginSelect(cname, password);
+	}
+
+//	public Company selectByCode(Integer code) {
+//		return companyDao.selectByCode(code);
+//	}
+
+
 }

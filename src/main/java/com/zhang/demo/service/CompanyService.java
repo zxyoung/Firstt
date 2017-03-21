@@ -18,5 +18,9 @@ public interface CompanyService {
     int updateByPrimaryKey(Company record);
     
     List<Company> getAllCompany();
+    
+//    Company selectByCode(Integer code);
+    
+    Company companyLoginSelect(String cname, String password);
 
 }

@@ -8,11 +8,17 @@
 <%@include file="common/head.jsp"%>
 
 <script type="text/javascript">
-//	function show() {
-//		window.open('addUser.jsp');
-//	}
+	//	function show() {
+	//		window.open('addUser.jsp');
+	//	}
 	function hide() {
 		document.getElementById("pic").style.visibility = "hidden";
+	}
+	function firm() {
+		if (confirm("是否要刪除该条信息?")) {
+			location.href = "/firstt/admin/${company.id}/deleteCompany";
+		} else {
+		}
 	}
 </script>
 </head>
@@ -38,10 +44,11 @@
 					<tbody>
 						<c:forEach var="notice" items="${list}">
 							<td>${notice.title}</td>
-							<td><fmt:formatDate value="${notice.fbtime}" pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
+							<td><fmt:formatDate value="${notice.fbtime}"
+									pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
 							<td><a class="btn btn-info"
 								href="/firstt/admin/${notice.id}/noticeDetail" target="_blank">详细信息</a></td>
-							<td><a class="btn btn-info"
+							<td><a class="btn btn-info" onclick="firm()""
 								href="/firstt/admin/${notice.id}/deleteNotice">删除</a></td>
 							<tr />
 						</c:forEach>

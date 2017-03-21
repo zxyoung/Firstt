@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.zhang.demo.model.Admin;
+import com.zhang.demo.model.Company;
 import com.zhang.demo.model.StuInfo;
 import com.zhang.demo.service.AdminService;
+import com.zhang.demo.service.CompanyService;
 import com.zhang.demo.service.StuService;
 
 @Controller
@@ -24,6 +26,9 @@ public class LoginController {
 	
 	@Autowired
 	AdminService adminService;
+	
+	@Autowired
+	CompanyService companyService;
 
 	/**
 	 * 跳转学生登录页
@@ -44,6 +49,53 @@ public class LoginController {
 		return "adminLogin";
 	}
 
+	/**
+	 * 跳转到企业登录页
+	 * @return
+	 */
+	@RequestMapping(value="/companyLogin")
+	public String CompanyLogin(){
+		return "companyLogin";
+	}
+	
+	/**
+	 * 处理企业登录请求
+	 * @param request
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value="/company")
+	public String CompanyLogin(HttpServletRequest request, Model model, HttpSession session){
+		String cname = request.getParameter("cname");
+		String password = request.getParameter("password");
+		
+		Company company = companyService.companyLoginSelect(cname, password);
+		
+		if(company == null){
+			System.out.println("login error!");
+			return "errorPage";
+		}
+		model.addAttribute("company", company);
+		session.setAttribute("companySession", company);
+		return "companyLoginSuccess";
+	}
+	
+	/**
+	 * 企业退出
+	 * @param session
+	 * @param sessionStatus
+	 * @return
+	 */
+	@RequestMapping(value="/companylogout")
+	public String CompanyLoginout(HttpSession session,SessionStatus sessionStatus){
+		System.out.println("logout:" + session.getAttribute("companySession"));
+		session.removeAttribute("companySession");
+		System.out.println("logout:"+session.getAttribute("companySession")); 
+		sessionStatus.setComplete();
+		
+		return "companyLogin";
+	}
 	
 	/**
 	 * 处理管理员登录请求
@@ -67,6 +119,7 @@ public class LoginController {
 		session.setAttribute("adminSession", admin);
 		return "adminLoginSuccess";
 	}
+	
 	
 	/**
 	 * 管理员退出
@@ -106,7 +159,7 @@ public class LoginController {
 			System.out.println("null error!");
 
 			// 要加一个登陆错误处理页面
-			return "error";
+			return "errorPageStu";
 		}
 		// 登录成功跳转
 		model.addAttribute("stuInfo", stuInfo);

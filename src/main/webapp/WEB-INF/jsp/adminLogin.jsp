@@ -26,8 +26,8 @@
 	<form action="/firstt/login/admin" method="post">
 		账号：<input type="text" name="username" value=""/> <br/>
 		密码：<input type="password" name="password" value="" onblur="check(this.value);"/>
-			<span id="checkPasswordResult" style="color:red"></span><br/>
-		<input type="submit" value="提交">
+			<span id="checkPasswordResult" style="color:red"></span><br/><br>
+		<input type="submit" value="登录">&nbsp;&nbsp;<input type="reset" value="重置">
 	</form>
 </body>
 </html>

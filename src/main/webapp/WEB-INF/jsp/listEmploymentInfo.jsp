@@ -41,7 +41,7 @@
 							<td>${employment.email}</td>
 							<td><a class="btn btn-info"
 								href="/firstt/admin/${employment.id}/employmentDetail" target="_blank">详细信息</a></td>
-							<!-- <td><a class="btn btn-info"
+							<!-- <td><a class="btn btn-info" onclick="firm()"
 								href="/firstt/admin/${employment.id}/deleteemployment">删除</a></td> -->
 							<tr />
 						</c:forEach>

@@ -94,9 +94,9 @@ public class AdminController {
 		String subject = "邮箱提醒：来自学校的一封邮件11";
 
 		String context = "您好！若您的工作有变动，请您回学校就业网站更新就业信息(若无，则忽略此邮件)";
-
-		
+		//To-Do
 		List<String> emailList = employmentService.getAllEmail();
+		
 //		System.out.println(employmentService.getAllEmail());
 		
 		MailSenderInfo mailInfo = new MailSenderInfo();
@@ -106,7 +106,7 @@ public class AdminController {
 		mailInfo.setUserName(username);
 		mailInfo.setPassword(password); //邮箱密码
 		mailInfo.setFromAddress(username);
-		mailInfo.setToAddress("zxyoung94@gmail.com");
+		mailInfo.setToAddress("359176585@qq.com");
 		mailInfo.setSubject(subject);
 		mailInfo.setContent(context);
 		// 这个类主要来发送邮件
@@ -319,7 +319,7 @@ public class AdminController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("/{id}/update")
+	@RequestMapping(value="/{id}/update")
 	String updateStuInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model) {
 		// To-do
 		// 用Request 接受参数，构造StuInfo实体，然后进行更新操作

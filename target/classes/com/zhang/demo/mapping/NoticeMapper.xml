@@ -21,7 +21,7 @@
 	</select>
 	
 	
-	<!-- 按代码查找 -->
+	<!-- 按公司编码查找 -->
 	<select id="selectByCode" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />

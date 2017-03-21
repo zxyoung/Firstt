@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>学生入口</title>
+<title>企业入口</title>
 
 <script type="text/javascript">
 	function check(obj){
@@ -22,11 +22,12 @@
 
 </head>
 <body>
-	<form action="/firstt/login/student" method="post">
-		学号：<input type="text" name="sno" value=""/> <br/>
+	<h2>企业登录</h2>
+	<form action="/firstt/login/company" method="post">
+		账号：<input type="text" name="cname" value=""/> <br/>
 		密码：<input type="password" name="password" value="" onblur="check(this.value);"/>
 			<span id="checkPasswordResult" style="color:red"></span><br/>
-		<input type="submit" value="登录"> <input type="reset" value="重置">
+		<input type="submit" value="登录"><input type="reset" value="重置">
 	</form>
 </body>
 </html>

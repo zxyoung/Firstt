@@ -10,18 +10,18 @@
 <body>
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">详细信息</div>
+			<div class="panel-heading">详细招聘信息</div>
 		</div>
 		<div class="panel-body">
 			<div class="panel panel-default text-center">
-			<input name="cname" type="text" readonly="readonly"
+			<input name="title" type="text" readonly="readonly"
 					value="${notice.title}">
 			</div>
 			<div class="panel panel-default text-center">
-				内容：<input name="location" type="text" value="${notice.content}">
+				内容：<input name="content" type="text" value="${notice.content}">
 			</div>
 			<div class="panel panel-default text-center">
-				发布时间：<input name="property" type="text" value="${notice.fbtime}">
+				发布时间：<input name="fbtime" type="text" value="${notice.fbtime}">
 			</div>
 
 			<a class="btn btn-info" style=""
