@@ -19,7 +19,9 @@
 
 <style>
 .dropdown {
-	display: inline
+	display: inline;
+	left: 400px;
+	top: 68px;
 }
 </style>
 </head>
@@ -31,8 +33,7 @@
 	<div
 		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px; background-color: orange">
 		<h2 align="center">
-			<a href="index.jsp">西安邮电大学</a>
-			<a class="btn btn-info"
+			<a href="index.jsp">西安邮电大学</a> <a class="btn btn-info"
 				id="dropdownMenu1" href="index.jsp"> 西安邮电大学 <span class=""></span>
 			</a>
 		</h2>
@@ -61,15 +62,15 @@
 			信息通知管理 <span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="/firstt/admin/listNoticeInfo">查看招聘信息</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="#">学校通知</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="#">数据通信/网络</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="/firstt/admin/listNoticeInfo">查看招聘信息</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="#">学校通知</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="#">数据通信/网络</a></li>
 			<li role="presentation" class="divider"></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="#">分离的链接</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="#">分离的链接</a></li>
 		</ul>
 	</div>
 
@@ -79,15 +80,15 @@
 			公司信息管理 <span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="/firstt/admin/listCompanyInfo">查看公司信息</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="#">数据挖掘</a></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="#">数据通信/网络</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="/firstt/admin/listCompanyInfo">查看公司信息</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="#">数据挖掘</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="#">数据通信/网络</a></li>
 			<li role="presentation" class="divider"></li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" target="display"
-				href="#">分离的链接</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="#">分离的链接</a></li>
 		</ul>
 	</div>
 
@@ -108,9 +109,23 @@
 				href="#">分离的链接</a></li>
 		</ul>
 	</div>
-
+	
 	<div class="dropdown">
-		<a class="btn btn-info" href="/firstt/login/adminlogout">退出</a>
+		<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+			data-toggle="dropdown">
+			${sessionScope.adminSession.username} <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				href="/firstt/login/adminlogout">退出</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				href="#">退出.</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				href="#">退出...</a></li>
+			<li role="presentation" class="divider"></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				href="#">退出...</a></li>
+		</ul>
 	</div>
 
 	<div
@@ -155,7 +170,7 @@
 
 	<div
 		style="position: absolute; top: 100px; left: 21%; height: 600px; width: 78%">
-		<div align="center">这是下方右部</div>
+		<div align="center"></div>
 
 		<iframe name="display" width="100%" height="600px"> </iframe>
 

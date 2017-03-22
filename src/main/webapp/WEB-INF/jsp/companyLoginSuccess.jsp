@@ -14,6 +14,16 @@
 	src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script
 	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+.dropdown {
+	display: inline;
+	float: right; position : relative;
+	right: 430px;
+	margin-left: 5px;
+	position: relative;
+}
+</style>
 <title>欢迎您使用</title>
 </head>
 <body>
@@ -27,9 +37,77 @@
 			</a>
 		</h2>
 
+		<div class="dropdown">
+			<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+				data-toggle="dropdown">
+				退出 <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					href="/firstt/login/companylogout">退出</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="###">###</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="###">###</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					href="/firstt/login/companylogout">退出</a></li>
+			</ul>
+		</div>
+		<div class="dropdown">
+			<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+				data-toggle="dropdown">
+				查看招聘信息 <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display"
+					href="/firstt/company/${company.code}/detailNotice">查看招聘信息</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="###">###</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="###">###</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="#">###</a></li>
+			</ul>
+		</div>
+		<div class="dropdown">
+			<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+				data-toggle="dropdown">
+				发布招聘信息 <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="/firstt/company/${company.code}/addNotice">发布招聘信息</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="######">###</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="######">###</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="#">###</a></li>
+			</ul>
+		</div>
+
+		<div class="dropdown">
+			<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+				data-toggle="dropdown">
+				公司信息 <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="/firstt/company/${company.id}/companyInfo">查看公司信息</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="#####">###</a></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="#####">###</a></li>
+				<li role="presentation" class="divider"></li>
+				<li role="presentation"><a role="menuitem" tabindex="-1"
+					target="display" href="#">###</a></li>
+			</ul>
+		</div>
 	</div>
-
-
 	<div
 		style="position: absolute; top: 100px; left: 5px; width: 20%; height: 600px; background-color: pink">
 		<div align="center">这是下方左部</div>
@@ -42,8 +120,7 @@
 		</div>
 		<div align="center">
 			<h2>
-				<a target="display"
-					href="/firstt/company/${company.code}/addNotice">发布招聘信息</a>
+				<a target="display" href="/firstt/company/${company.code}/addNotice">发布招聘信息</a>
 			</h2>
 		</div>
 		<div align="center">
@@ -63,7 +140,7 @@
 
 	<div
 		style="position: absolute; top: 100px; left: 21%; height: 600px; width: 78%">
-		<div align="center">这是下方右部</div>
+		<div align="center"></div>
 
 		<iframe name="display" width="100%" height="600px"> </iframe>
 
