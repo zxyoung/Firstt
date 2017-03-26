@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<html lang="zh-cn">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,19 +38,26 @@
 	right: 40px;
 	margin-left: 5px
 }
+
+body {
+	height: 100%;
+	width: 100%;
+	background-image: url(./logo.png);
+	background-size: 100px 100px;
+}
 </style>
 
 
 </head>
 <body>
-	<h1>你好，世界！</h1>
 	<div
-		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px; background-color: orange">
+		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px;">
 		<h2 style="text-align: center">
 			<a href="index.jsp">西安邮电大学</a> <a class="btn btn-info"
 				id="dropdownMenu1" href="index.jsp"> 西安邮电大学 <span class=""></span>
 			</a>
 		</h2>
+
 
 		<div class="dropdown" style="text-align: left">
 			<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
@@ -87,20 +94,16 @@
 		</div>
 
 
-		<!-- 
-		<div style="text-align: right">
-			<a href="/firstt/login/stuLogin" target="_blank" class="btn btn-info">学生入口</a>
-			<a href="/firstt/login/adminLogin" target="_blank"
-				class="btn btn-info">管理员入口</a>
-		</div>
- 		-->
 	</div>
 	<div
 		style="position: absolute; top: 100px; left: 0px; width: 20%; height: 600px; background-color: blue">
 		这是下方左部</div>
 
-	<div style="position: absolute; top: 100px; left: 20%; height: 600px;">
-		这是下方右部</div>
+	<div
+		style="position: absolute; top: 100px; left: 20%; width: 80%; height: 600px; background-color: pink;">
+		这是下方右部 <img alt="图片" src="./pic/logo.png">
+
+	</div>
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -8,25 +8,132 @@
 <title>学生入口</title>
 
 <script type="text/javascript">
-	function check(obj){
+	function check(obj) {
 		var username = obj;
-		var checkUserNameResult = document.getElementById("checkPasswordResult");
-		if(username.trim().length==0){
-			checkUserNameResult.innerHTML="密码不能为空";
+		var checkUserNameResult = document
+				.getElementById("checkPasswordResult");
+		if (username.trim().length == 0) {
+			checkUserNameResult.innerHTML = "密码不能为空";
 			obj.focus();
-		}else{
-			checkUserNameResult.innerHTML="";
+		} else {
+			checkUserNameResult.innerHTML = "";
 		}
 	}
 </script>
 
+<style>
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: url(../pic/grass.jpg);
+	font-size: 13px;
+}
+
+img {
+	border: 0;
+}
+
+.lg {
+	width: 468px;
+	height: 468px;
+	margin: 100px auto;
+	background: url(../pic/login_bg.png) no-repeat;
+}
+
+.lg_top {
+	height: 200px;
+	width: 468px;
+}
+
+.lg_main {
+	width: 400px;
+	height: 180px;
+	margin: 0 25px;
+}
+
+.lg_m_1 {
+	width: 290px;
+	height: 100px;
+	padding: 60px 55px 20px 55px;
+}
+
+.ur {
+	height: 37px;
+	border: 0;
+	color: #666;
+	width: 236px;
+	margin: 4px 28px;
+	background: url(../pic/user.png) no-repeat;
+	padding-left: 10px;
+	font-size: 16pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.pw {
+	height: 37px;
+	border: 0;
+	color: #666;
+	width: 236px;
+	margin: 4px 28px;
+	background: url(../pic/password.png) no-repeat;
+	padding-left: 10px;
+	font-size: 16pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.bn {
+	width: 330px;
+	height: 72px;
+	background: url(../pic/enter.png) no-repeat;
+	border: 0;
+	display: block;
+	font-size: 18px;
+	color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+.lg_foot {
+	height: 80px;
+	width: 330px;
+	padding: 6px 68px 0 68px;
+}
+</style>
+
 </head>
-<body>
-	<form action="/firstt/login/student" method="post">
-		学号：<input type="text" name="sno" value=""/> <br/>
-		密码：<input type="password" name="password" value="" onblur="check(this.value);"/>
-			<span id="checkPasswordResult" style="color:red"></span><br/>
-		<input type="submit" value="登录"> <input type="reset" value="重置">
-	</form>
+<body class="b">
+	<div class="lg">
+		<form action="/firstt/login/student" method="post">
+			<div class="lg_top"></div>
+			<div class="lg_main">
+				<div class="lg_m_1">
+
+					<input name="sno" value="" class="ur" /> <input name="password"
+						type="password" value="" class="pw" />
+
+				</div>
+			</div>
+			<div class="lg_foot">
+				<input type="submit" value="登录" class="bn" />
+			</div>
+		</form>
+	</div>
+
 </body>
+
+
+<!-- <body>
+	<h1>学生登录</h1>
+	<form action="/firstt/login/student" method="post">
+		学号：<input type="text" name="sno" value="" /> <br /> 密码：<input
+			type="password" name="password" value="" onblur="check(this.value);" />
+		<span id="checkPasswordResult" style="color: red"></span><br /> <br />
+		<input type="submit" value="登录" />&nbsp;&nbsp;<input type="reset"
+			value="重置">
+	</form>
+</body> -->
 </html>

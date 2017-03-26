@@ -17,11 +17,15 @@ D:\J2ME\firstt\src\main\java\com\zhang\demo\model\StuInfo.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\model\StuAccount.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\model\User.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\dao\StuAccountDao.java
+D:\J2ME\firstt\src\main\java\com\zhang\demo\UtilEmail\MyAuthenticator.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\service\Impl\ResumeServiceImpl.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\dao\CompanyDao.java
+D:\J2ME\firstt\src\main\java\com\zhang\demo\UtilEmail\SimpleMailSender.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\service\Impl\AdminServiceImpl.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\model\Resume.java
+D:\J2ME\firstt\src\main\java\com\zhang\demo\controller\LoginController.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\model\Desire.java
+D:\J2ME\firstt\src\main\java\com\zhang\demo\UtilEmail\MailSenderInfo.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\dao\AdminDao.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\service\Impl\EmploymentServiceImpl.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\dao\EmploymentInfoDao.java
@@ -31,7 +35,7 @@ D:\J2ME\firstt\src\main\java\com\zhang\demo\dao\DesireDao.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\service\UserService.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\dao\ResumeDao.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\service\AdminService.java
-D:\J2ME\firstt\src\main\java\com\zhang\demo\controller\StuLoginController.java
+D:\J2ME\firstt\src\main\java\com\zhang\gra\User.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\controller\AdminController.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\model\Admin.java
 D:\J2ME\firstt\src\main\java\com\zhang\demo\model\EmploymentInfo.java

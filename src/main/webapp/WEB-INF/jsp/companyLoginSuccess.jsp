@@ -142,7 +142,7 @@
 		style="position: absolute; top: 100px; left: 21%; height: 600px; width: 78%">
 		<div align="center"></div>
 
-		<iframe name="display" width="100%" height="600px"> </iframe>
+	<!-- 	<iframe name="display" width="100%" height="600px"> </iframe> -->
 
 	</div>
 </body>

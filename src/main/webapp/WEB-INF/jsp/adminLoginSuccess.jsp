@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理员，欢迎您使用</title>
 
 <link rel="stylesheet"
@@ -22,6 +22,7 @@
 	display: inline;
 	left: 400px;
 	top: 68px;
+	margin-right:35px;
 }
 </style>
 </head>
@@ -135,7 +136,7 @@
 		<h3 align="center">欢迎您,${sessionScope.adminSession.username }</h3>
 		<div align="center">
 			<h2>
-				<a target="display" href="/firstt/admin/listStuAccount">学生账号管理</a>
+				<a target="_blank" href="/firstt/admin/listStuAccount">学生账号管理</a>
 			</h2>
 		</div>
 		<div align="center">
@@ -172,12 +173,11 @@
 		style="position: absolute; top: 100px; left: 21%; height: 600px; width: 78%">
 		<div align="center"></div>
 
-		<iframe name="display" width="100%" height="600px"> </iframe>
+		<!-- <iframe name="display" width="100%" height="600px"> </iframe> -->
+		
+		<img alt="asfdds" src="./pic/logo.png">
 
 	</div>
-
-
-
 
 </body>
 </html>

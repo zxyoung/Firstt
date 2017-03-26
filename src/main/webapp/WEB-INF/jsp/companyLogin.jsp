@@ -23,6 +23,7 @@
 </head>
 <body>
 	<h2>企业登录</h2>
+	<img alt="图片" src="../pic/logo.png">
 	<form action="/firstt/login/company" method="post">
 		账号：<input type="text" name="cname" value=""/> <br/>
 		密码：<input type="password" name="password" value="" onblur="check(this.value);"/>
