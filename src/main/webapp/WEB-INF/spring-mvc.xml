@@ -16,7 +16,8 @@
 	<mvc:annotation-driven />
 
 	<!-- 启用静态资源 -->
-	<mvc:resources mapping="/firstt/pic/**" location="/WEB-INF/pic/" />
+
+	<mvc:resources mapping="/pic/**" location="/WEB-INF/pic/" />
 	<mvc:default-servlet-handler />
 
 
