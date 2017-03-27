@@ -111,10 +111,8 @@ img {
 			<div class="lg_top"></div>
 			<div class="lg_main">
 				<div class="lg_m_1">
-
-					<input name="sno" value="" class="ur" /> <input name="password"
-						type="password" value="" class="pw" />
-
+					<input name="sno" value="" class="ur" /> 
+					<input name="password" type="password" value="" class="pw" />
 				</div>
 			</div>
 			<div class="lg_foot">

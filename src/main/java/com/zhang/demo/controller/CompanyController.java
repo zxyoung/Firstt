@@ -115,7 +115,7 @@ public class CompanyController {
 	}
 
 	/**
-	 * 删除招聘信息
+	 * 删除招聘信息      **************************跳转有错误**************************
 	 * 
 	 * @param id
 	 * @return
@@ -129,7 +129,7 @@ public class CompanyController {
 		if (delNotice < 1) {
 			return "error";
 		}
-		return "redirect:/admin/listNoticeInfo";
+		return "redirect:/company/listNoticeInfo";
 	}
 
 	/**

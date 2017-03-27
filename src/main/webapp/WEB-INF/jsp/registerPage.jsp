@@ -19,12 +19,25 @@
 				<div class="panel panel-default text-center">
 					地址：<input name="location" type="text" value="">
 				</div>
+
+
 				<div class="panel panel-default text-center">
-					企业性质：<input name="property" type="text" value="">
+					企业性质：<select name="property" id="select_k1" class="xla_k">
+						<option value="...">请选择</option>
+						<option value="国有企业">国有企业</option>
+						<option value="私营企业">私营企业</option>
+						<option value="其他">其他</option>
+					</select>
 				</div>
+
+
 				<div class="panel panel-default text-center">
 					密码：<input name="password" type="password" value="">
 				</div>
+				<div class="panel panel-default text-center">
+					确认密码：<input name="temp" type="password" value="">
+				</div>
+
 				<div class="panel panel-default text-center">
 					email：<input name="email" type="text" value="">
 				</div>
@@ -42,8 +55,9 @@
 					<textarea rows="5" cols="25" name="detail"></textarea>
 				</div>
 
-				<input style="align:center" type="submit" class="btn btn-info" value="注册"> 
-				<input type="reset" class="btn btn-info" value="重置">
+				<input style="align: center" type="submit" class="btn btn-info"
+					value="注册"> <input type="reset" class="btn btn-info"
+					value="重置">
 			</div>
 		</form>
 

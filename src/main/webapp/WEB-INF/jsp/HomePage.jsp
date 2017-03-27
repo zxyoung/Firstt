@@ -50,13 +50,14 @@ body {
 
 </head>
 <body>
+	<img alt="图片" src="./pic/logo.png">
+	<!-- <img alt="图片" src="./pic/logo.png"> -->
 	<div
 		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px;">
 		<h2 style="text-align: center">
-			<a href="index.jsp">西安邮电大学</a> <a class="btn btn-info"
-				id="dropdownMenu1" href="index.jsp"> 西安邮电大学 <span class=""></span>
-			</a>
+			<a href="index.jsp">西安邮电大学</a>
 		</h2>
+
 
 
 		<div class="dropdown" style="text-align: left">
@@ -100,8 +101,102 @@ body {
 		这是下方左部</div>
 
 	<div
-		style="position: absolute; top: 100px; left: 20%; width: 80%; height: 600px; background-color: pink;">
-		这是下方右部 <img alt="图片" src="./pic/logo.png">
+		style="position: absolute; top: 100px; left: 20%; width: 80%; height: 600px; background-color: white;">
+		这是下方右部<!--  <img alt="图片" src="./pic/logo.png"> -->
+
+		<div class="matter">
+			<div class="container">
+
+				<!-- Table -->
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div class="widget">
+
+							<div class="widget-head">
+								<div class="pull-left">Tables</div>
+								<div class="widget-icons pull-right">
+									<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+									<a href="#" class="wclose"><i class="icon-remove"></i></a>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+
+							<div class="widget-content">
+
+								<table class="table table-striped table-bordered table-hover">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>公司名称</th>
+											<th>所在地</th>
+											<th>Age</th>
+											<th>Education</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>Ashok</td>
+											<td>India</td>
+											<td>23</td>
+											<td>B.Tech</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>Kumarasamy</td>
+											<td>USA</td>
+											<td>22</td>
+											<td>BE</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>Babura</td>
+											<td>UK</td>
+											<td>43</td>
+											<td>PhD</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>Ravi Kumar</td>
+											<td>China</td>
+											<td>73</td>
+											<td>PUC</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>Santhosh</td>
+											<td>Japan</td>
+											<td>43</td>
+											<td>M.Tech</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="widget-foot">
+
+
+									<ul class="pagination pull-right">
+										<li><a href="#">Prev</a></li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">Next</a></li>
+									</ul>
+
+									<div class="clearfix"></div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
 

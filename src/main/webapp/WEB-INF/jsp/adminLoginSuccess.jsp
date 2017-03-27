@@ -22,7 +22,7 @@
 	display: inline;
 	left: 400px;
 	top: 68px;
-	margin-right:35px;
+	margin-right: 35px;
 }
 </style>
 </head>
@@ -48,12 +48,14 @@
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="/firstt/admin/listStuAccount">添加学生</a></li>
+				target="display" href="/firstt/admin/listStuAccount">列出所有学生</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">按学号查找</a></li>
+				target="display" href="######">######</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">列出所有学生</a></li>
-
+				target="display" href="/firstt/admin/searchBySno">按学号查找</a></li>
+			<li role="presentation" class="divider"></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"
+				target="display" href="/firstt/admin/addStuAccount">添加学生</a></li>
 		</ul>
 	</div>
 
@@ -66,12 +68,12 @@
 			<li role="presentation"><a role="menuitem" tabindex="-1"
 				target="display" href="/firstt/admin/listNoticeInfo">查看招聘信息</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">学校通知</a></li>
+				target="display" href="/firstt/admin/listEmploymentInfo">学生就业信息</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">数据通信/网络</a></li>
+				target="display" href="######">######</a></li>
 			<li role="presentation" class="divider"></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">分离的链接</a></li>
+				target="display" href="######">######</a></li>
 		</ul>
 	</div>
 
@@ -84,12 +86,12 @@
 			<li role="presentation"><a role="menuitem" tabindex="-1"
 				target="display" href="/firstt/admin/listCompanyInfo">查看公司信息</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">数据挖掘</a></li>
+				target="display" href="######">######</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">数据通信/网络</a></li>
+				target="display" href="######">######</a></li>
 			<li role="presentation" class="divider"></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				target="display" href="#">分离的链接</a></li>
+				target="display" href="######">######</a></li>
 		</ul>
 	</div>
 
@@ -102,15 +104,15 @@
 			<li role="presentation"><a role="menuitem" tabindex="-1"
 				href="/firstt/admin/sendEmail">发送通知邮件</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">数据挖掘</a></li>
+				href="######">######</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">数据通信/网络</a></li>
+				href="######">######</a></li>
 			<li role="presentation" class="divider"></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">分离的链接</a></li>
+				href="######">######</a></li>
 		</ul>
 	</div>
-	
+
 	<div class="dropdown">
 		<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
 			data-toggle="dropdown">
@@ -120,12 +122,12 @@
 			<li role="presentation"><a role="menuitem" tabindex="-1"
 				href="/firstt/login/adminlogout">退出</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">退出.</a></li>
+				href="/firstt/login/adminlogout">退出.</a></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">退出...</a></li>
+				href="/firstt/login/adminlogout">退出...</a></li>
 			<li role="presentation" class="divider"></li>
 			<li role="presentation"><a role="menuitem" tabindex="-1"
-				href="#">退出...</a></li>
+				href="/firstt/login/adminlogout">退出...</a></li>
 		</ul>
 	</div>
 
@@ -136,7 +138,7 @@
 		<h3 align="center">欢迎您,${sessionScope.adminSession.username }</h3>
 		<div align="center">
 			<h2>
-				<a target="_blank" href="/firstt/admin/listStuAccount">学生账号管理</a>
+				<a target="display" href="/firstt/admin/listStuAccount">学生账号管理</a>
 			</h2>
 		</div>
 		<div align="center">
@@ -173,9 +175,15 @@
 		style="position: absolute; top: 100px; left: 21%; height: 600px; width: 78%">
 		<div align="center"></div>
 
-		<!-- <iframe name="display" width="100%" height="600px"> </iframe> -->
-		
-		<img alt="asfdds" src="./pic/logo.png">
+		<iframe name="display" width="100%" height="600px">
+
+			<!-- Page heading ends -->
+			<!-- Matter -->
+
+
+		</iframe>
+
+		<!-- <img alt="asfdds" src="./pic/logo.png"> -->
 
 	</div>
 

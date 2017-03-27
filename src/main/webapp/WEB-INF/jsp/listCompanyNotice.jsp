@@ -28,12 +28,73 @@
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">
 				<h2 align="center">招聘信息</h2>
-
-				<!-- <input style="text-align: right" type="button" value="添加用户"
-					onclick="window.location.href='addUser';" /> -->
-
 			</div>
-			<div class="panel-body">
+
+			<div class="matter">
+				<div class="container">
+
+					<!-- Table -->
+
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<div class="widget">
+
+								<div class="widget-head">
+									<div class="pull-left">Tables</div>
+									<div class="widget-icons pull-right">
+										<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+										<a href="#" class="wclose"><i class="icon-remove"></i></a>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="widget-content">
+
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th>标题</th>
+												<th>创建时间</th>
+												<th>详细信息</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="notice" items="${list}">
+												<td>${notice.title}</td>
+												<td><fmt:formatDate value="${notice.fbtime}"
+														pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
+												<td><a href="/firstt/company/${notice.id}/noticeDetail"
+													target="_blank">详细信息</a></td>
+												<td><a onclick="firm()"
+													href="/firstt/company/${notice.id}/deleteNotice">删除</a></td>
+												<tr />
+											</c:forEach>
+										</tbody>
+									</table>
+
+									<div class="widget-foot">
+										<ul class="pagination pull-right">
+											<li><a href="#">Prev</a></li>
+											<li><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">Next</a></li>
+										</ul>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<%-- 	<div class="panel-body">
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -54,7 +115,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
+			</div> --%>
 		</div>
 	</div>
 </body>

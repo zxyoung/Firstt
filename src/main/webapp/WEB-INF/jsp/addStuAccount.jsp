@@ -7,26 +7,46 @@
 <title>增加用户</title>
 
 <script type="text/javascript">
-	function check(obj){
+	function check(obj) {
 		var username = obj;
-		var checkUserNameResult = document.getElementById("checkUserNameResult");
-		if(username.trim().length==0){
-			checkUserNameResult.innerHTML="输入不能为空";
+		var checkUserNameResult = document
+				.getElementById("checkUserNameResult");
+		if (username.trim().length == 0) {
+			checkUserNameResult.innerHTML = "输入不能为空";
 			obj.focus();
-		}else{
-			checkUserNameResult.innerHTML="";
+		} else {
+			checkUserNameResult.innerHTML = "";
 		}
 	}
 </script>
+<style type="text/css">
+#mydiv {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -50px;
+}
+
+.position {
+	font-size: 30px;
+	size: 22;
+}
+
+</style>
 
 </head>
 <body>
+	<!-- To-Do -->
+	<img class="pic" alt="西安邮电大学" src="../pic/logo.png">
+	
 	<form action="/firstt/admin/addStuAccount" method="post">
-		学号:
-		<input type="text" name="sno" onblur="check(this.value);"/>
-			<span id="checkUserNameResult" style="color:red"></span><br/>
-		
-		<input type="submit" value="提交">
+		<div id="mydiv">
+			请输入学号：<input type="text" class="position" name="sno"
+				onblur="check(this.value);"> <span id="checkUserNameResult"
+				style="color: red"></span> &nbsp;&nbsp;<input type="submit" value="添加学生"
+				style="font-size: 25px" size="22" width="50px">
+		</div>
 	</form>
 </body>
 </html>

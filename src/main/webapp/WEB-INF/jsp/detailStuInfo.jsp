@@ -9,40 +9,72 @@
 <body>
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">${stuInfo.stuName} 的详细信息</div>
+			<div class="panel-heading">${stuInfo.stuName}的详细信息</div>
 		</div>
 		<form action="/firstt/admin/${stuInfo.id}/update" method="post">
-			<div class="panel-body">
-				<div class="panel panel-default text-center">
-					姓名：<input name="stuName" type="text" value="${stuInfo.stuName}">
-				</div>
-				<div class="panel panel-default text-center">
-					性别：<input name="sex" type="text" value="${stuInfo.sex}">
-				</div>
-				<div class="panel panel-default text-center">
-					学号：<input name="sno" type="text" value="${stuInfo.sno}">
-				</div>
-				<div class="panel panel-default text-center">
-					密码：<input name="password" type="password" value="${stuInfo.password}">
-				</div>
-				<div class="panel panel-default text-center">
-					专业：<input name="major" type="text" value="${stuInfo.major}">
-				</div>
-				<div class="panel panel-default text-center">
-					生源地：<input name="origin" type="text" value="${stuInfo.origin}">
-				</div>
-				<div class="panel panel-default text-center">
-					入学时间：<input name="entry_year" type="text" value="${stuInfo.entryYear}">
-				</div>
-				<div class="panel panel-default text-center">
-					毕业时间：<input name="gra_year" type="text" value="${stuInfo.graYear}">
-				</div>
+			<!-- Server Status -->
+			<div class="col-md-4">
+				<div class="widget">
+					<!-- Widget title -->
+					<div class="widget-head">
+						<div class="pull-left">Server Status</div>
+						<div class="widget-icons pull-right">
+							<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+							<a href="#" class="wclose"><i class="icon-remove"></i></a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="widget-content">
+						<!-- Widget content -->
 
-				<input type="submit" class="btn btn-info" value="修改" />
-				<a class="btn btn-info" style="center" href="javascript:window.opener=null;window.close();">关闭</a>
+						<table class="table table-striped table-bordered table-hover">
+							<tr>
+								<td>姓名</td>
+								<td><input name="stuName" type="text"
+									value="${stuInfo.stuName}"></td>
+							</tr>
+							<tr>
+								<td>性别</td>
+								<td><input name="sex" type="text" value="${stuInfo.sex}"></td>
+							</tr>
+							<tr>
+								<td>学号</td>
+								<td><input name="sno" readonly="readonly" type="text"
+									value="${stuInfo.sno}"></td>
+							</tr>
+							<tr>
+								<td>密码</td>
+								<td><input name="password" type="password"
+									value="${stuInfo.password}"></td>
+							</tr>
+							<tr>
+								<td>专业</td>
+								<td><input name="major" type="text"
+									value="${stuInfo.major}"></td>
+							</tr>
+							<tr>
+								<td>生源地</td>
+								<td><input name="origin" readonly="readonly" type="text"
+									value="${stuInfo.origin}"></td>
+							</tr>
+							<tr>
+								<td>入学时间</td>
+								<td><input name="entry_year" readonly="readonly"
+									type="text" value="${stuInfo.entryYear}"></td>
+							</tr>
+							<tr>
+								<td>毕业时间</td>
+								<td><input name="gra_year" readonly="readonly" type="text"
+									value="${stuInfo.graYear}"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
-		</form>
 
+			<input type="submit" value="修改" /> <a style=""
+				href="javascript:window.opener=null;window.close();">关闭</a>
+		</form>
 	</div>
 
 </body>

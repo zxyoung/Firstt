@@ -2,6 +2,7 @@ package com.zhang.demo.controller;
 
 import java.util.List;
 
+import javax.naming.directory.SearchControls;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -361,9 +362,14 @@ public class AdminController {
 
 	/*************************************** 学生账号操作 *********************************************/
 
-	@RequestMapping(value = "addStuAccount")
+	@RequestMapping(value = "/addStuAccount")
 	public String Index() {
 		return "addStuAccount";
+	}
+	
+	@RequestMapping(value="/searchBySno")
+	public String search(){
+		return "search";
 	}
 
 	/**

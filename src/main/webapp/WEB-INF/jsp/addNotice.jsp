@@ -18,7 +18,7 @@
 					主题：<input name="title" type="text" value="">
 				</div>
 				<div class="panel panel-default text-center">
-					内容：<input name="content" type="text" value="">
+					内容：<textarea rows="5" cols="25"></textarea>
 				</div>
 			</div>
 		</div>

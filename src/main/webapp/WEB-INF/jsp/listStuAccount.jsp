@@ -14,12 +14,11 @@
 	function hide() {
 		document.getElementById("pic").style.visibility = "hidden";
 	}
-	
-	function firm(){
-		if(confirm("是否要刪除该条信息?")){
-			location.href="/firstt/admin/${company.id}/deleteCompany";
-		}
-		else{
+
+	function firm() {
+		if (confirm("是否要刪除该条信息?")) {
+			location.href = "/firstt/admin/${company.id}/deleteCompany";
+		} else {
 		}
 	}
 </script>
@@ -30,15 +29,75 @@
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">
 				<h2 align="center">学生账号列表</h2>
-				<input style="text-align:right" type="button" value="添加学生" onclick="window.location.href='addStuAccount';" />
 			</div>
 
 			<form action="/firstt/admin/selectAccountSno" method="post">
-				<input type="text" name="sno" /> 
-				<input type="submit" value="搜索" />
+				<input type="text" name="sno" /> <input type="submit" value="搜索" />
 			</form>
-			
-			<div class="panel-body">
+
+			<div class="matter">
+				<div class="container">
+
+					<!-- Table -->
+
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<div class="widget">
+
+								<div class="widget-head">
+									<div class="pull-left">Tables</div>
+									<div class="widget-icons pull-right">
+										<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+										<a href="#" class="wclose"><i class="icon-remove"></i></a>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="widget-content">
+
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th>学生学号</th>
+												<th>密码</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="stu" items="${list}">
+												<td>${stu.sno}</td>
+												<td>${stu.password}</td>
+												<td><a href="/firstt/admin/${stu.sno}/detailStuInfo"
+													target="_blank">详细信息</a></td>
+												<td><a onclick="firm()"
+													href="/firstt/admin/${stu.sno}/deleteStuAccount">删除</a></td>
+												<tr />
+											</c:forEach>
+										</tbody>
+									</table>
+
+									<div class="widget-foot">
+										<ul class="pagination pull-right">
+											<li><a href="####">Prev</a></li>
+											<li><a href="####">1</a></li>
+											<li><a href="####">2</a></li>
+											<li><a href="####">3</a></li>
+											<li><a href="####">4</a></li>
+											<li><a href="####">Next</a></li>
+										</ul>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<%-- <div class="panel-body">
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -58,7 +117,9 @@
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
+			</div> --%>
+
+
 		</div>
 	</div>
 </body>
