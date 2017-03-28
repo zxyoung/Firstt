@@ -7,7 +7,97 @@
 </head>
 
 <body>
+
 	<div class="container">
+		<div class="panel panel-default text-center">
+			<div class="panel-heading text-header">
+				<h2 align="center">您还未创建简历，请先创建</h2>
+			</div>
+		</div>
+
+
+		<form action="/firstt/student/addResume" method="post"
+			class="form-horizontal">
+			<!-- Registration form starts -->
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="name">姓名：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="name" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="phone">电话：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="phone" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">Email：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="email" value="">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="age">年龄：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="age" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="major">专业：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="major" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="sno">学号：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="sno" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="school">毕业院校：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="school" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="experience">实习经历：</label>
+				<div class="col-lg-9">
+					<textarea class="form-control" rows="5" cols="25" name="experience"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="selfintro">自我介绍：</label>
+				<div class="col-lg-9">
+					<textarea class="form-control" rows="5" cols="25" name="selfintro"></textarea>
+				</div>
+			</div>
+
+			<!-- Accept box and button s-->
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<br />
+					<button type="submit" class="btn btn-danger">创建</button>
+					<button type="reset" class="btn btn-success">关闭</button>
+				</div>
+			</div>
+			<br />
+		</form>
+	</div>
+
+
+	<!-- <div class="container">
 		<div class="panel panel-default text-center">
 			<div class="panel-heading">您还未创建简历，请先创建</div>
 		</div>
@@ -47,7 +137,7 @@
 		</form>
 
 	</div>
-
+ -->
 </body>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script

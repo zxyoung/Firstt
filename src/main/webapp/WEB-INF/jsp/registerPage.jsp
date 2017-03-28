@@ -9,58 +9,116 @@
 <body>
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">请输入注册信息</div>
+			<div class="panel-heading">
+				<h2 align="center">请输入注册信息</h2>
+			</div>
 		</div>
-		<form action="/firstt/company/register" method="post">
-			<div class="panel-body">
-				<div class="panel panel-default text-center">
-					公司名称：<input name="cname" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					地址：<input name="location" type="text" value="">
-				</div>
 
-
-				<div class="panel panel-default text-center">
-					企业性质：<select name="property" id="select_k1" class="xla_k">
+		<form action="/firstt/company/register" method="post"
+			class="form-horizontal">
+			<!-- Registration form starts -->
+			<!-- Name -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="name">公司用户名：</label>
+				<div class="col-lg-9">
+					<input type="text" placeholder="请输入公司用户名" class="form-control"
+						name="cname">
+				</div>
+			</div>
+			<!-- Email -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">地址：</label>
+				<div class="col-lg-9">
+					<input type="text" placeholder="请输入公司地址" class="form-control"
+						name="location">
+				</div>
+			</div>
+			<!-- Select box -->
+			<div class="form-group">
+				<label class="control-label col-lg-3">企业性质：</label>
+				<div class="col-lg-9">
+					<select name="property" class="form-control">
 						<option value="...">请选择</option>
 						<option value="国有企业">国有企业</option>
 						<option value="私营企业">私营企业</option>
 						<option value="其他">其他</option>
 					</select>
 				</div>
-
-
-				<div class="panel panel-default text-center">
-					密码：<input name="password" type="password" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					确认密码：<input name="temp" type="password" value="">
-				</div>
-
-				<div class="panel panel-default text-center">
-					email：<input name="email" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					企业代码：<input name="code" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					创建时间：<input name="cltime" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					公司电话：<input name="phone" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					公司简介：
-					<textarea rows="5" cols="25" name="detail"></textarea>
-				</div>
-
-				<input style="align: center" type="submit" class="btn btn-info"
-					value="注册"> <input type="reset" class="btn btn-info"
-					value="重置">
 			</div>
-		</form>
 
+			<!-- Password -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="username">密码：</label>
+				<div class="col-lg-9">
+					<input type="password" placeholder="请输入密码" class="form-control"
+						name="password">
+				</div>
+			</div>
+
+			<!-- Password -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">确认密码：</label>
+				<div class="col-lg-9">
+					<input type="password" placeholder="请确认密码" class="form-control"
+						name="tmppass">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">Email：</label>
+				<div class="col-lg-9">
+					<input type="text" placeholder="请输入联系邮箱" class="form-control"
+						name="email">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">企业代码：</label>
+				<div class="col-lg-9">
+					<input type="text" placeholder="请输入企业代码" class="form-control"
+						name="code">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">创建时间：</label>
+				<div class="col-lg-9">
+					<input type="text" placeholder="请输入公司成立时间" class="form-control"
+						name="cltime">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">公司电话：</label>
+				<div class="col-lg-9">
+					<input type="text" placeholder="请输入公司电话" class="form-control"
+						name="phone">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">公司简介：</label>
+				<div class="col-lg-9">
+					<textarea class="form-control" placeholder="请输入公司简介" rows="5"
+						cols="25" name="detail"></textarea>
+				</div>
+			</div>
+
+			<!-- Accept box and button s-->
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<div class="checkbox">
+						<label> <input type="checkbox"> Accept Terms &amp;
+							Conditions
+						</label>
+					</div>
+					<br />
+					<button type="submit" class="btn btn-danger">注册</button>
+					<button type="reset" class="btn btn-success">重置</button>
+				</div>
+			</div>
+			<br />
+		</form>
 	</div>
 
 </body>

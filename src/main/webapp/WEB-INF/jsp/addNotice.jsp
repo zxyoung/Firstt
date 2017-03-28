@@ -8,22 +8,42 @@
 </head>
 
 <body>
-	<form action="/firstt/company/${code}/createNotice" method="post">
-		<div class="container">
-			<div class="panel panel-default text-center">
-				<div class="panel-heading">请输入招聘信息</div>
-			</div>
-			<div class="panel-body">
-				<div class="panel panel-default text-center">
-					主题：<input name="title" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					内容：<textarea rows="5" cols="25"></textarea>
-				</div>
+	<div class="container">
+		<div class="panel panel-default text-center">
+		<!-- <label class="control-label col-lg-3">请输入招聘信息</label> -->
+			<div class="panel-heading text-header">
+				<h2 align="center">请输入招聘信息</h2>
 			</div>
 		</div>
-		<input class="btn btn-info" type="submit" value="添加" />
-	</form>
+
+		<form action="/firstt/company/${code}/createNotice" method="post"
+			class="form-horizontal">
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">标题：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" placeholder="请输入标题" name="title" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">招聘详情：</label>
+				<div class="col-lg-9">
+					<textarea class="form-control" placeholder="请输入详细信息" rows="5" cols="25" name="content"></textarea>
+				</div>
+			</div>
+
+			<!-- Accept box and button s-->
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<br />
+					<button type="submit" class="btn btn-danger">添加</button>
+					<button type="reset" class="btn btn-success">重置</button>
+				</div>
+			</div>
+			<br />
+		</form>
+	</div>
 
 </body>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->

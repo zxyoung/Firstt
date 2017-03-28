@@ -7,47 +7,102 @@
 </head>
 
 <body>
+
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">${resume.name}的简历</div>
+			<div class="panel-heading text-header">
+				<h2 align="center">${resume.name}的简历</h2>
+			</div>
 		</div>
-		<form action="/firstt/student/${resume.id}/updateResume" method="post">
-			<div class="panel-body">
-				<div class="panel panel-default text-center">
-					姓名：<input name="name" type="text"
+
+
+		<form action="/firstt/student/${resume.id}/updateResume" method="post"
+			class="form-horizontal">
+			<!-- Registration form starts -->
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="name">姓名：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="name"
 						value="${resume.name}">
 				</div>
-				<div class="panel panel-default text-center">
-					学号：<input name="sno" type="text" readonly="readonly"
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="phone">电话：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="phone"
+						value="${resume.phone}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">Email：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="email"
+						value="${resume.email}">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="age">年龄：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="age"
+						value="${resume.age}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="major">专业：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="major"
+						value="${resume.major}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="sno">学号：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="sno"
 						value="${resume.sno}">
 				</div>
-				<div class="panel panel-default text-center">
-					年龄：<input name="age" type="text" value="${resume.age}">
-				</div>
-				<div class="panel panel-default text-center">
-					毕业院校：<input name="school" type="text" value="${resume.school}">
-				</div>
-				<div class="panel panel-default text-center">
-					email：<input name="email" type="text" value="${resume.email}">
-				</div>
-				<div class="panel panel-default text-center">
-					电话：<input name="phone" type="text" value="${resume.phone}">
-				</div>
-				<div class="panel panel-default text-center">
-					专业：<input name="major" type="text" value="${resume.major}">
-				</div>
-				<div class="panel panel-default text-center">
-					实习经历：<input name="experience" type="text" value="${resume.experience}">
-				</div>
-				<div class="panel panel-default text-center">
-					自我介绍：
-					<textarea name="selfintro" rows="5" cols="25">${resume.selfintro}</textarea>
-				</div>
-				<a class="btn btn-info" style="center" href="javascript:window.opener=null;window.close();">关闭</a>
-				<input type="submit" class="btn btn-info" value="修改" />
 			</div>
-		</form>
 
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="school">毕业院校：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="school"
+						value="${resume.school}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="experience">实习经历：</label>
+				<div class="col-lg-9">
+					<textarea class="form-control" rows="5" cols="25" name="experience">${resume.experience}</textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="selfintro">自我介绍：</label>
+				<div class="col-lg-9">
+					<textarea class="form-control" rows="5" cols="25" name="selfintro">${resume.selfintro}</textarea>
+				</div>
+			</div>
+
+			<!-- Accept box and button s-->
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<br />
+					<button type="submit" class="btn btn-danger">修改</button>
+					<button type="reset"
+						onclick="javascript:window.opener=null;window.close();"
+						class="btn btn-success">关闭</button>
+				</div>
+			</div>
+			<br />
+		</form>
 	</div>
 
 </body>

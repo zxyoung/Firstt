@@ -27,7 +27,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">
-				<h2 align="center">招聘信息</h2>
+				<h2 align="center">公司招聘信息</h2>
 			</div>
 			<div class="panel-body">
 

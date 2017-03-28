@@ -8,33 +8,57 @@
 </head>
 
 <body>
+
+	
+
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">详细招聘信息</div>
-		</div>
-		<div class="panel-body">
-			<div class="panel panel-default text-center">
-				主题：<input name="title" type="text" readonly="readonly"
-					value="${notice.title}">
+			<div class="panel-heading text-header">
+				<h2 align="center">详细招聘信息</h2>
 			</div>
-			<div class="panel panel-default text-center">
-				内容：<input name="content" type="text" value="${notice.content}">
-			</div>
-			<div class="panel panel-default text-center">
-				发布时间：
-				<fmt:formatDate value="${notice.fbtime}" type="both" />
-			</div>
-
-			<a class="btn btn-info" style=""
-				href="javascript:window.opener=null;window.close();">关闭</a>
 		</div>
 
+		<div style="width: 100%; text-align: center">
+			<form action="######" class="form-horizontal">
+
+				<div class="form-group">
+					<label class="control-label col-lg-3" for="title">标题：</label>
+					<div class="col-lg-9">
+						<input type="text" class="form-control" readonly="readonly"
+							name="title" value="${notice.title}">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3" for="email">内容：</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" rows="5" cols="15"
+							readonly="readonly" name="content">${notice.content}</textarea>
+					</div>
+				</div>
+
+				<label class="control-label col-lg-3" style="float: left;"
+					for="title">发布时间： <fmt:formatDate value="${notice.fbtime}"
+						type="date" /></label>
+				
+				<p class="form-control-static">发布时间： <fmt:formatDate value="${notice.fbtime}"
+						type="date" /></p>
+				
+				<%-- 发布时间：
+			<fmt:formatDate value="${notice.fbtime}" type="date" /> --%>
+
+				<!-- Accept box and button s-->
+				<div class="form-group">
+					<div class="col-lg-9 col-lg-offset-3">
+						<br />
+						<button type="submit" class="btn btn-danger"
+							onclick="javascript:window.opener=null;window.close();">关闭</button>
+					</div>
+				</div>
+				<br />
+			</form>
+		</div>
 	</div>
-	${notice.title}
-	<br /> ${notice.content }
-	<br />
-	<fmt:formatDate value="${notice.fbtime}" pattern="yyyy-MM-dd"
-		type="date" dateStyle="long" />
 
 
 </body>

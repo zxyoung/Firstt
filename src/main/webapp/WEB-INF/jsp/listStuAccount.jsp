@@ -31,10 +31,6 @@
 				<h2 align="center">学生账号列表</h2>
 			</div>
 
-			<form action="/firstt/admin/selectAccountSno" method="post">
-				<input type="text" name="sno" /> <input type="submit" value="搜索" />
-			</form>
-
 			<div class="matter">
 				<div class="container">
 

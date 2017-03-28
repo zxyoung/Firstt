@@ -9,6 +9,141 @@
 <body>
 	<div class="container">
 		<div class="panel panel-default text-center">
+			<div class="panel-heading text-header">
+				<h2 align="center">${sessionScope.stu.stuName}的就业信息</h2>
+			</div>
+		</div>
+
+
+		<form action="/firstt/student/${employ.id}/updateEmployInfo"
+			method="post" class="form-horizontal">
+			<!-- Registration form starts -->
+			<!-- Name -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="sno">学号：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="sno"
+						value="${employ.sno}">
+				</div>
+			</div>
+			<!-- Email -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="passport">身份证：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="passport"
+						value="${employ.passport}">
+				</div>
+			</div>
+			<!-- Select box -->
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">Email：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="email"
+						value="${employ.email}">
+				</div>
+			</div>
+
+			<!-- Password -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="gowhere">毕业去向：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="gowhere"
+						value="${employ.gowhere}">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="companyname">单位名称：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="companyname"
+						value="${employ.companyname}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="ccode">单位组织代码：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="ccode"
+						value="${employ.ccode}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="cproperties">单位性质：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="cproperties"
+						value="${employ.cproperties}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="ctrade">所在行业：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="ctrade"
+						value="${employ.ctrade}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="location">单位地址：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="location"
+						value="${employ.location}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="jobtitle">工作职位类别：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="jobtitle"
+						value="${employ.jobtitle}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="contacts">公司联系人：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="contacts"
+						value="${employ.contacts}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="contactsphone">联系人电话：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="contactsphone"
+						value="${employ.contactsphone}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="cemail">联系人邮箱：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="cemail"
+						value="${employ.cemail}">
+				</div>
+			</div>
+
+
+			<!-- Accept box and button s-->
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<br />
+					<button type="submit" class="btn btn-danger">修改</button>
+					<button type="reset"
+						onclick="javascript:window.opener=null;window.close();"
+						class="btn btn-success">关闭</button>
+				</div>
+			</div>
+			<br />
+		</form>
+	</div>
+
+
+	<%-- <div class="container">
+		<div class="panel panel-default text-center">
 			<div class="panel-heading">${sessionScope.stu.stuName} 的就业信息</div>
 		</div>
 		<form action="/firstt/student/${employ.id}/updateEmployInfo" method="post">
@@ -59,7 +194,7 @@
 		</form>
 
 	</div>
-
+ --%>
 </body>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script

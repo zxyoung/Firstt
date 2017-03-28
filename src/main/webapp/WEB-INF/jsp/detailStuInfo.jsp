@@ -7,73 +7,97 @@
 </head>
 
 <body>
+
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">${stuInfo.stuName}的详细信息</div>
+			<div class="panel-heading text-header">
+				<h2 align="center">${stuInfo.stuName} 的详细信息</h2>
+			</div>
 		</div>
-		<form action="/firstt/admin/${stuInfo.id}/update" method="post">
-			<!-- Server Status -->
-			<div class="col-md-4">
-				<div class="widget">
-					<!-- Widget title -->
-					<div class="widget-head">
-						<div class="pull-left">Server Status</div>
-						<div class="widget-icons pull-right">
-							<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-							<a href="#" class="wclose"><i class="icon-remove"></i></a>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="widget-content">
-						<!-- Widget content -->
 
-						<table class="table table-striped table-bordered table-hover">
-							<tr>
-								<td>姓名</td>
-								<td><input name="stuName" type="text"
-									value="${stuInfo.stuName}"></td>
-							</tr>
-							<tr>
-								<td>性别</td>
-								<td><input name="sex" type="text" value="${stuInfo.sex}"></td>
-							</tr>
-							<tr>
-								<td>学号</td>
-								<td><input name="sno" readonly="readonly" type="text"
-									value="${stuInfo.sno}"></td>
-							</tr>
-							<tr>
-								<td>密码</td>
-								<td><input name="password" type="password"
-									value="${stuInfo.password}"></td>
-							</tr>
-							<tr>
-								<td>专业</td>
-								<td><input name="major" type="text"
-									value="${stuInfo.major}"></td>
-							</tr>
-							<tr>
-								<td>生源地</td>
-								<td><input name="origin" readonly="readonly" type="text"
-									value="${stuInfo.origin}"></td>
-							</tr>
-							<tr>
-								<td>入学时间</td>
-								<td><input name="entry_year" readonly="readonly"
-									type="text" value="${stuInfo.entryYear}"></td>
-							</tr>
-							<tr>
-								<td>毕业时间</td>
-								<td><input name="gra_year" readonly="readonly" type="text"
-									value="${stuInfo.graYear}"></td>
-							</tr>
-						</table>
-					</div>
+
+		<form action="/firstt/admin/${stuInfo.id}/update" method="post"
+			class="form-horizontal">
+			<!-- Registration form starts -->
+			<!-- Name -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="stuName">姓名：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="stuName"
+						value="${stuInfo.stuName}">
+				</div>
+			</div>
+			<!-- Email -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="sex">性别：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="sex"
+						value="${stuInfo.sex}">
+				</div>
+			</div>
+			<!-- Select box -->
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="sno">学号：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="sno"
+						value="${stuInfo.sno}">
 				</div>
 			</div>
 
-			<input type="submit" value="修改" /> <a style=""
-				href="javascript:window.opener=null;window.close();">关闭</a>
+			<!-- Password -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="password">密码：</label>
+				<div class="col-lg-9">
+					<input type="password" class="form-control" name="password"
+						value="${stuInfo.password}">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="major">专业：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="major"
+						value="${stuInfo.major}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="origin">生源地：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="origin"
+						value="${stuInfo.origin}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="entry_year">入学时间：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="entry_year"
+						value="${stuInfo.entryYear}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="gra_year">毕业时间：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="gra_year" value="${stuInfo.graYear}">
+				</div>
+			</div>
+
+
+			<!-- Accept box and button s-->
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<br />
+					<button type="submit" class="btn btn-danger">修改</button>
+					<button type="reset"
+						onclick="javascript:window.opener=null;window.close();"
+						class="btn btn-success">关闭</button>
+				</div>
+			</div>
+			<br />
 		</form>
 	</div>
 

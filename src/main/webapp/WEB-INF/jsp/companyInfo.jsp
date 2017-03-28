@@ -9,80 +9,102 @@
 <body>
 	<div class="container">
 		<div class="panel panel-default text-center">
-			<div class="panel-heading">${company.cname}公司的详细信息</div>
+			<div class="panel-heading text-header">
+				<h2 align="center">${company.cname}公司的详细信息</h2>
+			</div>
 		</div>
-		<form action="/firstt/company/${company.id}/update" method="post">
 
 
-			<!-- Server Status -->
-			<div class="col-md-4">
-				<div class="widget">
-					<!-- Widget title -->
-					<div class="widget-head">
-						<div class="pull-left">Server Status</div>
-						<div class="widget-icons pull-right">
-							<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-							<a href="#" class="wclose"><i class="icon-remove"></i></a>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="widget-content">
-						<!-- Widget content -->
-
-						<table class="table table-striped table-bordered table-hover">
-							<tr>
-								<td>公司名称</td>
-								<td><input name="cname" type="text"
-									value="${company.cname}"></td>
-							</tr>
-							<tr>
-								<td>地址</td>
-								<td><input name="location" type="text"
-									value="${company.location}"></td>
-							</tr>
-							<tr>
-								<td>企业性质</td>
-								<td><input name="property" readonly="readonly" type="text"
-									value="${company.property}"></td>
-							</tr>
-							<tr>
-								<td>密码</td>
-								<td><input name="password" type="password"
-									value="${company.password}"></td>
-							</tr>
-							<tr>
-								<td>Email</td>
-								<td><input name="email" type="text"
-									value="${company.email}"></td>
-							</tr>
-							<tr>
-								<td>企业代码</td>
-								<td><input name="code" readonly="readonly" type="text"
-									value="${company.code}"></td>
-							</tr>
-							<tr>
-								<td>创建时间</td>
-								<td><input name="cltime" readonly="readonly" type="text"
-									value="${company.cltime}"></td>
-							</tr>
-							<tr>
-								<td>公司电话</td>
-								<td><input name="phone" type="text"
-									value="${company.phone}"></td>
-							</tr>
-							<tr>
-								<td>公司简介</td>
-								<td><textarea rows="5" cols="25">${company.detail}</textarea></td>
-							</tr>
-						</table>
-					</div>
+		<form action="/firstt/company/${company.id}/update" method="post"
+			class="form-horizontal">
+			<!-- Registration form starts -->
+			<!-- Name -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="name">公司名称：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="cname"
+						value="${company.cname}">
 				</div>
 			</div>
-			<input class="btn btn-info" style="" type="submit" value="修改" /> <a
-				class="btn btn-info" style=""
-				href="javascript:window.opener=null;window.close();">关闭</a>
-		</form>
+			<!-- Email -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">地址：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="location"
+						value="${company.location}">
+				</div>
+			</div>
+			<!-- Select box -->
 
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="username">企业性质：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="password"
+						value="${company.property}">
+				</div>
+			</div>
+
+			<!-- Password -->
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="username">密码：</label>
+				<div class="col-lg-9">
+					<input type="password" class="form-control" name="password"
+						value="${company.password}">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">Email：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="email"
+						value="${company.email}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">企业代码：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="code"
+						value="${company.code}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">创建时间：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="cltime"
+						value="${company.cltime}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">公司电话：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="phone"
+						value="${company.phone}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="email">公司简介：</label>
+				<div class="col-lg-9">
+					<textarea class="form-control" rows="5" cols="25" name="detail">${company.detail}</textarea>
+				</div>
+			</div>
+
+			<!-- Accept box and button s-->
+			<div class="form-group">
+				<div class="col-lg-9 col-lg-offset-3">
+					<br />
+					<button type="submit" class="btn btn-danger">修改</button>
+					<button type="reset"
+						onclick="javascript:window.opener=null;window.close();"
+						class="btn btn-success">关闭</button>
+				</div>
+			</div>
+			<br />
+		</form>
 	</div>
 
 </body>
