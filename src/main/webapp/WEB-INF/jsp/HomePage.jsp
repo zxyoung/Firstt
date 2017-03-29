@@ -12,198 +12,140 @@
 <script
 	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>首页</title>
-
-
-
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <!--[endif]-->
-<script type="text/javascript">
-	function show() {
-		window.open('login.jsp');
-	}
-</script>
-<style type="text/css">
-.dropdown {
-	display: inline;
-	float: right;
-	position: relative;
-	right: 40px;
-	margin-left: 5px
-}
-
-body {
-	height: 100%;
-	width: 100%;
-	background-image: url(./logo.png);
-	background-size: 100px 100px;
-}
-</style>
-
+<title>西安邮电大学</title>
 
 </head>
 <body>
-	<img alt="图片" src="./pic/logo.png">
-	<!-- <img alt="图片" src="./pic/logo.png"> -->
-	<div
-		style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100px;">
-		<h2 style="text-align: center">
-			<a href="index.jsp">西安邮电大学</a>
-		</h2>
+	<div class="container">
 
+		<div class="row clearfix">
+			<div class="col-md-12 column">
 
-
-		<div class="dropdown" style="text-align: left">
-			<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
-				data-toggle="dropdown">
-				注册 <span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="/firstt/company/toRegister" target="_blank">企业注册</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="########" target="_blank">企业...</a></li>
-
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="########" target="_blank">企业...</a></li>
-			</ul>
-		</div>
-		&nbsp;&nbsp;
-		<div class="dropdown">
-			<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
-				data-toggle="dropdown">
-				登录 <span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="/firstt/login/stuLogin" target="_blank">学生登录</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="/firstt/login/companyLogin" target="_blank">企业登录</a></li>
-
-				<li role="presentation" class="divider"></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="/firstt/login/adminLogin" target="_blank">管理员登录</a></li>
-			</ul>
-		</div>
-
-
-	</div>
-	<div
-		style="position: absolute; top: 100px; left: 0px; width: 20%; height: 600px; background-color: blue">
-		这是下方左部</div>
-
-	<div
-		style="position: absolute; top: 100px; left: 20%; width: 80%; height: 600px; background-color: white;">
-		这是下方右部<!--  <img alt="图片" src="./pic/logo.png"> -->
-
-		<div class="matter">
-			<div class="container">
-
-				<!-- Table -->
-
-				<div class="row">
-
-					<div class="col-md-12">
-
-						<div class="widget">
-
-							<div class="widget-head">
-								<div class="pull-left">Tables</div>
-								<div class="widget-icons pull-right">
-									<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-									<a href="#" class="wclose"><i class="icon-remove"></i></a>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-
-							<div class="widget-content">
-
-								<table class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>公司名称</th>
-											<th>所在地</th>
-											<th>Age</th>
-											<th>Education</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>Ashok</td>
-											<td>India</td>
-											<td>23</td>
-											<td>B.Tech</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Kumarasamy</td>
-											<td>USA</td>
-											<td>22</td>
-											<td>BE</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Babura</td>
-											<td>UK</td>
-											<td>43</td>
-											<td>PhD</td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>Ravi Kumar</td>
-											<td>China</td>
-											<td>73</td>
-											<td>PUC</td>
-										</tr>
-										<tr>
-											<td>5</td>
-											<td>Santhosh</td>
-											<td>Japan</td>
-											<td>43</td>
-											<td>M.Tech</td>
-										</tr>
-									</tbody>
-								</table>
-
-								<div class="widget-foot">
-
-
-									<ul class="pagination pull-right">
-										<li><a href="#">Prev</a></li>
-										<li><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">Next</a></li>
-									</ul>
-
-									<div class="clearfix"></div>
-
-								</div>
-							</div>
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<a class="navbar-brand" href="index.jsp">西安邮电大学</a>
 						</div>
+						<ul class="nav navbar-nav navbar-right">
 
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown"><span
+									class="glyphicon glyphicon-log-in"></span> 登录<b class="caret"></b>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="/firstt/login/stuLogin" target="_blank">学生登录</a></li>
+									<li><a href="/firstt/login/companyLogin" target="display">企业登录</a></li>
+									<li class="divider"></li>
+									<li><a href="/firstt/login/adminLogin" target="_blank">管理员登录</a></li>
+								</ul></li>
+							<li><a href="/firstt/company/toRegister" target="_blank"><span
+									class="glyphicon glyphicon-user"></span> 注册</a></li>
+						</ul>
 					</div>
-				</div>
+				</nav>
 			</div>
 		</div>
 
+		<!-- 巨幕和轮播 -->
+		<div class="row clearfix">
+			<!-- 巨幕 -->
+			<div class="col-md-8 column">
+				<div class="jumbotron">
+					<h1>Hello, world!</h1>
+					<p>This is a template for a simple marketing or informational
+						website. It includes a large callout called the hero unit and
+						three supporting pieces of content. Use it as a starting point to
+						create something more unique.</p>
+					<p>
+						<a class="btn btn-primary btn-large" href="#">Learn more</a>
+					</p>
+				</div>
+			</div>
+			<!-- /巨幕 -->
+
+			<!-- 轮播 -->
+			<div class="col-md-4 column">
+				<div class="carousel slide" id="carousel-849693">
+					<ol class="carousel-indicators">
+						<li class="active" data-slide-to="0"
+							data-target="#carousel-849693"></li>
+						<li data-slide-to="1" data-target="#carousel-849693"></li>
+						<li data-slide-to="2" data-target="#carousel-849693"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img alt="" src="./pic/grass.jpg" />
+							<div class="carousel-caption">
+								<h4>First Thumbnail label</h4>
+								<p>Cras justo odio, dapibus ac facilisis in, egestas eget
+									quam. Donec id elit non mi porta gravida at eget metus. Nullam
+									id dolor id nibh ultricies vehicula ut id elit.</p>
+							</div>
+						</div>
+						<div class="item">
+							<img alt="" src="./pic/grass.jpg" />
+							<div class="carousel-caption">
+								<h4>Second Thumbnail label</h4>
+								<p>Cras justo odio, dapibus ac facilisis in, egestas eget
+									quam. Donec id elit non mi porta gravida at eget metus. Nullam
+									id dolor id nibh ultricies vehicula ut id elit.</p>
+							</div>
+						</div>
+						<div class="item">
+							<img alt="" src="./pic/grass.jpg" />
+							<div class="carousel-caption">
+								<h4>Third Thumbnail label</h4>
+								<p>Cras justo odio, dapibus ac facilisis in, egestas eget
+									quam. Donec id elit non mi porta gravida at eget metus. Nullam
+									id dolor id nibh ultricies vehicula ut id elit.</p>
+							</div>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#carousel-849693"
+						data-slide="prev"><span
+						class="glyphicon glyphicon-chevron-left"></span></a> <a
+						class="right carousel-control" href="#carousel-849693"
+						data-slide="next"><span
+						class="glyphicon glyphicon-chevron-right"></span></a>
+				</div>
+			</div>
+			<!-- /轮播 -->
+		</div>
+
+		<!-- ########################################################################### -->
+		<div class="row clearfix">
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+		</div>
+		<!-- ########################################################################### -->
 	</div>
-
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
