@@ -97,7 +97,7 @@ public class StudentController {
 		resume.setExperience(experience);
 		resume.setSelfintro(selfintro);
 
-		int flag = resumeService.insert(resume);
+		int flag = resumeService.insertSelective(resume);
 
 		// 提交失败重新填写表单
 		if (flag != 1) {

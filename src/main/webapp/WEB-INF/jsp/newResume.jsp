@@ -4,6 +4,28 @@
 <head>
 <title>创建新的简历</title>
 <%@include file="common/head.jsp"%>
+
+<script type="text/javascript">
+	function checkfun() {
+		var name = document.getElementById("name").value;
+		var phone = document.getElementById("phone").value;
+		var email = document.getElementById("email").value;
+
+		if (name == "") {
+			alert('姓名不能为空！');
+			return false;
+		}
+		if (phone == "") {
+			alert('电话不能为空！');
+			return false;
+		}
+		if (email == "") {
+			alert('邮箱不能为空！');
+			return false;
+		}
+		document.getElementById("formid").submit();
+	}
+</script>
 </head>
 
 <body>
@@ -16,28 +38,28 @@
 		</div>
 
 
-		<form action="/firstt/student/addResume" method="post"
+		<form action="/firstt/student/addResume" method="post" id="formid"
 			class="form-horizontal">
 			<!-- Registration form starts -->
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="name">姓名：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="name" value="">
+					<input type="text" class="form-control" id="name" name="name" value="">
 				</div>
 			</div>
-
+			
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="phone">电话：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="phone" value="">
+					<input type="text" class="form-control" id="phone" name="phone" value="">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="email">Email：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="email" value="">
+					<input type="text" class="form-control" id="email" name="email" value="">
 				</div>
 			</div>
 
@@ -88,56 +110,13 @@
 			<div class="form-group">
 				<div class="col-lg-9 col-lg-offset-3">
 					<br />
-					<button type="submit" class="btn btn-danger">创建</button>
+					<button type="button" onclick="checkfun();" class="btn btn-danger">创建</button>
 					<button type="reset" class="btn btn-success">关闭</button>
 				</div>
 			</div>
 			<br />
 		</form>
 	</div>
-
-
-	<!-- <div class="container">
-		<div class="panel panel-default text-center">
-			<div class="panel-heading">您还未创建简历，请先创建</div>
-		</div>
-		<form action="/firstt/student/addResume" method="post">
-			<div class="panel-body">
-				<div class="panel panel-default text-center">
-					姓名：<input name="name" type="text"
-						value="">
-				</div>
-				<div class="panel panel-default text-center">
-					年龄：<input name="age" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					学号：<input name="sno" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					毕业院校：<input name="school" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					email：<input name="email" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					电话：<input name="phone" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					专业：<input name="major" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					实习经历：<input name="experience" type="text" value="">
-				</div>
-				<div class="panel panel-default text-center">
-					自我介绍：
-					<textarea name="selfintro" rows="5" cols="25"></textarea>
-				</div>
-				<input type="submit" class="btn btn-info" value="提交">
-			</div>
-		</form>
-
-	</div>
- -->
 </body>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script

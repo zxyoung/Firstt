@@ -1,5 +1,6 @@
 package com.zhang.demo.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.naming.directory.SearchControls;
@@ -23,6 +24,7 @@ import com.zhang.demo.service.EmploymentService;
 import com.zhang.demo.service.NoticeService;
 import com.zhang.demo.service.ResumeService;
 import com.zhang.demo.service.StuService;
+import com.zhang.demo.MD5.MD5Utils;
 import com.zhang.demo.UtilEmail.*;
 
 /**
@@ -319,9 +321,10 @@ public class AdminController {
 	 * @param request
 	 * @param id
 	 * @return
+	 * @throws NoSuchAlgorithmException 
 	 */
 	@RequestMapping(value="/{id}/update")
-	String updateStuInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model) {
+	String updateStuInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model) throws NoSuchAlgorithmException {
 		// To-do
 		// 用Request 接受参数，构造StuInfo实体，然后进行更新操作
 		StuInfo stuInfo = new StuInfo();
@@ -329,6 +332,9 @@ public class AdminController {
 		String sex = request.getParameter("sex");
 		Integer sno = Integer.parseInt(request.getParameter("sno").trim());
 		String password = request.getParameter("password");
+		
+		String tmp = MD5Utils.getMD5password(password);
+		
 		String major = request.getParameter("major");
 		String origin = request.getParameter("origin");
 		Integer entry_year = Integer.parseInt(request.getParameter("entry_year").trim());
@@ -341,7 +347,7 @@ public class AdminController {
 		stuInfo.setId(id);
 		stuInfo.setStuName(stuName);
 		stuInfo.setSex(sex);
-		stuInfo.setPassword(password);
+		stuInfo.setPassword(tmp);
 		stuInfo.setSno(sno);
 		stuInfo.setMajor(major);
 		stuInfo.setOrigin(origin);

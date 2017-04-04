@@ -1,5 +1,6 @@
 package com.zhang.demo.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zhang.demo.MD5.MD5Utils;
 import com.zhang.demo.model.Company;
 import com.zhang.demo.model.Notice;
 import com.zhang.demo.service.CompanyService;
@@ -139,12 +141,16 @@ public class CompanyController {
 	 * @param id
 	 * @param model
 	 * @return
+	 * @throws NoSuchAlgorithmException 
 	 */
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-	public String updateCompanyInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model) {
+	public String updateCompanyInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model) throws NoSuchAlgorithmException {
 
 		String cname = request.getParameter("cname");
 		String password = request.getParameter("password");
+		
+		String tmp = MD5Utils.getMD5password(password);
+		
 		String location = request.getParameter("location");
 		Long phone = Long.parseLong(request.getParameter("phone").trim());
 		String property = request.getParameter("property");
@@ -160,7 +166,7 @@ public class CompanyController {
 		Company company = new Company();
 		company.setId(id);
 		company.setCname(cname);
-		company.setPassword(password);
+		company.setPassword(tmp);
 		company.setLocation(location);
 		company.setPhone(phone);
 		company.setEmail(email);
@@ -205,12 +211,16 @@ public class CompanyController {
 	 * 
 	 * @param request
 	 * @return
+	 * @throws NoSuchAlgorithmException 
 	 */
 	@RequestMapping(value = "/register")
-	public String companyRegister(HttpServletRequest request) {
+	public String companyRegister(HttpServletRequest request) throws NoSuchAlgorithmException {
 
 		String cname = request.getParameter("cname");
 		String password = request.getParameter("password");
+		
+		String tmp = MD5Utils.getMD5password(password);
+		
 		String location = request.getParameter("location");
 		Long phone = Long.parseLong(request.getParameter("phone"));
 		String property = request.getParameter("property");
@@ -221,7 +231,7 @@ public class CompanyController {
 
 		Company company = new Company();
 		company.setCname(cname);
-		company.setPassword(password);
+		company.setPassword(tmp);
 		company.setLocation(location);
 		company.setPhone(phone);
 		company.setEmail(email);

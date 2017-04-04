@@ -6,6 +6,28 @@
 <%@include file="common/head.jsp"%>
 </head>
 
+<script type="text/javascript">
+	function checkfun() {
+		var name = document.getElementById("name").value;
+		var phone = document.getElementById("phone").value;
+		var email = document.getElementById("email").value;
+
+		if (name == "") {
+			alert('姓名不能为空！');
+			return false;
+		}
+		if (phone == "") {
+			alert('电话不能为空！');
+			return false;
+		}
+		if (email == "") {
+			alert('邮箱不能为空！');
+			return false;
+		}
+		document.getElementById("formid").submit();
+	}
+</script>
+
 <body>
 
 	<div class="container">
@@ -17,13 +39,13 @@
 
 
 		<form action="/firstt/student/${resume.id}/updateResume" method="post"
-			class="form-horizontal">
+			id="formid" class="form-horizontal">
 			<!-- Registration form starts -->
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="name">姓名：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="name"
+					<input type="text" class="form-control" id="name" name="name"
 						value="${resume.name}">
 				</div>
 			</div>
@@ -31,7 +53,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="phone">电话：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="phone"
+					<input type="text" class="form-control" id="phone" name="phone"
 						value="${resume.phone}">
 				</div>
 			</div>
@@ -39,7 +61,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="email">Email：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="email"
+					<input type="text" class="form-control" id="email" name="email"
 						value="${resume.email}">
 				</div>
 			</div>
@@ -48,7 +70,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="age">年龄：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="age"
+					<input type="text" class="form-control" id="age" name="age"
 						value="${resume.age}">
 				</div>
 			</div>
@@ -56,7 +78,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="major">专业：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="major"
+					<input type="text" class="form-control" id="major" name="major"
 						value="${resume.major}">
 				</div>
 			</div>
@@ -64,7 +86,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="sno">学号：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="sno"
+					<input type="text" class="form-control" id="sno" name="sno"
 						value="${resume.sno}">
 				</div>
 			</div>
@@ -72,7 +94,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="school">毕业院校：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="school"
+					<input type="text" class="form-control" id="school" name="school"
 						value="${resume.school}">
 				</div>
 			</div>
@@ -80,14 +102,16 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="experience">实习经历：</label>
 				<div class="col-lg-9">
-					<textarea class="form-control" rows="5" cols="25" name="experience">${resume.experience}</textarea>
+					<textarea class="form-control" rows="5" cols="25" id="experience"
+						name="experience">${resume.experience}</textarea>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="selfintro">自我介绍：</label>
 				<div class="col-lg-9">
-					<textarea class="form-control" rows="5" cols="25" name="selfintro">${resume.selfintro}</textarea>
+					<textarea class="form-control" rows="5" cols="25" id="selfintro"
+						name="selfintro">${resume.selfintro}</textarea>
 				</div>
 			</div>
 
@@ -95,7 +119,7 @@
 			<div class="form-group">
 				<div class="col-lg-9 col-lg-offset-3">
 					<br />
-					<button type="submit" class="btn btn-danger">修改</button>
+					<button type="button" onclick="checkfun();" class="btn btn-danger">修改</button>
 					<button type="reset"
 						onclick="javascript:window.opener=null;window.close();"
 						class="btn btn-success">关闭</button>

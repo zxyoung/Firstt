@@ -27,6 +27,14 @@
 			<scope>test</scope>
 		</dependency>
 
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>20041127.091804</version>
+		</dependency>
+
+
 		<!-- spring Mail 邮件包 -->
 		<dependency>
 			<groupId>javax.mail</groupId>

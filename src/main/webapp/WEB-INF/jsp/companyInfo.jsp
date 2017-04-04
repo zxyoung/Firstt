@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="username">企业性质：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="password"
+					<input type="text" class="form-control" name="property"
 						value="${company.property}">
 				</div>
 			</div>
