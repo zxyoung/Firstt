@@ -5,12 +5,28 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script
-	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js" ></script> -->
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link
+	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- 可选的Bootstrap主题文件（一般不使用） -->
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>管理员界面</title>
@@ -136,37 +152,53 @@
 							<li class="active"><a href="#"><i
 									class="glyphicon glyphicon-user"></i>
 									${sessionScope.adminSession.username}</a></li>
-							<li><a href="/firstt/admin/listStuAccount" target="display"><i class="glyphicon glyphicon-th-list"></i>
-									学生基本信息</a></li>
-							<li><a href="/firstt/admin/listEmploymentInfo" target="display"><i class="glyphicon glyphicon-th-list"></i>
+							<li><a href="/firstt/admin/listStuAccount" target="display"><i
+									class="glyphicon glyphicon-list-alt"></i> 学生基本信息</a></li>
+							<li><a href="/firstt/admin/listEmploymentInfo"
+								target="display"><i class="glyphicon glyphicon-list-alt"></i>
 									学生就业信息</a></li>
-							<li><a href="/firstt/admin/searchBySno" target="display"><i class="glyphicon glyphicon-search"></i>
-									查找学生信息</a></li>
+							<li><a href="/firstt/admin/listResume" target="display"><i
+									class="glyphicon glyphicon-list-alt"></i> 学生简历</a></li>
+						<!-- 	<li><a href="/firstt/admin/searchBySno" target="display"><i
+									class="glyphicon glyphicon-search"></i> 查找学生信息</a></li> -->
+
+							<li><a href="/firstt/admin/chars" target="display"><i
+									class="glyphicon glyphicon-search"></i> 就业信息统计</a></li>
+
 						</ul></li>
-					<li><a href="/firstt/admin/listCompanyInfo" target="display"> <i
-							class="glyphicon glyphicon-search" ></i> 查看公司信息
+
+					<li><a href="/firstt/admin/listCompanyInfo" target="display">
+							<i class="glyphicon glyphicon-list-alt"></i> 查看公司信息
 					</a></li>
-					<li><a href="/firstt/admin/listNoticeInfo" target="display"> <i
-							class="glyphicon glyphicon-search"></i> 查看招聘信息
+					<li><a href="/firstt/admin/listNoticeInfo" target="display">
+							<i class="glyphicon glyphicon-list-alt"></i> 查看招聘信息
 					</a></li>
-					<li><a href="/firstt/admin/sendEmail"> <i class="glyphicon glyphicon-envelope"></i>
-							发送邮件
+					<li><a href="/firstt/admin/createNotes" target="display">
+							<i class="glyphicon glyphicon-edit"></i> 发布公告
 					</a></li>
-					<li><a href="######"> <i class="glyphicon glyphicon-fire"></i>
-							关于系统
+					<li><a href="/firstt/admin/listAllNotes" target="display">
+							<i class="glyphicon glyphicon-list-alt"></i> 管理公告
+					</a></li>
+					<li><a href="/firstt/admin/sendEmail"> <i
+							class="glyphicon glyphicon-envelope"></i> 发送邮件
+					</a></li>
+
+					<li><a href="/firstt/admin/about"> <i
+							class="glyphicon glyphicon-fire"></i> 关于系统
 					</a></li>
 					<li><a href="/firstt/login/adminlogout"> <i
 							class="glyphicon glyphicon-log-out"></i> 退出
 					</a></li>
 				</ul>
 			</div>
-			
+
 			<!-- 写ifream -->
-			<div class="col-md-10">主窗口
+			<div class="col-md-10">
+				主窗口
 				<iframe class="content" width="1100" height="500" name="display"></iframe>
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 </html>

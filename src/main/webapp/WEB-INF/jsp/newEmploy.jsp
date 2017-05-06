@@ -16,6 +16,10 @@
 				<div class="panel panel-default text-center">
 					学号：<input name="sno" type="text" value="${sessionScope.stu.sno}">
 				</div>
+				
+				<div class="panel panel-default text-center">
+					专业：<input name="major" type="text" value="">
+				</div>
 				<div class="panel panel-default text-center">
 					身份证号：<input name="passport" type="text" value="">
 				</div>
@@ -27,6 +31,10 @@
 				</div>
 				<div class="panel panel-default text-center">
 					单位名称：<input name="companyname" type="text" value="">
+				</div>
+				
+				<div class="panel panel-default text-center">
+					年薪：<input name="salary" type="text" value="">
 				</div>
 				<div class="panel panel-default text-center">
 					单位组织代码：<input name="ccode" type="text" value="">

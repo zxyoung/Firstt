@@ -4,12 +4,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script
-	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link
+	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- 可选的Bootstrap主题文件（一般不使用） -->
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>学生入口</title>
 
@@ -258,8 +274,8 @@ img {
 </head>
 <!-- style="background-image:url(../pic/river.jpg)" -->
 <body class="b">
-	<h1 style="text-align:center">毕业生就业信息系统</h1>
-	<div class="container" style="background-image:url(../pic/river.jpg)">
+	<h1 style="text-align: center">毕业生就业信息系统</h1>
+	<div class="container" style="background-image: url(../pic/river.jpg)">
 		<div class="row">
 			<div class="col-md-offset-3 col-md-6">
 				<form class="form-horizontal" action="/firstt/login/student"

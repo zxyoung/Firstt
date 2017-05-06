@@ -55,7 +55,7 @@
 												<td>${employment.email}</td>
 												<td><a
 													href="/firstt/admin/${employment.id}/employmentDetail"
-													target="_blank">详细信息</a></td>
+													target="display">详细信息</a></td>
 												<tr />
 											</c:forEach>
 										</tbody>

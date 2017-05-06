@@ -64,7 +64,7 @@
 												<td>${company.cname}</td>
 												<td>${company.property}</td>
 												<td><a href="/firstt/admin/${company.id}/companyDetail"
-													target="_blank">详细信息</a></td>
+													target="display">详细信息</a></td>
 												<td><a onclick="firm()"
 													href="/firstt/admin/${company.id}/deleteCompany">删除</a></td>
 												<tr />

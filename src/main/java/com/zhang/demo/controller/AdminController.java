@@ -1,9 +1,10 @@
 package com.zhang.demo.controller;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import javax.naming.directory.SearchControls;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +14,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zhang.demo.MD5.MD5Utils;
+import com.zhang.demo.UtilEmail.MailSenderInfo;
+import com.zhang.demo.UtilEmail.SimpleMailSender;
 import com.zhang.demo.model.Company;
 import com.zhang.demo.model.EmploymentInfo;
+import com.zhang.demo.model.Notes;
 import com.zhang.demo.model.Notice;
 import com.zhang.demo.model.Resume;
 import com.zhang.demo.model.StuAccount;
 import com.zhang.demo.model.StuInfo;
 import com.zhang.demo.service.CompanyService;
 import com.zhang.demo.service.EmploymentService;
+import com.zhang.demo.service.NotesService;
 import com.zhang.demo.service.NoticeService;
 import com.zhang.demo.service.ResumeService;
 import com.zhang.demo.service.StuService;
-import com.zhang.demo.MD5.MD5Utils;
-import com.zhang.demo.UtilEmail.*;
 
 /**
  * 管理员的可执行操作
@@ -52,7 +56,104 @@ public class AdminController {
 	@Autowired
 	EmploymentService employmentService;
 	
+	@Autowired
+	NotesService notesService;
+	
+	
+	@RequestMapping(value="/chars")
+	public String Echars1(){
+		return "Echars1";
+	}
+	
+	
+	/*************************************** 公告操作 *********************************************/
+	
+	@RequestMapping(value="/createNotes")
+	public String createNotes(){
+		return "addNotes";
+	}
+	
+	/**
+	 * 增加公告
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="/addNotes")
+	public String addNotes(Model model, HttpServletRequest request){
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		Notes notes = new Notes();
+		
+		notes.setTitle(title);
+		notes.setContent(content);
+		notes.setTime(new Date());
+		int addNotes = notesService.insert(notes);
+		
+		if (addNotes != 1) {
+			System.out.println("error");
+			System.out.println(addNotes);
+			return "错误处理页面";
+		}
+		System.out.println("success");
+		return "redirect:/admin/listAllNotes";
+	}
+	
+	/**
+	 * 列出所有公告
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/listAllNotes")
+	public String getAllNotes(Model model){
+		List<Notes> list = notesService.getAllNotes();
+		if(list == null){
+			return "跳向相应错误处理页面";
+		}
+		model.addAttribute("list", list);
+		return "notes";
+	}
+	
+	/**
+	 * 查看公告信息信息
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/{id}/notesDetail")
+	public String detailNotes(@PathVariable("id") Integer id, Model model){
+		Notes notes = notesService.selectByPrimaryKey(id);
+		if (notes != null) {
+			model.addAttribute("notes", notes);
+			return "detailNotes";
+		}
+		return "跳向错误处理页面";
+	}
+	
+	/**
+	 * 删除公告
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/deleteNotes")
+	public String deleteNotes(@PathVariable("id") Integer id) {
+		if (id == null) {
+			return "error";
+		}
+		int delNotice = notesService.deleteByPrimaryKey(id);
+		if (delNotice < 1) {
+			return "error";
+		}
+		return "redirect:/admin/listAllNotes";
+	}
+	
+	
 	/*************************************** 学生就业信息操作 *********************************************/
+	
+	@RequestMapping(value="/about")
+	public String getAbout(){
+		return "about";
+	}
 	
 	/**
 	 * 列出所有的就业信息
@@ -89,18 +190,24 @@ public class AdminController {
 	 * 发送通知邮件
 	 */
 	@RequestMapping(value="/sendEmail")
-	public void sendEmail(){
+	public String sendEmail(){
+		
+		List<String> mail = new ArrayList<String>();
 		
 		String username = "15664646679@163.com";
 		String password = "woshi2k10";
 
 		String subject = "邮箱提醒：来自学校的一封邮件11";
 
-		String context = "您好！若您的工作有变动，请您回学校就业网站更新就业信息(若无，则忽略此邮件)";
+		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn</a>更新就业信息(若无，则忽略此邮件)";
 		//To-Do
-		List<String> emailList = employmentService.getAllEmail();
+		List<EmploymentInfo> emailList = employmentService.getAllEmail();
 		
-//		System.out.println(employmentService.getAllEmail());
+		for (EmploymentInfo it : emailList) {
+			mail.add(it.getEmail());
+//			System.out.println(it.getEmail());
+		}
+
 		
 		MailSenderInfo mailInfo = new MailSenderInfo();
 		mailInfo.setMailServerHost("smtp.163.com");
@@ -109,18 +216,19 @@ public class AdminController {
 		mailInfo.setUserName(username);
 		mailInfo.setPassword(password); //邮箱密码
 		mailInfo.setFromAddress(username);
-		mailInfo.setToAddress("359176585@qq.com");
 		mailInfo.setSubject(subject);
 		mailInfo.setContent(context);
-		// 这个类主要来发送邮件
 		SimpleMailSender sms = new SimpleMailSender();
+		
+		//设置群发邮件，此处需加一个循环
+		mailInfo.setToAddress("359176585@qq.com");
+		// 这个类主要来发送邮件
 		sms.sendTextMail(mailInfo);// 发送文体格式
 //		sms.sendHtmlMail(mailInfo);// 发送html格式
 		
 		
 		System.out.println("123");
-		
-		
+		return "adminLoginSuccess";
 	}
 	
 	
@@ -266,6 +374,23 @@ public class AdminController {
 	}
 	
 	/**
+	 * 删除简历
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/{id}/deleteResume")
+	public String deleteResume(@PathVariable("id") Integer id){
+		if (id == null) {
+			return "error";
+		}
+		int delNotice = resumeService.deleteByPrimaryKey(id);
+		if (delNotice < 1) {
+			return "error";
+		}
+		return "redirect:/admin/listResume";
+	}
+	
+	/**
 	 * 查看所有学生信息
 	 * 
 	 * @param model
@@ -296,24 +421,6 @@ public class AdminController {
 		return "detailStuInfo";
 	}
 
-	// /**
-	// * 管理员删除指定id的学生信息
-	// *
-	// * @param id
-	// * @return
-	// */
-	// @RequestMapping(value = "/{id}/delete")
-	// public String deleteStuInfo(@PathVariable("id") Integer id) {
-	// if (id == null) {
-	// return "redirect:/admin/listStuInfo";
-	// }
-	// int i = stuService.deleteStuInfoByPrimaryKey(id);
-	//
-	// if (i != 1) {
-	// return "跳向一个错误处理页面";
-	// }
-	// return "redirect:/admin/listStuInfo";
-	// }
 
 	/**
 	 * 管理员修改学生信息

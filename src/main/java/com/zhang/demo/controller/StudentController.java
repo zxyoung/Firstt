@@ -191,6 +191,8 @@ public class StudentController {
 	public String addNewEmploymentInfo(HttpServletRequest request, HttpSession session){
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
 		String passport = request.getParameter("passport");
+		String major = request.getParameter("major");
+		Integer salary = Integer.parseInt(request.getParameter("salary"));
 		String  email = request.getParameter("email").trim();
 		String gowhere = request.getParameter("gowhere");
 		String companyname = request.getParameter("companyname").trim();
@@ -207,6 +209,8 @@ public class StudentController {
 		info.setSno(sno);
 		info.setPassport(passport);
 		info.setEmail(email);
+		info.setMajor(major);
+		info.setSalary(salary);
 		info.setGowhere(gowhere);
 		info.setCompanyname(companyname);
 		info.setCcode(ccode);

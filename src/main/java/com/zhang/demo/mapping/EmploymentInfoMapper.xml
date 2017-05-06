@@ -4,9 +4,11 @@
 	<resultMap id="BaseResultMap" type="com.zhang.demo.model.EmploymentInfo">
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="sno" property="sno" jdbcType="INTEGER" />
+		<result column="major" property="major" jdbcType="CHAR" />
 		<result column="passport" property="passport" jdbcType="CHAR" />
 		<result column="email" property="email" jdbcType="CHAR" />
 		<result column="gowhere" property="gowhere" jdbcType="CHAR" />
+		<result column="salary" property="salary" jdbcType="INTEGER" />
 		<result column="companyName" property="companyname" jdbcType="CHAR" />
 		<result column="ccode" property="ccode" jdbcType="INTEGER" />
 		<result column="cproperties" property="cproperties" jdbcType="CHAR" />
@@ -19,11 +21,12 @@
 		<result column="cemail" property="cemail" jdbcType="CHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, sno, passport, email, gowhere, companyName, ccode, cproperties,
-		ctrade, location,
-		jobtitle, contacts, contactsPhone, cemail
+		id, sno, major, passport, email, gowhere, salary, companyName, ccode,
+		cproperties,
+		ctrade, location, jobtitle, contacts, contactsPhone, cemail
 	</sql>
-	
+
+
 	<!-- 按外键学号查找就业信息 -->
 	<select id="selectBySno" resultMap="BaseResultMap">
 		select
@@ -31,20 +34,20 @@
 		from employmentinfo
 		where sno = #{sno,jdbcType=INTEGER}
 	</select>
-	
+
 	<select id="getAllEmployInfo" resultMap="BaseResultMap">
 		select
-		<include refid="Base_Column_List"/>
+		<include refid="Base_Column_List" />
 		from employmentinfo order by sno
 	</select>
-		
-	
+
+
 	<!-- 列出所有的学生邮箱 -->
 	<select id="getAllEmail" resultMap="BaseResultMap">
-		select email from employmentinfo
+		select email from
+		employmentinfo
 	</select>
-	
-	
+
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -57,18 +60,21 @@
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.zhang.demo.model.EmploymentInfo">
-		insert into employmentinfo (id, sno, passport,
-		email, gowhere, companyName,
-		ccode, cproperties, ctrade,
-		location, jobtitle, contacts,
-		contactsPhone, cemail)
+		insert into employmentinfo (id, sno, major,
+		passport, email, gowhere, salary,
+		companyName, ccode, cproperties,
+		ctrade, location, jobtitle,
+		contacts, contactsPhone, cemail
+		)
 		values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER},
-		#{passport,jdbcType=CHAR},
-		#{email,jdbcType=CHAR}, #{gowhere,jdbcType=CHAR}, #{companyname,jdbcType=CHAR},
-		#{ccode,jdbcType=INTEGER}, #{cproperties,jdbcType=CHAR},
-		#{ctrade,jdbcType=CHAR},
-		#{location,jdbcType=CHAR}, #{jobtitle,jdbcType=CHAR}, #{contacts,jdbcType=CHAR},
-		#{contactsphone,jdbcType=CHAR}, #{cemail,jdbcType=CHAR})
+		#{major,jdbcType=CHAR},
+		#{passport,jdbcType=CHAR}, #{email,jdbcType=CHAR}, #{gowhere,jdbcType=CHAR},
+		#{salary,jdbcType=INTEGER},
+		#{companyname,jdbcType=CHAR}, #{ccode,jdbcType=INTEGER}, #{cproperties,jdbcType=CHAR},
+		#{ctrade,jdbcType=CHAR}, #{location,jdbcType=CHAR},
+		#{jobtitle,jdbcType=CHAR},
+		#{contacts,jdbcType=CHAR}, #{contactsphone,jdbcType=CHAR}, #{cemail,jdbcType=CHAR}
+		)
 	</insert>
 	<insert id="insertSelective" parameterType="com.zhang.demo.model.EmploymentInfo">
 		insert into employmentinfo
@@ -79,6 +85,9 @@
 			<if test="sno != null">
 				sno,
 			</if>
+			<if test="major != null">
+				major,
+			</if>
 			<if test="passport != null">
 				passport,
 			</if>
@@ -87,6 +96,9 @@
 			</if>
 			<if test="gowhere != null">
 				gowhere,
+			</if>
+			<if test="salary != null">
+				salary,
 			</if>
 			<if test="companyname != null">
 				companyName,
@@ -123,6 +135,9 @@
 			<if test="sno != null">
 				#{sno,jdbcType=INTEGER},
 			</if>
+			<if test="major != null">
+				#{major,jdbcType=CHAR},
+			</if>
 			<if test="passport != null">
 				#{passport,jdbcType=CHAR},
 			</if>
@@ -131,6 +146,9 @@
 			</if>
 			<if test="gowhere != null">
 				#{gowhere,jdbcType=CHAR},
+			</if>
+			<if test="salary != null">
+				#{salary,jdbcType=INTEGER},
 			</if>
 			<if test="companyname != null">
 				#{companyname,jdbcType=CHAR},
@@ -167,6 +185,9 @@
 			<if test="sno != null">
 				sno = #{sno,jdbcType=INTEGER},
 			</if>
+			<if test="major != null">
+				major = #{major,jdbcType=CHAR},
+			</if>
 			<if test="passport != null">
 				passport = #{passport,jdbcType=CHAR},
 			</if>
@@ -175,6 +196,9 @@
 			</if>
 			<if test="gowhere != null">
 				gowhere = #{gowhere,jdbcType=CHAR},
+			</if>
+			<if test="salary != null">
+				salary = #{salary,jdbcType=INTEGER},
 			</if>
 			<if test="companyname != null">
 				companyName = #{companyname,jdbcType=CHAR},
@@ -209,9 +233,11 @@
 	<update id="updateByPrimaryKey" parameterType="com.zhang.demo.model.EmploymentInfo">
 		update employmentinfo
 		set sno = #{sno,jdbcType=INTEGER},
+		major = #{major,jdbcType=CHAR},
 		passport = #{passport,jdbcType=CHAR},
 		email = #{email,jdbcType=CHAR},
 		gowhere = #{gowhere,jdbcType=CHAR},
+		salary = #{salary,jdbcType=INTEGER},
 		companyName = #{companyname,jdbcType=CHAR},
 		ccode = #{ccode,jdbcType=INTEGER},
 		cproperties = #{cproperties,jdbcType=CHAR},

@@ -7,17 +7,21 @@ public class EmploymentInfo implements Serializable {
 
     private Integer sno;
 
+    private String major;
+
     private String passport;
 
     private String email;
 
     private String gowhere;
 
+    private Integer salary;
+
     private String companyname;
 
     private Integer ccode;
 
-	private String cproperties;
+    private String cproperties;
 
     private String ctrade;
 
@@ -49,12 +53,20 @@ public class EmploymentInfo implements Serializable {
         this.sno = sno;
     }
 
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major == null ? null : major.trim();
+    }
+
     public String getPassport() {
         return passport;
     }
 
     public void setPassport(String passport) {
-        this.passport = passport;
+        this.passport = passport == null ? null : passport.trim();
     }
 
     public String getEmail() {
@@ -71,6 +83,14 @@ public class EmploymentInfo implements Serializable {
 
     public void setGowhere(String gowhere) {
         this.gowhere = gowhere == null ? null : gowhere.trim();
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
     }
 
     public String getCompanyname() {

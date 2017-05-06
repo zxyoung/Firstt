@@ -19,7 +19,7 @@ public interface EmploymentService {
     
     EmploymentInfo selectBySno(Integer sno);
     
-    List<String> getAllEmail();
+    List<EmploymentInfo> getAllEmail();
     
     List<EmploymentInfo> getAllEmployInfo();
 }

@@ -35,13 +35,9 @@
 					<div class="container">
 
 						<!-- Table -->
-
 						<div class="row">
-
 							<div class="col-md-12">
-
 								<div class="widget">
-
 									<div class="widget-head">
 										<div class="pull-left">Tables</div>
 										<div class="widget-icons pull-right">
@@ -68,7 +64,7 @@
 													<td><fmt:formatDate value="${notice.fbtime}"
 															pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
 													<td><a href="/firstt/admin/${notice.id}/noticeDetail"
-														target="_blank">详细信息</a></td>
+														target="display">详细信息</a></td>
 													<td><a onclick="firm()"
 														href="/firstt/admin/${notice.id}/deleteNotice">删除</a></td>
 													<tr />

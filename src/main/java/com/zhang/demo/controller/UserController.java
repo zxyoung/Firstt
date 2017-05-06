@@ -1,20 +1,9 @@
 package com.zhang.demo.controller;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.sun.mail.util.BASE64EncoderStream;
-import com.zhang.demo.model.User;
-import com.zhang.demo.service.UserService;
 
 @Controller
 @RequestMapping("/user")

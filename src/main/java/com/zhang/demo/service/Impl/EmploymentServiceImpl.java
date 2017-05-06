@@ -40,7 +40,7 @@ public class EmploymentServiceImpl implements EmploymentService{
 		return employmentInfoDao.updateByPrimaryKey(record);
 	}
 
-	public List<String> getAllEmail() {
+	public List<EmploymentInfo> getAllEmail() {
 		return employmentInfoDao.getAllEmail();
 	}
 

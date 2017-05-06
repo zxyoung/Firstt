@@ -26,6 +26,15 @@
 						value="${employ.sno}">
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="major">专业：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="major"
+						value="${employ.major}">
+				</div>
+			</div>
+			
 			<!-- Email -->
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="passport">身份证：</label>
@@ -59,6 +68,14 @@
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="companyname"
 						value="${employ.companyname}">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="salary">年薪(w)：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="salary"
+						value="${employ.salary}">
 				</div>
 			</div>
 

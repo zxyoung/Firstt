@@ -67,7 +67,7 @@
 												<td><fmt:formatDate value="${notice.fbtime}"
 														pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
 												<td><a href="/firstt/company/${notice.id}/noticeDetail"
-													target="_blank">详细信息</a></td>
+													target="display">详细信息</a></td>
 												<td><a onclick="firm()"
 													href="/firstt/company/${notice.id}/deleteNotice">删除</a></td>
 												<tr />
