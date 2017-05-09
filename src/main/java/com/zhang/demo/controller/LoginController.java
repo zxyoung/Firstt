@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.zhang.demo.MD5.MD5Utils;
+import com.zhang.demo.Utils.MD5Utils;
 import com.zhang.demo.model.Admin;
 import com.zhang.demo.model.Company;
 import com.zhang.demo.model.StuInfo;
@@ -86,7 +86,6 @@ public class LoginController {
 			model.addAttribute("company", company);
 			session.setAttribute("companySession", company);
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "companyLoginSuccess";
@@ -132,7 +131,6 @@ public class LoginController {
 			model.addAttribute("admin", "admin");
 			session.setAttribute("adminSession", admin);
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "adminLoginSuccess";
@@ -183,7 +181,6 @@ public class LoginController {
 			model.addAttribute("stuInfo", stuInfo);
 			session.setAttribute("stu", stuInfo);
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "stuLoginSuccess";

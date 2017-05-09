@@ -1,4 +1,4 @@
-package com.zhang.demo.UtilEmail;
+package com.zhang.demo.Utils;
 
 import java.util.Properties;
 

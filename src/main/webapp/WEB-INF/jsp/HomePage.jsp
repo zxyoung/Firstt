@@ -135,7 +135,8 @@
 					2、吃苦耐劳，性格开朗大方，良好的沟通表达能力； 3、较强的学习和分析能力，对市场有敏锐洞察力； 4、讲求个人信誉，恪守职业道德。 Ø
 					需求专业： 金融类、理工科类专业...</p>
 				<p>
-					<a class="btn" href="#">View details »</a>
+					<a class="btn" href="/firstt/admin/26/noticeDetail" target="_blank">View
+						details »</a>
 				</p>
 			</div>
 			<div class="col-md-4 column">
@@ -146,7 +147,8 @@
 					1、负责对股票市场主流趋势，热点，主题投资策略分析； 2、建立个人模拟股票池并对相关收益进行分析；
 					3、分析、推荐股票，消息面汇总，建议操作方案并模拟实施； 4、按时保质完成公司的工作计划，服从公司的相关安排...</p>
 				<p>
-					<a class="btn" href="#">View details »</a>
+					<a class="btn" href="/firstt/admin/25/noticeDetail" target="_blank">View
+						details »</a>
 				</p>
 			</div>
 			<div class="col-md-4 column">
@@ -156,7 +158,8 @@
 					岗位要求： 1.全日制大学本科及以上学历； 2.专业符合岗位要求； 3.形象气质较好，沟通能力强，有一定的创新能力；
 					4.能熟练运用各类办公软件</p>
 				<p>
-					<a class="btn" href="#">View details »</a>
+					<a class="btn" href="/firstt/admin/24/noticeDetail" target="_blank">View
+						details »</a>
 				</p>
 			</div>
 		</div>

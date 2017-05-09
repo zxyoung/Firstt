@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.zhang.demo.MD5.MD5Utils;
-import com.zhang.demo.UtilEmail.MailSenderInfo;
-import com.zhang.demo.UtilEmail.SimpleMailSender;
+import com.zhang.demo.Utils.MD5Utils;
+import com.zhang.demo.Utils.MailSenderInfo;
+import com.zhang.demo.Utils.SimpleMailSender;
 import com.zhang.demo.model.Company;
 import com.zhang.demo.model.EmploymentInfo;
 import com.zhang.demo.model.Notes;
@@ -49,47 +49,46 @@ public class AdminController {
 
 	@Autowired
 	NoticeService noticeService;
-	
+
 	@Autowired
 	ResumeService resumeService;
-	
+
 	@Autowired
 	EmploymentService employmentService;
-	
+
 	@Autowired
 	NotesService notesService;
-	
-	
-	@RequestMapping(value="/chars")
-	public String Echars1(){
+
+	@RequestMapping(value = "/chars")
+	public String Echars1() {
 		return "Echars1";
 	}
-	
-	
+
 	/*************************************** 公告操作 *********************************************/
-	
-	@RequestMapping(value="/createNotes")
-	public String createNotes(){
+
+	@RequestMapping(value = "/createNotes")
+	public String createNotes() {
 		return "addNotes";
 	}
-	
+
 	/**
 	 * 增加公告
+	 * 
 	 * @param model
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="/addNotes")
-	public String addNotes(Model model, HttpServletRequest request){
+	@RequestMapping(value = "/addNotes")
+	public String addNotes(Model model, HttpServletRequest request) {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		Notes notes = new Notes();
-		
+
 		notes.setTitle(title);
 		notes.setContent(content);
 		notes.setTime(new Date());
 		int addNotes = notesService.insert(notes);
-		
+
 		if (addNotes != 1) {
 			System.out.println("error");
 			System.out.println(addNotes);
@@ -98,30 +97,32 @@ public class AdminController {
 		System.out.println("success");
 		return "redirect:/admin/listAllNotes";
 	}
-	
+
 	/**
 	 * 列出所有公告
+	 * 
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/listAllNotes")
-	public String getAllNotes(Model model){
+	@RequestMapping(value = "/listAllNotes")
+	public String getAllNotes(Model model) {
 		List<Notes> list = notesService.getAllNotes();
-		if(list == null){
+		if (list == null) {
 			return "跳向相应错误处理页面";
 		}
 		model.addAttribute("list", list);
 		return "notes";
 	}
-	
+
 	/**
 	 * 查看公告信息信息
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/{id}/notesDetail")
-	public String detailNotes(@PathVariable("id") Integer id, Model model){
+	@RequestMapping(value = "/{id}/notesDetail")
+	public String detailNotes(@PathVariable("id") Integer id, Model model) {
 		Notes notes = notesService.selectByPrimaryKey(id);
 		if (notes != null) {
 			model.addAttribute("notes", notes);
@@ -129,9 +130,10 @@ public class AdminController {
 		}
 		return "跳向错误处理页面";
 	}
-	
+
 	/**
 	 * 删除公告
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -146,38 +148,39 @@ public class AdminController {
 		}
 		return "redirect:/admin/listAllNotes";
 	}
-	
-	
+
 	/*************************************** 学生就业信息操作 *********************************************/
-	
-	@RequestMapping(value="/about")
-	public String getAbout(){
+
+	@RequestMapping(value = "/about")
+	public String getAbout() {
 		return "about";
 	}
-	
+
 	/**
 	 * 列出所有的就业信息
+	 * 
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/listEmploymentInfo")
-	public String getAllEmploymentInfo(Model model){
+	@RequestMapping(value = "/listEmploymentInfo")
+	public String getAllEmploymentInfo(Model model) {
 		List<EmploymentInfo> list = employmentService.getAllEmployInfo();
-		if(list == null){
+		if (list == null) {
 			return "跳向相应错误处理页面";
 		}
 		model.addAttribute("list", list);
 		return "listEmploymentInfo";
 	}
-	
+
 	/**
 	 * 查看详细就业信息
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/{id}/employmentDetail")
-	public String detailEmployment(@PathVariable("id") Integer id, Model model){
+	@RequestMapping(value = "/{id}/employmentDetail")
+	public String detailEmployment(@PathVariable("id") Integer id, Model model) {
 		EmploymentInfo employmentInfo = employmentService.selectByPrimaryKey(id);
 		if (employmentInfo != null) {
 			model.addAttribute("employ", employmentInfo);
@@ -185,53 +188,49 @@ public class AdminController {
 		}
 		return "跳向错误处理页面";
 	}
-	
+
 	/**
 	 * 发送通知邮件
 	 */
-	@RequestMapping(value="/sendEmail")
-	public String sendEmail(){
-		
+	@RequestMapping(value = "/sendEmail")
+	public String sendEmail() {
+
 		List<String> mail = new ArrayList<String>();
-		
+
 		String username = "15664646679@163.com";
 		String password = "woshi2k10";
 
 		String subject = "邮箱提醒：来自学校的一封邮件11";
 
 		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn</a>更新就业信息(若无，则忽略此邮件)";
-		//To-Do
+		// To-Do
 		List<EmploymentInfo> emailList = employmentService.getAllEmail();
-		
+
 		for (EmploymentInfo it : emailList) {
 			mail.add(it.getEmail());
-//			System.out.println(it.getEmail());
+			// System.out.println(it.getEmail());
 		}
 
-		
 		MailSenderInfo mailInfo = new MailSenderInfo();
 		mailInfo.setMailServerHost("smtp.163.com");
 		mailInfo.setMailServerPort("25");
 		mailInfo.setValidate(true);
 		mailInfo.setUserName(username);
-		mailInfo.setPassword(password); //邮箱密码
+		mailInfo.setPassword(password); // 邮箱密码
 		mailInfo.setFromAddress(username);
 		mailInfo.setSubject(subject);
 		mailInfo.setContent(context);
 		SimpleMailSender sms = new SimpleMailSender();
-		
-		//设置群发邮件，此处需加一个循环
+
+		// 设置群发邮件，此处需加一个循环
 		mailInfo.setToAddress("359176585@qq.com");
 		// 这个类主要来发送邮件
 		sms.sendTextMail(mailInfo);// 发送文体格式
-//		sms.sendHtmlMail(mailInfo);// 发送html格式
-		
-		
+		// sms.sendHtmlMail(mailInfo);// 发送html格式
+
 		System.out.println("123");
 		return "adminLoginSuccess";
 	}
-	
-	
 
 	/*************************************** 企业信息操作 *********************************************/
 
@@ -253,6 +252,7 @@ public class AdminController {
 
 	/**
 	 * 查看招聘信息
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -346,40 +346,43 @@ public class AdminController {
 	}
 
 	/*************************************** 学生信息操作 *********************************************/
-	
+
 	/**
 	 * 获得所有简历
+	 * 
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/listResume")
-	public String getAllResume(Model model){
+	@RequestMapping(value = "/listResume")
+	public String getAllResume(Model model) {
 		List<Resume> list = resumeService.getAllResume();
 		model.addAttribute("list", list);
 		return "listResume";
 	}
-	
+
 	/**
 	 * 查看简历详细信息
+	 * 
 	 * @param id
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/{id}/resumeDetail") 
-	public String getResumeDetail(@PathVariable("id") Integer id, Model model){
+	@RequestMapping(value = "/{id}/resumeDetail")
+	public String getResumeDetail(@PathVariable("id") Integer id, Model model) {
 		Resume resume = resumeService.selectByPrimaryKey(id);
-		
+
 		model.addAttribute("resume", resume);
 		return "detailResume";
 	}
-	
+
 	/**
 	 * 删除简历
+	 * 
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value="/{id}/deleteResume")
-	public String deleteResume(@PathVariable("id") Integer id){
+	@RequestMapping(value = "/{id}/deleteResume")
+	public String deleteResume(@PathVariable("id") Integer id) {
 		if (id == null) {
 			return "error";
 		}
@@ -389,7 +392,7 @@ public class AdminController {
 		}
 		return "redirect:/admin/listResume";
 	}
-	
+
 	/**
 	 * 查看所有学生信息
 	 * 
@@ -421,17 +424,17 @@ public class AdminController {
 		return "detailStuInfo";
 	}
 
-
 	/**
 	 * 管理员修改学生信息
 	 * 
 	 * @param request
 	 * @param id
 	 * @return
-	 * @throws NoSuchAlgorithmException 
+	 * @throws NoSuchAlgorithmException
 	 */
-	@RequestMapping(value="/{id}/update")
-	String updateStuInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model) throws NoSuchAlgorithmException {
+	@RequestMapping(value = "/{id}/update")
+	String updateStuInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model)
+			throws NoSuchAlgorithmException {
 		// To-do
 		// 用Request 接受参数，构造StuInfo实体，然后进行更新操作
 		StuInfo stuInfo = new StuInfo();
@@ -439,9 +442,9 @@ public class AdminController {
 		String sex = request.getParameter("sex");
 		Integer sno = Integer.parseInt(request.getParameter("sno").trim());
 		String password = request.getParameter("password");
-		
+
 		String tmp = MD5Utils.getMD5password(password);
-		
+
 		String major = request.getParameter("major");
 		String origin = request.getParameter("origin");
 		Integer entry_year = Integer.parseInt(request.getParameter("entry_year").trim());
@@ -479,9 +482,9 @@ public class AdminController {
 	public String Index() {
 		return "addStuAccount";
 	}
-	
-	@RequestMapping(value="/searchBySno")
-	public String search(){
+
+	@RequestMapping(value = "/searchBySno")
+	public String search() {
 		return "search";
 	}
 

@@ -1,4 +1,4 @@
-package com.zhang.demo.UtilEmail;
+package com.zhang.demo.Utils;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;

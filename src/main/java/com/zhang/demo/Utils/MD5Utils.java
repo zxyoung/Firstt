@@ -1,4 +1,4 @@
-package com.zhang.demo.MD5;
+package com.zhang.demo.Utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -29,12 +29,11 @@ public class MD5Utils {
 		// System.out.println("32位: " + buf.toString());// 32位的加密
 		return buf.toString();
 	}
-	
-	public static void main(String[] args) throws NoSuchAlgorithmException {
-		String tmp = getMD5password("123456");
-		if(tmp.equals(getMD5password("123456"))){
-			System.out.println("YES");
-		}
-		System.out.println(tmp);
-	}
+
+	/*
+	 * public static void main(String[] args) throws NoSuchAlgorithmException {
+	 * String tmp = getMD5password("123456");
+	 * if(tmp.equals(getMD5password("123456"))){ System.out.println("YES"); }
+	 * System.out.println(tmp); }
+	 */
 }
