@@ -5,12 +5,30 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script
-	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+<!-- 新 Bootstrap 核心 CSS 文件 -->
+<link
+	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- 可选的Bootstrap主题文件（一般不使用） -->
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script
+	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script
+	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>公司界面</title>
@@ -134,26 +152,23 @@
 						<ul id="systemSetting" class="nav nav-list collapse secondmenu"
 							style="height: 0px;">
 							<li class="active"><a
-								href="/firstt/company/${company.id}/companyInfo" target="display"><i
-									class="glyphicon glyphicon-user"></i>
+								href="/firstt/company/${company.id}/companyInfo"
+								target="display"><i class="glyphicon glyphicon-user"></i>
 									${sessionScope.companySession.cname }</a></li>
-							<li><a href="#"><i class="glyphicon glyphicon-th-list"></i>
-									菜单管理</a></li>
-							<li><a href="#"><i class="glyphicon glyphicon-asterisk"></i>
-									角色管理</a></li>
-							<li><a href="/firstt/company/${company.id}/companyInfo" target="display"><i
-									class="glyphicon glyphicon-edit"></i> 修改信息</a></li>
-							<li><a href="#"><i class="glyphicon glyphicon-eye-open"></i>
-									日志查看</a></li>
+							<li><a href="/firstt/company/${company.id}/companyInfo"
+								target="display"><i class="glyphicon glyphicon-edit"></i>
+									修改信息</a></li>
 						</ul></li>
-					<li><a href="/firstt/company/${company.code}/addNotice" target="display"> <i
-							class="glyphicon glyphicon-credit-card"></i> 发布招聘信息
+					<li><a href="/firstt/company/${company.code}/addNotice"
+						target="display"> <i class="glyphicon glyphicon-credit-card"></i>
+							发布招聘信息
 					</a></li>
-					<li><a href="/firstt/company/${company.code}/detailNotice" target="display">
-							<i class="glyphicon glyphicon-globe"></i> 查看招聘信息
+					<li><a href="/firstt/company/${company.code}/detailNotice"
+						target="display"> <i class="glyphicon glyphicon-globe"></i>
+							查看招聘信息
 					</a></li>
-					<li><a href="/firstt/admin/listAllNotes" target="display"> <i
-							class="glyphicon glyphicon-calendar"></i> 系统公告
+					<li><a href="/firstt/admin/listAllNotes" target="display">
+							<i class="glyphicon glyphicon-calendar"></i> 系统公告
 					</a></li>
 					<li><a href="####"> <i class="glyphicon glyphicon-fire"></i>
 							关于系统

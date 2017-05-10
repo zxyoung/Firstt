@@ -202,15 +202,13 @@ public class AdminController {
 
 		String subject = "邮箱提醒：来自学校的一封邮件11";
 
-		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn</a>更新就业信息(若无，则忽略此邮件)";
+		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn </a>更新就业信息(若无，则忽略此邮件)";
 		// To-Do
 		List<EmploymentInfo> emailList = employmentService.getAllEmail();
 
 		for (EmploymentInfo it : emailList) {
 			mail.add(it.getEmail());
-			// System.out.println(it.getEmail());
 		}
-
 		MailSenderInfo mailInfo = new MailSenderInfo();
 		mailInfo.setMailServerHost("smtp.163.com");
 		mailInfo.setMailServerPort("25");
