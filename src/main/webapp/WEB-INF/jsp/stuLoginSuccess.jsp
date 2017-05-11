@@ -162,7 +162,7 @@
 						target="display"> <i class="glyphicon glyphicon-globe"></i>
 							就业信息
 					</a></li> --%>
-					<li><a href="/firstt/admin/listAllNotes" target="display">
+					<li><a href="/firstt/student/listAllNotes" target="display">
 							<i class="glyphicon glyphicon-calendar"></i> 系统公告
 					</a></li>
 					<li><a href="########"> <i

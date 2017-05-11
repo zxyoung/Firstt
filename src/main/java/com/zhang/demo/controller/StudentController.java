@@ -1,7 +1,10 @@
 package com.zhang.demo.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zhang.demo.model.EmploymentInfo;
+import com.zhang.demo.model.Notes;
 import com.zhang.demo.model.Resume;
 import com.zhang.demo.model.StuInfo;
-import com.zhang.demo.model.EmploymentInfo;
 import com.zhang.demo.service.EmploymentService;
+import com.zhang.demo.service.NotesService;
 import com.zhang.demo.service.ResumeService;
 import com.zhang.demo.service.StuService;
 
@@ -25,9 +30,12 @@ public class StudentController {
 
 	@Autowired
 	ResumeService resumeService;
-	
+
 	@Autowired
 	EmploymentService employmentService;
+	
+	@Autowired
+	NotesService notesService;
 
 	/**
 	 * 按id查看详细信息
@@ -43,6 +51,22 @@ public class StudentController {
 		model.addAttribute("stuInfo", stuInfo);
 
 		return "detailStuInfo";
+	}
+
+	/**
+	 * 列出所有公告
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/listAllNotes")
+	public String getAllNotes(Model model) {
+		List<Notes> list = notesService.getAllNotes();
+		if (list == null) {
+			return "跳向相应错误处理页面";
+		}
+		model.addAttribute("list", list);
+		return "notes_stu";
 	}
 
 	/**
@@ -109,12 +133,12 @@ public class StudentController {
 
 	/**
 	 * 修改简历
-	 *  
-	 * @param request	
-	 * @param model		
+	 * 
+	 * @param request
+	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/{id}/updateResume",method=RequestMethod.POST)
+	@RequestMapping(value = "/{id}/updateResume", method = RequestMethod.POST)
 	public String updateResume(@PathVariable("id") Integer id, HttpServletRequest request) {
 		String name = request.getParameter("name");
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
@@ -161,39 +185,38 @@ public class StudentController {
 	public String deleteResumeById(@PathVariable("id") Integer id) {
 		int flag = resumeService.deleteByPrimaryKey(id);
 		if (flag != 1) {
-			//To-Do
+			// To-Do
 			return "errorPage";
 		}
 		return "newResume";
 	}
-	
-	
+
 	/**
 	 * 根据学号sno查看就业信息
+	 * 
 	 * @param sno
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/{sno}/EmploymentInfo")
-	public String EmploymentInfo(@PathVariable("sno") Integer sno, Model model){
+	@RequestMapping(value = "/{sno}/EmploymentInfo")
+	public String EmploymentInfo(@PathVariable("sno") Integer sno, Model model) {
 		EmploymentInfo info = employmentService.selectBySno(sno);
-		
-		if(info == null){
+
+		if (info == null) {
 			System.out.println("error!");
 			return "newEmploy";
 		}
 		model.addAttribute("employ", info);
 		return "detailEmployment";
 	}
-	
-	
-	@RequestMapping(value="/addEmploymentInfo")
-	public String addNewEmploymentInfo(HttpServletRequest request, HttpSession session){
+
+	@RequestMapping(value = "/addEmploymentInfo")
+	public String addNewEmploymentInfo(HttpServletRequest request, HttpSession session) {
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
 		String passport = request.getParameter("passport");
 		String major = request.getParameter("major");
 		Integer salary = Integer.parseInt(request.getParameter("salary"));
-		String  email = request.getParameter("email").trim();
+		String email = request.getParameter("email").trim();
 		String gowhere = request.getParameter("gowhere");
 		String companyname = request.getParameter("companyname").trim();
 		Integer ccode = Integer.parseInt(request.getParameter("ccode"));
@@ -204,7 +227,7 @@ public class StudentController {
 		String contacts = request.getParameter("contacts");
 		String contactsphone = request.getParameter("contactsphone");
 		String cemail = request.getParameter("cemail");
-		
+
 		EmploymentInfo info = new EmploymentInfo();
 		info.setSno(sno);
 		info.setPassport(passport);
@@ -221,28 +244,28 @@ public class StudentController {
 		info.setContacts(contacts);
 		info.setContactsphone(contactsphone);
 		info.setCemail(cemail);
-		
+
 		int flag = employmentService.insert(info);
-		if(flag != 1){
+		if (flag != 1) {
 			System.out.println("insert error!");
 			return "errorPage";
 		}
-		
+
 		return "redirect:/student/" + sno + "/EmploymentInfo";
 	}
-	
-	
+
 	/**
 	 * 更新就业信息
+	 * 
 	 * @param id
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="/{id}/updateEmployInfo",method=RequestMethod.POST)
-	public String updateEmploymentInfo(@PathVariable("id") Integer id, HttpServletRequest request){
+	@RequestMapping(value = "/{id}/updateEmployInfo", method = RequestMethod.POST)
+	public String updateEmploymentInfo(@PathVariable("id") Integer id, HttpServletRequest request) {
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
 		String passport = request.getParameter("passport");
-		String  email = request.getParameter("email").trim();
+		String email = request.getParameter("email").trim();
 		String gowhere = request.getParameter("gowhere");
 		String companyname = request.getParameter("companyname").trim();
 		Integer ccode = Integer.parseInt(request.getParameter("ccode"));
@@ -253,7 +276,7 @@ public class StudentController {
 		String contacts = request.getParameter("contacts");
 		String contactsphone = request.getParameter("contactsphone");
 		String cemail = request.getParameter("cemail");
-		
+
 		EmploymentInfo info = new EmploymentInfo();
 		info.setId(id);
 		info.setSno(sno);
@@ -269,12 +292,12 @@ public class StudentController {
 		info.setContacts(contacts);
 		info.setContactsphone(contactsphone);
 		info.setCemail(cemail);
-		
+
 		int flag = employmentService.updateByPrimaryKey(info);
-		if(flag != 1){
+		if (flag != 1) {
 			return "errorPage";
 		}
-		
+
 		return "redirect:/student/" + sno + "/EmploymentInfo";
 	}
 

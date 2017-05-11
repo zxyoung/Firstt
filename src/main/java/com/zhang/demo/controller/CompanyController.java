@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zhang.demo.Utils.MD5Utils;
 import com.zhang.demo.model.Company;
+import com.zhang.demo.model.Notes;
 import com.zhang.demo.model.Notice;
 import com.zhang.demo.service.CompanyService;
+import com.zhang.demo.service.NotesService;
 import com.zhang.demo.service.NoticeService;
 
 @Controller
@@ -28,6 +30,9 @@ public class CompanyController {
 
 	@Autowired
 	NoticeService noticeService;
+
+	@Autowired
+	NotesService notesService;
 
 	/**
 	 * 跳转到注册页面
@@ -50,6 +55,22 @@ public class CompanyController {
 	public String addNotice(HttpServletRequest request, @PathVariable("code") Integer code, Model model) {
 		model.addAttribute("code", code);
 		return "addNotice";
+	}
+
+	/**
+	 * 列出所有公告
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/listAllNotes")
+	public String getAllNotes(Model model) {
+		List<Notes> list = notesService.getAllNotes();
+		if (list == null) {
+			return "跳向相应错误处理页面";
+		}
+		model.addAttribute("list", list);
+		return "notes_stu";
 	}
 
 	/**
@@ -98,18 +119,18 @@ public class CompanyController {
 		if (code == null) {
 			return "跳向错误处理页面";
 		}
-		List<Notice> list = noticeService.selectByCode(code); 
+		List<Notice> list = noticeService.selectByCode(code);
 		if (list != null) {
 			model.addAttribute("list", list);
 			return "listCompanyNotice";
 		}
 		return "跳向错误处理页面";
 	}
-	
-	@RequestMapping(value="/{id}/noticeDetail")
-	public String detialNotice(@PathVariable("id") Integer id, Model model){
+
+	@RequestMapping(value = "/{id}/noticeDetail")
+	public String detialNotice(@PathVariable("id") Integer id, Model model) {
 		Notice notice = noticeService.selectByPrimaryKey(id);
-		if(notice != null){
+		if (notice != null) {
 			model.addAttribute("notice", notice);
 			return "NoticeInfo";
 		}
@@ -117,7 +138,7 @@ public class CompanyController {
 	}
 
 	/**
-	 * 删除招聘信息      **************************跳转有错误**************************
+	 * 删除招聘信息 **************************跳转有错误**************************
 	 * 
 	 * @param id
 	 * @return
@@ -141,16 +162,17 @@ public class CompanyController {
 	 * @param id
 	 * @param model
 	 * @return
-	 * @throws NoSuchAlgorithmException 
+	 * @throws NoSuchAlgorithmException
 	 */
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-	public String updateCompanyInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model) throws NoSuchAlgorithmException {
+	public String updateCompanyInfo(HttpServletRequest request, @PathVariable("id") Integer id, Model model)
+			throws NoSuchAlgorithmException {
 
 		String cname = request.getParameter("cname");
 		String password = request.getParameter("password");
-		
+
 		String tmp = MD5Utils.getMD5password(password);
-		
+
 		String location = request.getParameter("location");
 		Long phone = Long.parseLong(request.getParameter("phone").trim());
 		String property = request.getParameter("property");
@@ -211,16 +233,16 @@ public class CompanyController {
 	 * 
 	 * @param request
 	 * @return
-	 * @throws NoSuchAlgorithmException 
+	 * @throws NoSuchAlgorithmException
 	 */
 	@RequestMapping(value = "/register")
 	public String companyRegister(HttpServletRequest request) throws NoSuchAlgorithmException {
 
 		String cname = request.getParameter("cname");
 		String password = request.getParameter("password");
-		
+
 		String tmp = MD5Utils.getMD5password(password);
-		
+
 		String location = request.getParameter("location");
 		Long phone = Long.parseLong(request.getParameter("phone"));
 		String property = request.getParameter("property");

@@ -54,7 +54,6 @@
 												<tr>
 													<th>标题</th>
 													<th>创建时间</th>
-													<th>详细信息</th>
 													<th>操作</th>
 												</tr>
 											</thead>
@@ -64,8 +63,7 @@
 													<td><fmt:formatDate value="${notice.fbtime}"
 															pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
 													<td><a href="/firstt/admin/${notice.id}/noticeDetail"
-														target="display">详细信息</a></td>
-													<td><a onclick="firm()"
+														target="display">详细信息</a> | <a onclick="firm()"
 														href="/firstt/admin/${notice.id}/deleteNotice">删除</a></td>
 													<tr />
 												</c:forEach>

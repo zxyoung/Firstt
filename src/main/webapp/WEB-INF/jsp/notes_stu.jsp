@@ -4,16 +4,14 @@
 <%@ include file="common/tag.jsp"%>
 <html>
 <head>
-<title>招聘信息列表页</title>
+<title>注册公司信息</title>
 <%@include file="common/head.jsp"%>
 
 <script type="text/javascript">
-	//	function show() {
-	//		window.open('addUser.jsp');
-	//	}
 	function hide() {
 		document.getElementById("pic").style.visibility = "hidden";
 	}
+
 	function firm() {
 		if (confirm("是否要刪除该条信息?")) {
 			location.href = "/firstt/admin/${company.id}/deleteCompany";
@@ -27,7 +25,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">
-				<h2 align="center">公司招聘信息</h2>
+				<h2 align="center">公告消息</h2>
 			</div>
 
 			<div class="matter">
@@ -42,7 +40,7 @@
 							<div class="widget">
 
 								<div class="widget-head">
-									<div class="pull-left">Tables</div>
+									<div class="pull-left"></div>
 									<div class="widget-icons pull-right">
 										<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
 										<a href="#" class="wclose"><i class="icon-remove"></i></a>
@@ -56,30 +54,35 @@
 										<thead>
 											<tr>
 												<th>标题</th>
-												<th>创建时间</th>
+												<th>公告内容</th>
+												<th>发布时间</th>
 												<th>操作</th>
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="notice" items="${list}">
-												<td>${notice.title}</td>
-												<td><fmt:formatDate value="${notice.fbtime}"
+											<c:forEach var="notes" items="${list}">
+												<td>${notes.title}</td>
+												<td>${notes.content}</td>
+												<td><fmt:formatDate value="${notes.time}"
 														pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
-												<td><a href="/firstt/company/${notice.id}/noticeDetail"
-													target="display">详细信息</a> | <a onclick="firm()"
-													href="/firstt/company/${notice.id}/deleteNotice">删除</a></td>
+												<td><a href="/firstt/admin/${notes.id}/notesDetail"
+													target="display">详细信息</a>
+												<%--  | <a onclick="firm()"
+													href="/firstt/admin/${notes.id}/deleteNotes">删除</a> --%></td>
 												<tr />
 											</c:forEach>
 										</tbody>
 									</table>
 
 									<div class="widget-foot">
+
+
 										<ul class="pagination pull-right">
 											<li><a href="#">Prev</a></li>
 											<li><a href="#">1</a></li>
-											<!-- 			<li><a href="#">2</a></li>
+											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li> -->
+											<li><a href="#">4</a></li>
 											<li><a href="#">Next</a></li>
 										</ul>
 										<div class="clearfix"></div>
@@ -91,29 +94,6 @@
 				</div>
 			</div>
 
-
-			<%-- 	<div class="panel-body">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>标题</th>
-							<th>创建时间</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="notice" items="${list}">
-							<td>${notice.title}</td>
-							<td>
-									<fmt:formatDate value="${notice.fbtime}" type="both" /></td>
-							<td><a class="btn btn-info"
-								href="/firstt/company/${notice.id}/noticeDetail" target="_blank">详细信息</a></td>
-							<td><a class="btn btn-info" onclick="firm()"
-								href="/firstt/company/${notice.id}/deleteNotice">删除</a></td>
-							<tr />
-						</c:forEach>
-					</tbody>
-				</table>
-			</div> --%>
 		</div>
 	</div>
 </body>

@@ -167,7 +167,7 @@
 						target="display"> <i class="glyphicon glyphicon-globe"></i>
 							查看招聘信息
 					</a></li>
-					<li><a href="/firstt/admin/listAllNotes" target="display">
+					<li><a href="/firstt/company/listAllNotes" target="display">
 							<i class="glyphicon glyphicon-calendar"></i> 系统公告
 					</a></li>
 					<li><a href="####"> <i class="glyphicon glyphicon-fire"></i>
