@@ -203,12 +203,14 @@ public class AdminController {
 		String subject = "邮箱提醒：来自学校的一封邮件11";
 
 		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn </a>更新就业信息(若无，则忽略此邮件)";
-		// To-Do
+		
+		// TODO 此处获得邮件地址的List
 		List<EmploymentInfo> emailList = employmentService.getAllEmail();
 
 		for (EmploymentInfo it : emailList) {
 			mail.add(it.getEmail());
 		}
+		
 		MailSenderInfo mailInfo = new MailSenderInfo();
 		mailInfo.setMailServerHost("smtp.163.com");
 		mailInfo.setMailServerPort("25");
@@ -220,13 +222,15 @@ public class AdminController {
 		mailInfo.setContent(context);
 		SimpleMailSender sms = new SimpleMailSender();
 
-		// 设置群发邮件，此处需加一个循环
+		// TODO 设置群发邮件，此处需加如下一个循环
+		// for (String mailItem : mail) {
+		// 		mailInfo.setToAddress(mailItem);
+		//		sms.sendTextMail(mailInfo);
+		// }
 		mailInfo.setToAddress("359176585@qq.com");
 		// 这个类主要来发送邮件
 		sms.sendTextMail(mailInfo);// 发送文体格式
 		// sms.sendHtmlMail(mailInfo);// 发送html格式
-
-		System.out.println("123");
 		return "adminLoginSuccess";
 	}
 
