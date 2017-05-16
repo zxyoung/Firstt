@@ -1,5 +1,6 @@
 package com.zhang.demo.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -156,6 +157,35 @@ public class AdminController {
 		return "about";
 	}
 
+	/**
+	 * 多条件查找
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	@RequestMapping(value="testList")
+	public String getAllEmploymentInfoWithOptions(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
+		
+		
+		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
+		String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8"); 
+		String gra_Year = new String(request.getParameter("graYear").getBytes("iso-8859-1"), "utf-8"); 
+		Integer graYear;
+		if (gra_Year == null || gra_Year.equals(0)) {
+			graYear = -1;
+		}else {
+			graYear = Integer.parseInt(gra_Year);
+		}
+		
+		List<EmploymentInfo> list = employmentService.testList(name, major, graYear);
+		
+		model.addAttribute("list", list);
+		
+		return "listEmploymentInfo";
+	}
+	
+	
 	/**
 	 * 列出所有的就业信息
 	 * 

@@ -21,11 +21,10 @@
 				<a class="navbar-brand" href="#">筛选条件</a>
 			</div>
 			<div>
-				<form action="/firstt/admin/testList"
-					class="navbar-form navbar-left" role="search">
+				<form action="/firstt/admin/testList" class="navbar-form navbar-left" role="search">
 					<div class="form-group">
 						<select name="graYear" class="form-control">
-							<option value="-1">选择毕业年份...</option>
+							<option value="null">选择毕业年份...</option>
 							<option>2014</option>
 							<option>2015</option>
 							<option>2016</option>
@@ -34,8 +33,8 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<select name="major" class="form-control">
-							<option value="">选择专业...</option>
+						 <select name="major" class="form-control">
+							<option value="null">选择专业...</option>
 							<option>计科</option>
 							<option>网络</option>
 							<option>软工</option>
@@ -60,44 +59,46 @@
 
 			<div class="matter">
 				<div class="container">
-					<div class="col-md-12">
-						<div class="widget">
-							<div class="widget-head">
-								<div class="pull-left"></div>
-								<div class="widget-icons pull-right">
-									<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-									<a href="#" class="wclose"><i class="icon-remove"></i></a>
+					<!-- Table -->
+					<div class="row">
+						<div class="col-md-12">
+							<div class="widget">
+								<div class="widget-head">
+									<div class="pull-left"></div>
+									<div class="widget-icons pull-right">
+										<a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+										<a href="#" class="wclose"><i class="icon-remove"></i></a>
+									</div>
+									<div class="clearfix"></div>
 								</div>
-								<div class="clearfix"></div>
-							</div>
 
-							<div class="widget-content">
+								<div class="widget-content">
 
-								<table class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th>姓名</th>
-											<th>学号</th>
-											<th>专业</th>
-											<th>毕业年份</th>
-											<th>年薪(w)</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="employment" items="${list}">
-											<td>${employment.name}</td>
-											<td>${employment.sno}</td>
-											<td>${employment.major}</td>
-											<td>${employment.graYear}</td>
-											<td>${employment.salary}</td>
-											<td><a
-												href="/firstt/admin/${employment.id}/employmentDetail"
-												target="_blank">详细信息</a></td>
-											<tr />
-										</c:forEach>
-									</tbody>
-								</table>
-								<!-- 	<div class="widget-foot">
+									<table class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th>姓名</th>
+												<th>学号</th>
+												<th>专业</th>
+												<th>毕业年份</th>
+												<th>年薪(w)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="employment" items="${list}">
+												<td>${employment.name}</td>
+												<td>${employment.sno}</td>
+												<td>${employment.major}</td>
+												<td>${employment.graYear}</td>
+												<td>${employment.salary}</td>
+												<td><a
+													href="/firstt/admin/${employment.id}/employmentDetail"
+													target="_blank">详细信息</a></td>
+												<tr />
+											</c:forEach>
+										</tbody>
+									</table>
+									<div class="widget-foot">
 										<ul class="pagination pull-right">
 											<li><a href="#">Prev</a></li>
 											<li><a href="#">1</a></li>
@@ -107,7 +108,8 @@
 											<li><a href="#">Next</a></li>
 										</ul>
 										<div class="clearfix"></div>
-									</div> -->
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

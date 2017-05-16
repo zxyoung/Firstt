@@ -20,13 +20,20 @@
 			<!-- Registration form starts -->
 			<!-- Name -->
 			<div class="form-group">
+				<label class="control-label col-lg-3" for="sno">姓名：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="sno"
+						value="${employ.name}">
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="control-label col-lg-3" for="sno">学号：</label>
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="sno"
 						value="${employ.sno}">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="major">专业：</label>
 				<div class="col-lg-9">
@@ -34,7 +41,14 @@
 						value="${employ.major}">
 				</div>
 			</div>
-			
+				<div class="form-group">
+				<label class="control-label col-lg-3" for="major">毕业年份：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="major"
+						value="${employ.graYear}">
+				</div>
+			</div>
+
 			<!-- Email -->
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="passport">身份证：</label>
@@ -70,7 +84,7 @@
 						value="${employ.companyname}">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="salary">年薪(w)：</label>
 				<div class="col-lg-9">

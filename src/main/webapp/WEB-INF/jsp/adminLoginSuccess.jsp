@@ -152,7 +152,7 @@
 							<li class="active"><a href="#"><i
 									class="glyphicon glyphicon-user"></i>
 									${sessionScope.adminSession.username}</a></li>
-							<li><a href="/firstt/admin/listStuAccount" target="display"><i
+							<li><a href="/firstt/admin/listStuInfo" target="display"><i
 									class="glyphicon glyphicon-list-alt"></i> 学生基本信息</a></li>
 							<li><a href="/firstt/admin/listEmploymentInfo"
 								target="display"><i class="glyphicon glyphicon-list-alt"></i>
@@ -195,7 +195,7 @@
 			<!-- 写ifream -->
 			<div class="col-md-10">
 				主窗口
-				<iframe class="content" width="1100" height="500" name="display"></iframe>
+				<iframe class="content" width="1100" height="550" name="display"></iframe>
 			</div>
 		</div>
 	</div>

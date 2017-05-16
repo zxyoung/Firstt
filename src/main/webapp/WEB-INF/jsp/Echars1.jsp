@@ -8,7 +8,42 @@
 <script type="text/javascript" src='./js/echarts.min.js'></script>
 </head>
 <body>
-
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">筛选条件</a>
+			</div>
+			<div>
+				<form action="/firstt/admin/testList" class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<select name="graYear" class="form-control">
+							<option value="null">选择毕业年份...</option>
+							<option>2014</option>
+							<option>2015</option>
+							<option>2016</option>
+							<option>2017</option>
+							<option>2018</option>
+						</select>
+					</div>
+					<div class="form-group">
+						 <select name="major" class="form-control">
+							<option value="null">选择专业...</option>
+							<option>计科</option>
+							<option>网络</option>
+							<option>软工</option>
+							<!-- <option>2017</option>
+							<option>2018</option> -->
+						</select>
+					</div>
+					<div class="form-group">
+						<input name="name" type="text" class="form-control"
+							placeholder="请输入姓名...">
+					</div>
+					<button type="submit" class="btn btn-default">查找</button>
+				</form>
+			</div>
+		</div>
+	</nav>
 	<div class="btn-group">
 		<button type="button" class="btn btn-primary dropdown-toggle"
 			data-toggle="dropdown">
@@ -22,8 +57,6 @@
 			<li><a href="#">分离的链接</a></li>
 		</ul>
 	</div>
-
-
 </body>
 
 <!-- <link rel="stylesheet"

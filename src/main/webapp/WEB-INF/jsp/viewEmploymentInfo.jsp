@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="panel panel-default text-center">
 			<div class="panel-heading text-header">
-				<h2 align="center">${employ.sno}的详细就业信息</h2>
+				<h2 align="center">${employ.name}的详细就业信息</h2>
 			</div>
 		</div>
 
@@ -20,13 +20,21 @@
 			<!-- Registration form starts -->
 			<!-- Name -->
 			<div class="form-group">
+				<label class="control-label col-lg-3" for="sno">姓名：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="sno"
+						value="${employ.name}">
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label class="control-label col-lg-3" for="sno">学号：</label>
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="sno"
 						value="${employ.sno}">
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="passport">专业：</label>
 				<div class="col-lg-9">
@@ -34,7 +42,13 @@
 						value="${employ.major}">
 				</div>
 			</div>
-			
+			<div class="form-group">
+				<label class="control-label col-lg-3" for="passport">毕业年份：</label>
+				<div class="col-lg-9">
+					<input type="text" class="form-control" name="major"
+						value="${employ.graYear}">
+				</div>
+			</div>
 			<!-- Email -->
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="passport">身份证：</label>

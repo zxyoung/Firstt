@@ -52,4 +52,10 @@ public class EmploymentServiceImpl implements EmploymentService{
 		return employmentInfoDao.getAllEmployInfo();
 	}
 
+	@Override
+	public List<EmploymentInfo> testList(String name, String major, Integer graYear) {
+		return employmentInfoDao.testList(name, major, graYear);
+	}
+
+
 }

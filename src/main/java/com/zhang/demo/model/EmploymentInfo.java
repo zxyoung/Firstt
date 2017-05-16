@@ -5,9 +5,13 @@ import java.io.Serializable;
 public class EmploymentInfo implements Serializable {
     private Integer id;
 
+    private String name;
+
     private Integer sno;
 
     private String major;
+
+    private Integer graYear;
 
     private String passport;
 
@@ -45,6 +49,14 @@ public class EmploymentInfo implements Serializable {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
     public Integer getSno() {
         return sno;
     }
@@ -59,6 +71,14 @@ public class EmploymentInfo implements Serializable {
 
     public void setMajor(String major) {
         this.major = major == null ? null : major.trim();
+    }
+
+    public Integer getGraYear() {
+        return graYear;
+    }
+
+    public void setGraYear(Integer graYear) {
+        this.graYear = graYear;
     }
 
     public String getPassport() {

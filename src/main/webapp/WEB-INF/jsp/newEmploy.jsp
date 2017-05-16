@@ -14,6 +14,10 @@
 		<form action="/firstt/student/addEmploymentInfo" method="post">
 			<div class="panel-body">
 				<div class="panel panel-default text-center">
+					姓名：<input name="name" type="text" value="">
+				</div>
+			
+				<div class="panel panel-default text-center">
 					学号：<input name="sno" type="text" value="${sessionScope.stu.sno}">
 				</div>
 				
