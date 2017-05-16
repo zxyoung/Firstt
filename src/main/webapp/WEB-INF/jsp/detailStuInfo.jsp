@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="panel panel-default text-center">
 			<div class="panel-heading text-header">
-				<h2 align="center">${stuInfo.stuName} 的详细信息</h2>
+				<h2 align="center">${stuInfo.stuName}的详细信息</h2>
 			</div>
 		</div>
 
@@ -21,7 +21,8 @@
 			<!-- Registration form starts -->
 			<!-- Name -->
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="stuName"><i class="glyphicon glyphicon-user"></i> 姓名：</label>
+				<label class="control-label col-lg-3" for="stuName"><i
+					class="glyphicon glyphicon-user"></i> 姓名：</label>
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="stuName"
 						value="${stuInfo.stuName}">
@@ -38,7 +39,8 @@
 			<!-- Select box -->
 
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="sno">学号：</label>
+				<label class="control-label col-lg-3" for="sno"><i
+					class="glyphicon glyphicon-phone"></i> 学号：</label>
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="sno"
 						value="${stuInfo.sno}">
@@ -47,7 +49,8 @@
 
 			<!-- Password -->
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="password">密码：</label>
+				<label class="control-label col-lg-3" for="password"><i
+					class="glyphicon glyphicon-lock"></i> 密码：</label>
 				<div class="col-lg-9">
 					<input type="password" class="form-control" name="password"
 						value="${stuInfo.password}">
@@ -56,7 +59,8 @@
 
 
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="major">专业：</label>
+				<label class="control-label col-lg-3" for="major"><i
+					class="glyphicon glyphicon-book"></i> 专业：</label>
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="major"
 						value="${stuInfo.major}">
@@ -64,7 +68,8 @@
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="origin">生源地：</label>
+				<label class="control-label col-lg-3" for="origin"><i
+					class="glyphicon glyphicon-home"></i> 生源地：</label>
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="origin"
 						value="${stuInfo.origin}">
@@ -72,7 +77,8 @@
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="entry_year">入学时间：</label>
+				<label class="control-label col-lg-3" for="entry_year"><i
+					class="glyphicon glyphicon-calendar"></i> 入学时间：</label>
 				<div class="col-lg-9">
 					<input type="text" class="form-control" name="entry_year"
 						value="${stuInfo.entryYear}">
@@ -80,9 +86,11 @@
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="gra_year">毕业时间：</label>
+				<label class="control-label col-lg-3" for="gra_year"><i
+					class="glyphicon glyphicon-calendar"></i> 毕业时间：</label>
 				<div class="col-lg-9">
-					<input type="text" class="form-control" name="gra_year" value="${stuInfo.graYear}">
+					<input type="text" class="form-control" name="gra_year"
+						value="${stuInfo.graYear}">
 				</div>
 			</div>
 
