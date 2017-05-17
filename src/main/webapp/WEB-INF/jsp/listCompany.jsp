@@ -22,6 +22,33 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">筛选条件</a>
+			</div>
+			<div>
+				<form action="/firstt/admin/testCompanyList"
+					class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<select name="property" class="form-control">
+							<option value="">企业性质...</option>
+							<option>国有企业</option>
+							<option>私营企业</option>
+							<option>其他</option>
+							<!-- <option>2017</option>
+							<option>2018</option> -->
+						</select>
+					</div>
+					<div class="form-group">
+						<input name="cname" type="text" class="form-control"
+							placeholder="请输入公司名称...">
+					</div>
+					<button type="submit" class="btn btn-default">查找</button>
+				</form>
+			</div>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">

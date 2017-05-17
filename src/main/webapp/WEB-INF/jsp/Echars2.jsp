@@ -10,7 +10,7 @@
 <body>
 	<div id="chart" style="width: 400px; height: 400px;"></div>
 </body>
-<script type="text/javascript">
+<script type="text/javascript" src="./js/echarts.min.js">
 	// 初始化图表标签
 	var myChart = echarts.init(document.getElementById('chart'));
 	var options = {

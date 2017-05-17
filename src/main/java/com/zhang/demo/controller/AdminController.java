@@ -154,38 +154,47 @@ public class AdminController {
 
 	@RequestMapping(value = "/about")
 	public String getAbout() {
-		return "about";
+		return "Echars1";
 	}
 
+	@RequestMapping(value="/toIdx")
+	public String toIndex1(){
+		return "index";
+	}
+	@RequestMapping(value="/toIdx2")
+	public String toIndex2(){
+		return "index2";
+	}
+	
 	/**
 	 * 多条件查找
+	 * 
 	 * @param request
 	 * @param model
 	 * @return
-	 * @throws UnsupportedEncodingException 
+	 * @throws UnsupportedEncodingException
 	 */
-	@RequestMapping(value="testList")
-	public String getAllEmploymentInfoWithOptions(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
-		
-		
+	@RequestMapping(value = "testList")
+	public String getAllEmploymentInfoWithOptions(HttpServletRequest request, Model model)
+			throws UnsupportedEncodingException {
+
 		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
-		String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8"); 
-		String gra_Year = new String(request.getParameter("graYear").getBytes("iso-8859-1"), "utf-8"); 
+		String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");
+		String gra_Year = new String(request.getParameter("graYear").getBytes("iso-8859-1"), "utf-8");
 		Integer graYear;
 		if (gra_Year == null || gra_Year.equals(0)) {
 			graYear = -1;
-		}else {
+		} else {
 			graYear = Integer.parseInt(gra_Year);
 		}
-		
+
 		List<EmploymentInfo> list = employmentService.testList(name, major, graYear);
-		
+
 		model.addAttribute("list", list);
-		
+
 		return "listEmploymentInfo";
 	}
-	
-	
+
 	/**
 	 * 列出所有的就业信息
 	 * 
@@ -233,14 +242,14 @@ public class AdminController {
 		String subject = "邮箱提醒：来自学校的一封邮件11";
 
 		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn </a>更新就业信息(若无，则忽略此邮件)";
-		
+
 		// TODO 此处获得邮件地址的List
 		List<EmploymentInfo> emailList = employmentService.getAllEmail();
 
 		for (EmploymentInfo it : emailList) {
 			mail.add(it.getEmail());
 		}
-		
+
 		MailSenderInfo mailInfo = new MailSenderInfo();
 		mailInfo.setMailServerHost("smtp.163.com");
 		mailInfo.setMailServerPort("25");
@@ -254,8 +263,8 @@ public class AdminController {
 
 		// TODO 设置群发邮件，此处需加如下一个循环
 		// for (String mailItem : mail) {
-		// 		mailInfo.setToAddress(mailItem);
-		//		sms.sendTextMail(mailInfo);
+		// mailInfo.setToAddress(mailItem);
+		// sms.sendTextMail(mailInfo);
 		// }
 		mailInfo.setToAddress("359176585@qq.com");
 		// 这个类主要来发送邮件
@@ -280,6 +289,25 @@ public class AdminController {
 		}
 		model.addAttribute("list", list);
 		return "listNotice";
+	}
+
+	/**
+	 * 公司信息多条件查找
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	@RequestMapping(value = "/testCompanyList")
+	public String testCompanyList(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
+		String property = new String(request.getParameter("property").getBytes("iso-8859-1"), "utf-8");
+		String cname = new String(request.getParameter("cname").getBytes("iso-8859-1"), "utf-8");
+		// TODO
+		List<Company> list = companyService.testCompanyList(cname, property);
+
+		model.addAttribute("list", list);
+		return "listCompany";
 	}
 
 	/**

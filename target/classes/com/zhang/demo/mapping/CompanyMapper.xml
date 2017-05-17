@@ -19,8 +19,20 @@
 		detail
 	</sql>
 
-	<!-- <select id="selectByCode"> select <include refid="Base_Column_List" 
-		/> from company where code = #{code,jdbcType=INTEGER} </select> -->
+	<select id="testCompanyList" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from company
+		<where>
+			1=1
+			<if test="cname != null and cname != '' ">
+				and cname like CONCAT(CONCAT('%', #{cname,jdbcType=CHAR}),'%')
+			</if>
+			<if test="property != null and property != '' ">
+				and property = #{property,jdbcType=CHAR}
+			</if>
+		</where>
+	</select>
 
 	<select id="CompanyLoginSelect" resultMap="BaseResultMap"
 		parameterType="Map">

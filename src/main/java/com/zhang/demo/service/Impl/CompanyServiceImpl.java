@@ -49,9 +49,8 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyDao.CompanyLoginSelect(cname, password);
 	}
 
-//	public Company selectByCode(Integer code) {
-//		return companyDao.selectByCode(code);
-//	}
-
-
+	@Override
+	public List<Company> testCompanyList(String cname, String property) {
+		return companyDao.testCompanyList(cname, property);
+	}
 }

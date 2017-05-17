@@ -54,9 +54,9 @@
 	</nav>
 	<div class="container">
 		<div class="panel panel-default">
-			<!-- 	<div class="panel-heading text-header">
+			<div class="panel-heading text-header">
 				<h2 align="center">学生就业信息</h2>
-			</div> -->
+			</div>
 
 			<div class="matter">
 				<div class="container">

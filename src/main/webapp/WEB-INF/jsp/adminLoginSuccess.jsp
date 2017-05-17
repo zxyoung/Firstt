@@ -183,7 +183,7 @@
 							class="glyphicon glyphicon-envelope"></i> 发送邮件
 					</a></li>
 
-					<li><a href="/firstt/admin/about"> <i
+					<li><a href="/firstt/admin/about" target="display"> <i
 							class="glyphicon glyphicon-fire"></i> 关于系统
 					</a></li>
 					<li><a href="/firstt/login/adminlogout"> <i
@@ -194,7 +194,6 @@
 
 			<!-- 写ifream -->
 			<div class="col-md-10">
-				主窗口
 				<iframe class="content" width="1100" height="550" name="display"></iframe>
 			</div>
 		</div>

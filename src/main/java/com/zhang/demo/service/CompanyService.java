@@ -19,8 +19,8 @@ public interface CompanyService {
     
     List<Company> getAllCompany();
     
-//    Company selectByCode(Integer code);
-    
     Company companyLoginSelect(String cname, String password);
+    
+    List<Company> testCompanyList(String cname, String property);
 
 }
