@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>注册公司信息</title>
-<%@include file="common/head.jsp"%>
+<%@ include file="common/head.jsp"%>
 
 <script type="text/javascript">
 	function hide() {

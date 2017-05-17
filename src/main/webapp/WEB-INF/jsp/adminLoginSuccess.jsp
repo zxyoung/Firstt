@@ -163,7 +163,7 @@
 									class="glyphicon glyphicon-search"></i> 查找学生信息</a></li> -->
 
 							<li><a href="/firstt/admin/chars" target="display"><i
-									class="glyphicon glyphicon-search"></i> 就业信息统计</a></li>
+									class="glyphicon glyphicon-search"></i> 薪酬查询</a></li>
 
 						</ul></li>
 
@@ -183,7 +183,7 @@
 							class="glyphicon glyphicon-envelope"></i> 发送邮件
 					</a></li>
 
-					<li><a href="/firstt/admin/about" target="display"> <i
+					<li><a href="/firstt/admin/testTongji" target="display"> <i
 							class="glyphicon glyphicon-fire"></i> 关于系统
 					</a></li>
 					<li><a href="/firstt/login/adminlogout"> <i

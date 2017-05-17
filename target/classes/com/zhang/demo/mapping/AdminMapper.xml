@@ -10,7 +10,7 @@
 		id, username, password
 	</sql>
 	
-	<select id="adminLoginSelect" resultMap="BaseResultMap" parameterType="Map">
+	<select id="adminLoginSelect" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from admin

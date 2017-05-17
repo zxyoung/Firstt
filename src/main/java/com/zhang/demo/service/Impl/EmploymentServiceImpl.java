@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.zhang.demo.dao.EmploymentInfoDao;
 import com.zhang.demo.model.EmploymentInfo;
+import com.zhang.demo.model.PO;
 import com.zhang.demo.service.EmploymentService;
 
 @Service("employmentService")
@@ -40,7 +41,7 @@ public class EmploymentServiceImpl implements EmploymentService{
 		return employmentInfoDao.updateByPrimaryKey(record);
 	}
 
-	public List<EmploymentInfo> getAllEmail() {
+	public List<String> getAllEmail() {
 		return employmentInfoDao.getAllEmail();
 	}
 
@@ -57,5 +58,18 @@ public class EmploymentServiceImpl implements EmploymentService{
 		return employmentInfoDao.testList(name, major, graYear);
 	}
 
+	@Override
+	public List<EmploymentInfo> optionsYearAndMajor(Integer gra_year, String major) {
+		return employmentInfoDao.optionsYearAndMajor(gra_year, major);
+	}
 
+	@Override
+	public List<EmploymentInfo> optionsYear(Integer gra_year) {
+		return employmentInfoDao.optionsYear(gra_year);
+	}
+
+	@Override
+	public List<PO> optionsMajor(String major) {
+		return employmentInfoDao.optionsMajor(major);
+	}
 }

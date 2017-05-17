@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>EChars Demo</title>
-<script type="text/javascript" src='./js/echarts.min.js'></script>
+<script src="http://cdn.bootcss.com/echarts/3.5.4/echarts.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -42,7 +42,7 @@
 		</div>
 		</div>
 	</nav>
-	
+	<div id="chart" style="float: left; width: 300px; height: 300px;"></div>
 </body>
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link
@@ -60,30 +60,33 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="./js/echarts.min.js">
-	// 初始化图表标签
-	var myChart = echarts.init(document.getElementById('chart'));
-	var options = {
-		//定义一个标题
-		title : {
-			text : '计算机科学与技术'
-		},
-		legend : {
-			data : [ '数量' ]
-		},
-		//X轴设置
-		xAxis : {
-			data : [ '2013', '2014', '2015' ]
-		},
-		yAxis : {},
-		//name=legend.data的时候才能显示图例
-		series : [ {
-			name : '年薪',
-			type : 'bar',
-			data : [ '12', '15', '18' ]
-		} ]
-	};
-	myChart.setOption(options);
+<script type="text/javascript">
+    // 初始化图表标签
+    var myChart = echarts.init(document.getElementById('chart'));
+    var options={
+        //定义一个标题
+        title:{
+            text:'计科（近三年薪酬统计）',
+            subtext:'单位（w）'
+        },
+        legend:{
+            data:['数量']
+        },
+        //X轴设置
+        xAxis:{
+            data:['2013年','2014年','2015年']
+        	
+        },
+        yAxis:{
+        },
+        //name=legend.data的时候才能显示图例
+        series:[{
+            name:'年薪(w)',
+            type:'bar',
+            data:['12','15','18']
+        }]
+    };
+    
+    myChart.setOption(options);
 </script>
 </html>

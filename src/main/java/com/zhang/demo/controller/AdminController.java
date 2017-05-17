@@ -2,7 +2,6 @@ package com.zhang.demo.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.alibaba.fastjson.JSON;
 import com.zhang.demo.Utils.MD5Utils;
 import com.zhang.demo.Utils.MailSenderInfo;
 import com.zhang.demo.Utils.SimpleMailSender;
@@ -22,6 +22,7 @@ import com.zhang.demo.model.Company;
 import com.zhang.demo.model.EmploymentInfo;
 import com.zhang.demo.model.Notes;
 import com.zhang.demo.model.Notice;
+import com.zhang.demo.model.PO;
 import com.zhang.demo.model.Resume;
 import com.zhang.demo.model.StuAccount;
 import com.zhang.demo.model.StuInfo;
@@ -62,6 +63,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/chars")
 	public String Echars1() {
+		//TODO
 		return "Echars1";
 	}
 
@@ -166,6 +168,56 @@ public class AdminController {
 		return "index2";
 	}
 	
+	@RequestMapping(value="/testEmploy")
+	public String optionsMajor(HttpServletRequest request) throws UnsupportedEncodingException{
+		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
+		if (major.equals("计科")) {
+			return "jike";
+		}if (major.equals("网络")) {
+			return "wangluo";
+		}if (major.equals("软工")) {
+			return "ruangong";
+		}
+		return "redirect:/firstt/admin/chars";
+	}
+	
+	/**
+	 * m
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/testTongji")
+//	@ResponseBody
+	public String Tongji(Model model){
+//		Map map = new HashMap<>();
+		List<PO> jkList = employmentService.optionsMajor("计科");
+		List<PO> wlList = employmentService.optionsMajor("网络");
+		List<PO> rgList = employmentService.optionsMajor("软工");
+		
+		Object jk = JSON.toJSON(jkList);
+		Object wl = JSON.toJSON(wlList);
+		Object rg = JSON.toJSON(rgList);
+				
+		//TODO 前端解析json
+		
+		//TODO 前端图表界面调整
+		
+		System.out.println(jk.toString());
+		System.out.println(wl.toString());
+		System.out.println(rg.toString());
+
+//		map.put("jk", jk);
+//		map.put("wl",wl);
+//		map.put("rg",rg);
+		
+		model.addAttribute("jk", jk);
+		model.addAttribute("wl", wl);
+		model.addAttribute("rg", rg);
+		
+		return "index2";
+	}
+	
+	
 	/**
 	 * 多条件查找
 	 * 
@@ -174,12 +226,12 @@ public class AdminController {
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
-	@RequestMapping(value = "testList")
+	@RequestMapping(value = "/testList")
 	public String getAllEmploymentInfoWithOptions(HttpServletRequest request, Model model)
 			throws UnsupportedEncodingException {
 
-		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
 		String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");
+		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
 		String gra_Year = new String(request.getParameter("graYear").getBytes("iso-8859-1"), "utf-8");
 		Integer graYear;
 		if (gra_Year == null || gra_Year.equals(0)) {
@@ -234,7 +286,6 @@ public class AdminController {
 	@RequestMapping(value = "/sendEmail")
 	public String sendEmail() {
 
-		List<String> mail = new ArrayList<String>();
 
 		String username = "15664646679@163.com";
 		String password = "woshi2k10";
@@ -243,12 +294,9 @@ public class AdminController {
 
 		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn </a>更新就业信息(若无，则忽略此邮件)";
 
-		// TODO 此处获得邮件地址的List
-		List<EmploymentInfo> emailList = employmentService.getAllEmail();
-
-		for (EmploymentInfo it : emailList) {
-			mail.add(it.getEmail());
-		}
+		List<String> emailList = employmentService.getAllEmail();
+		
+		System.out.println(emailList.toString());
 
 		MailSenderInfo mailInfo = new MailSenderInfo();
 		mailInfo.setMailServerHost("smtp.163.com");
@@ -270,7 +318,7 @@ public class AdminController {
 		// 这个类主要来发送邮件
 		sms.sendTextMail(mailInfo);// 发送文体格式
 		// sms.sendHtmlMail(mailInfo);// 发送html格式
-		return "adminLoginSuccess";
+		return "redirect:/admin/adminLoginSuccess";
 	}
 
 	/*************************************** 企业信息操作 *********************************************/
@@ -303,7 +351,7 @@ public class AdminController {
 	public String testCompanyList(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
 		String property = new String(request.getParameter("property").getBytes("iso-8859-1"), "utf-8");
 		String cname = new String(request.getParameter("cname").getBytes("iso-8859-1"), "utf-8");
-		// TODO
+
 		List<Company> list = companyService.testCompanyList(cname, property);
 
 		model.addAttribute("list", list);
@@ -586,7 +634,7 @@ public class AdminController {
 			return "detailStuInfo";
 
 		}
-		// To-do 调到相应页面
+		// TODO 调到相应页面
 		return "error";
 	}
 
