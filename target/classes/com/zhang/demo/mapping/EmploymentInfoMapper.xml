@@ -37,6 +37,17 @@
 		cemail
 	</sql>
 
+	<!-- 列出某学生所有的就业信息 -->
+	<select id="getListBySno" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from employmentinfo
+		<where>
+			where sno = #{sno,jdbcType=INTEGER}
+		</where>
+	</select>
+
+
 	<select id="toCheck" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -64,6 +75,7 @@
 			<if test="gra_year != -1">
 				and gra_year = #{gra_year,jdbcType=INTEGER}
 			</if>
+			order by id desc
 		</where>
 	</select>
 
@@ -74,6 +86,7 @@
 		<include refid="Base_Column_List" />
 		from employmentinfo
 		where sno = #{sno,jdbcType=INTEGER}
+		order by id desc
 	</select>
 
 	<!-- 获得所有通过审核的信息 -->

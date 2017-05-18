@@ -48,5 +48,10 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.selectByCode(code);
 	}
 
+	@Override
+	public List<Notice> searchNotice(String jobtitle, String location) {
+		return noticeDao.searchNotice(jobtitle, location);
+	}
+
 
 }

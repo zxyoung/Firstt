@@ -5,13 +5,16 @@
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="code" property="code" jdbcType="INTEGER" />
 		<result column="title" property="title" jdbcType="CHAR" />
+		<result column="jobtitle" property="jobtitle" jdbcType="CHAR" />
+		<result column="location" property="location" jdbcType="CHAR" />
 		<result column="content" property="content" jdbcType="CHAR" />
-		<result column="fbtime" property="fbtime" jdbcType="DATE" />
+		<result column="fbtime" property="fbtime" jdbcType="TIMESTAMP" />
 	</resultMap>
+
 	<sql id="Base_Column_List">
-		id, code, title, content, fbtime
+		id, code, title, jobtitle, location, content, fbtime
 	</sql>
-	
+
 	<!-- 获得所有信息 -->
 	<select id="getAllNotice" resultMap="BaseResultMap">
 		select
@@ -19,8 +22,25 @@
 		from zhaopin
 		order by fbtime
 	</select>
-	
-	
+
+	<!--  -->
+	<select id="searchNotice" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from zhaopin
+		<where>
+			1=1
+			<if test="jobtitle != null and jobtitle != '' ">
+				and jobtitle like CONCAT(CONCAT('%',
+				#{jobtitle,jdbcType=CHAR}),'%')
+			</if>
+			<if test="location != null and location != '' ">
+				and location like CONCAT(CONCAT('%',
+				#{location,jdbcType=CHAR}),'%')
+			</if>
+		</where>
+	</select>
+
 	<!-- 按公司编码查找 -->
 	<select id="selectByCode" resultMap="BaseResultMap">
 		select
@@ -28,7 +48,7 @@
 		from zhaopin
 		where code = #{code,jdbcType=INTEGER}
 	</select>
-	
+
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -36,17 +56,22 @@
 		from zhaopin
 		where id = #{id,jdbcType=INTEGER}
 	</select>
+
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from zhaopin
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
+
 	<insert id="insert" parameterType="com.zhang.demo.model.Notice">
 		insert into zhaopin (id, code, title,
-		content, fbtime)
+		jobtitle, location, content,
+		fbtime)
 		values (#{id,jdbcType=INTEGER}, #{code,jdbcType=INTEGER},
 		#{title,jdbcType=CHAR},
-		#{content,jdbcType=CHAR}, #{fbtime,jdbcType=DATE})
+		#{jobtitle,jdbcType=CHAR}, #{location,jdbcType=CHAR}, #{content,jdbcType=CHAR},
+		#{fbtime,jdbcType=TIMESTAMP})
 	</insert>
+
 	<insert id="insertSelective" parameterType="com.zhang.demo.model.Notice">
 		insert into zhaopin
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -58,6 +83,12 @@
 			</if>
 			<if test="title != null">
 				title,
+			</if>
+			<if test="jobtitle != null">
+				jobtitle,
+			</if>
+			<if test="location != null">
+				location,
 			</if>
 			<if test="content != null">
 				content,
@@ -76,14 +107,21 @@
 			<if test="title != null">
 				#{title,jdbcType=CHAR},
 			</if>
+			<if test="jobtitle != null">
+				#{jobtitle,jdbcType=CHAR},
+			</if>
+			<if test="location != null">
+				#{location,jdbcType=CHAR},
+			</if>
 			<if test="content != null">
 				#{content,jdbcType=CHAR},
 			</if>
 			<if test="fbtime != null">
-				#{fbtime,jdbcType=DATE},
+				#{fbtime,jdbcType=TIMESTAMP},
 			</if>
 		</trim>
 	</insert>
+
 	<update id="updateByPrimaryKeySelective" parameterType="com.zhang.demo.model.Notice">
 		update zhaopin
 		<set>
@@ -93,11 +131,17 @@
 			<if test="title != null">
 				title = #{title,jdbcType=CHAR},
 			</if>
+			<if test="jobtitle != null">
+				jobtitle = #{jobtitle,jdbcType=CHAR},
+			</if>
+			<if test="location != null">
+				location = #{location,jdbcType=CHAR},
+			</if>
 			<if test="content != null">
 				content = #{content,jdbcType=CHAR},
 			</if>
 			<if test="fbtime != null">
-				fbtime = #{fbtime,jdbcType=DATE},
+				fbtime = #{fbtime,jdbcType=TIMESTAMP},
 			</if>
 		</set>
 		where id = #{id,jdbcType=INTEGER}
@@ -106,8 +150,10 @@
 		update zhaopin
 		set code = #{code,jdbcType=INTEGER},
 		title = #{title,jdbcType=CHAR},
+		jobtitle = #{jobtitle,jdbcType=CHAR},
+		location = #{location,jdbcType=CHAR},
 		content = #{content,jdbcType=CHAR},
-		fbtime = #{fbtime,jdbcType=DATE}
+		fbtime = #{fbtime,jdbcType=TIMESTAMP}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 </mapper>

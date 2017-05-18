@@ -14,98 +14,73 @@
 				<h2 align="center">${stuInfo.stuName}的详细信息</h2>
 			</div>
 		</div>
-
-
 		<form action="/firstt/admin/${stuInfo.id}/update" method="post"
 			class="form-horizontal">
-			<!-- Registration form starts -->
-			<!-- Name -->
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="stuName"><i
-					class="glyphicon glyphicon-user"></i> 姓名：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" name="stuName"
-						value="${stuInfo.stuName}">
+			<div class="jumbotron">
+				<div class="form-group">
+					<label class="control-label col-lg-3" for="stuName">姓名：</label>
+					<div class="col-lg-2">
+						<input type="text" class="form-control" name="stuName"
+							value="${stuInfo.stuName}">
+					</div>
+					<label class="control-label col-lg-3" for="sex">性别：</label>
+					<div class="col-lg-2">
+						<input type="text" class="form-control" name="sex"
+							value="${stuInfo.sex}">
+					</div>
 				</div>
-			</div>
-			<!-- Email -->
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="sex">性别：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" name="sex"
-						value="${stuInfo.sex}">
+
+				<div class="form-group">
+					<label class="control-label col-lg-3" for="sno"> 学号：</label>
+					<div class="col-lg-2">
+						<input type="text" class="form-control" name="sno"
+							value="${stuInfo.sno}">
+					</div>
+					<label class="control-label col-lg-3" for="password">密码：</label>
+					<div class="col-lg-2">
+						<input type="password" class="form-control" name="password"
+							value="${stuInfo.password}">
+					</div>
 				</div>
-			</div>
-			<!-- Select box -->
 
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="sno"><i
-					class="glyphicon glyphicon-phone"></i> 学号：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" name="sno"
-						value="${stuInfo.sno}">
+				<div class="form-group">
+					<label class="control-label col-lg-3" for="major">专业：</label>
+					<div class="col-lg-2">
+						<input type="text" class="form-control" name="major"
+							value="${stuInfo.major}">
+					</div>
+					<label class="control-label col-lg-3" for="origin">生源地：</label>
+					<div class="col-lg-2">
+						<input type="text" class="form-control" name="origin"
+							value="${stuInfo.origin}">
+					</div>
 				</div>
-			</div>
 
-			<!-- Password -->
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="password"><i
-					class="glyphicon glyphicon-lock"></i> 密码：</label>
-				<div class="col-lg-9">
-					<input type="password" class="form-control" name="password"
-						value="${stuInfo.password}">
+				<div class="form-group">
+					<label class="control-label col-lg-3" for="entry_year">入学时间：</label>
+					<div class="col-lg-2">
+						<input type="text" class="form-control" name="entry_year"
+							value="${stuInfo.entryYear}">
+					</div>
+					<label class="control-label col-lg-3" for="gra_year">毕业时间：</label>
+					<div class="col-lg-2">
+						<input type="text" class="form-control" name="gra_year"
+							value="${stuInfo.graYear}">
+					</div>
 				</div>
-			</div>
 
-
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="major"><i
-					class="glyphicon glyphicon-book"></i> 专业：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" name="major"
-						value="${stuInfo.major}">
+				<!-- Accept box and button s-->
+				<div class="form-group">
+					<div class="col-lg-9 col-lg-offset-3">
+						<br />
+						<button type="submit" class="btn btn-danger">修改</button>
+						<button type="reset"
+							onclick="javascript:window.opener=null;window.close();"
+							class="btn btn-success">关闭</button>
+					</div>
 				</div>
+				<br />
 			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="origin"><i
-					class="glyphicon glyphicon-home"></i> 生源地：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" name="origin"
-						value="${stuInfo.origin}">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="entry_year"><i
-					class="glyphicon glyphicon-calendar"></i> 入学时间：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" name="entry_year"
-						value="${stuInfo.entryYear}">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="gra_year"><i
-					class="glyphicon glyphicon-calendar"></i> 毕业时间：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" name="gra_year"
-						value="${stuInfo.graYear}">
-				</div>
-			</div>
-
-
-			<!-- Accept box and button s-->
-			<div class="form-group">
-				<div class="col-lg-9 col-lg-offset-3">
-					<br />
-					<button type="submit" class="btn btn-danger">修改</button>
-					<button type="reset"
-						onclick="javascript:window.opener=null;window.close();"
-						class="btn btn-success">关闭</button>
-				</div>
-			</div>
-			<br />
 		</form>
 	</div>
 

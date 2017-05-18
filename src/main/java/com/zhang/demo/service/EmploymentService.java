@@ -18,7 +18,7 @@ public interface EmploymentService {
 
 	int updateByPrimaryKey(EmploymentInfo record);
 
-	EmploymentInfo selectBySno(Integer sno);
+	List<EmploymentInfo> selectBySno(Integer sno);
 
 	List<String> getAllEmail();
 

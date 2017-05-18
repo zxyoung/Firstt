@@ -4,7 +4,7 @@
 <%@ include file="common/tag.jsp"%>
 <html>
 <head>
-<title>招聘信息列表页</title>
+<title>学生简历</title>
 <%@include file="common/head.jsp"%>
 
 <script type="text/javascript">
@@ -27,7 +27,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">
-				<h2 align="center">公司招聘信息</h2>
+				<h2 align="center">学生简历信息</h2>
 			</div>
 			<div class="panel-body">
 

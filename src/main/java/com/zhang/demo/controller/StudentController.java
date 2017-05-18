@@ -1,5 +1,6 @@
 package com.zhang.demo.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,6 +67,25 @@ public class StudentController {
 		if (list == null) {
 			return "跳向相应错误处理页面";
 		}
+		model.addAttribute("list", list);
+		return "listNoticeForStu";
+	}
+	
+	/**
+	 * 多条件查找招聘信息
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	@RequestMapping(value="/searchNotice")
+	public String searchNotice(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
+		//TODO 
+		String jobtitle = new String(request.getParameter("jobtitle").getBytes("iso-8859-1"), "utf-8");
+		String location = new String(request.getParameter("location").getBytes("iso-8859-1"), "utf-8");
+		
+		List<Notice> list = noticeService.searchNotice(jobtitle, location);
+		
 		model.addAttribute("list", list);
 		return "listNoticeForStu";
 	}
@@ -209,24 +229,38 @@ public class StudentController {
 	}
 
 	/**
-	 * 根据学号sno查看就业信息
+	 * 根据学号sno查看所有就业信息
 	 * 
 	 * @param sno
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/{sno}/EmploymentInfo")
-	public String EmploymentInfo(@PathVariable("sno") Integer sno, Model model) {
-		EmploymentInfo info = employmentService.selectBySno(sno);
+	@RequestMapping(value = "/{sno}/listEmploymentInfo")
+	public String listEmploymentInfo(@PathVariable("sno") Integer sno, Model model) {
+		List<EmploymentInfo> list = employmentService.selectBySno(sno);
 
-		if (info == null) {
+		if (list == null) {
 			System.out.println("error!");
 			return "newEmploy";
 		}
-		model.addAttribute("employ", info);
-		return "detailEmployment";
+		model.addAttribute("list", list);
+		return "listEmploymentInfo";
 	}
-
+	/**
+	 * 增加就业信息
+	 * @return
+	 */
+	@RequestMapping(value="/newEmployInfo")
+	public String toNewEmployInfo(){
+		return "newEmploy";
+	}
+	
+	/**
+	 * 增加就业信息
+	 * @param request
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value = "/addEmploymentInfo")
 	public String addNewEmploymentInfo(HttpServletRequest request, HttpSession session) {
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
@@ -270,7 +304,7 @@ public class StudentController {
 			return "errorPage";
 		}
 
-		return "redirect:/student/" + sno + "/EmploymentInfo";
+		return "redirect:/student/" + sno + "/listEmploymentInfo";
 	}
 
 	/**

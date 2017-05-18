@@ -24,6 +24,27 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">筛选条件</a>
+			</div>
+			<div>
+				<form action="/firstt/admin/searchNotice"
+					class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input name="jobtitle" type="text" class="form-control"
+							placeholder="请输入职位...">
+					</div>
+					<div class="form-group">
+						<input name="location" type="text" class="form-control"
+							placeholder="请输入工作地点...">
+					</div>
+					<button type="submit" class="btn btn-default">查找</button>
+				</form>
+			</div>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-header">
@@ -53,15 +74,16 @@
 											<thead>
 												<tr>
 													<th>标题</th>
-													<th>创建时间</th>
+													<th>职位</th>
+													<th>工作地点</th>
 													<th>操作</th>
 												</tr>
 											</thead>
 											<tbody>
 												<c:forEach var="notice" items="${list}">
 													<td>${notice.title}</td>
-													<td><fmt:formatDate value="${notice.fbtime}"
-															pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
+													<td>${notice.jobtitle}</td>
+													<td>${notice.location}</td>
 													<td><a href="/firstt/admin/${notice.id}/noticeDetail"
 														target="display">详细信息</a> | <a onclick="firm()"
 														href="/firstt/admin/${notice.id}/deleteNotice">删除</a></td>

@@ -20,7 +20,7 @@ public interface EmploymentInfoDao {
 
 	int updateByPrimaryKey(EmploymentInfo record);
 
-	EmploymentInfo selectBySno(Integer sno);
+	List<EmploymentInfo> selectBySno(Integer sno);
 
 	List<EmploymentInfo> getAllEmployInfo();
 

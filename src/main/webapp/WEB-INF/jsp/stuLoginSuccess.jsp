@@ -127,7 +127,7 @@
 	<div class="navbar navbar-duomi navbar-static-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="##########" id="logo">就业信息管理系统 </a>
+				<a class="navbar-brand" href="##########" id="logo">西安邮电就业信息追踪系统</a>
 			</div>
 		</div>
 	</div>
@@ -144,16 +144,18 @@
 					</a>
 						<ul id="systemSetting" class="nav nav-list collapse secondmenu"
 							style="height: 0px;">
-							<li class="active"><a
-								href="/firstt/student/${stuInfo.id}/stuInfo" target="display"><i
+							<li class="active"><a href="##########" target="display"><i
 									class="glyphicon glyphicon-user"></i>
 									${sessionScope.stu.getStuName()}</a></li>
 							<li><a href="/firstt/student/${stuInfo.id}/stuInfo"
-								target="display"><i class="glyphicon glyphicon-edit"></i>
+								target="_blank"><i class="glyphicon glyphicon-edit"></i>
 									修改信息</a></li>
-							<li><a href="/firstt/student/${stuInfo.sno}/EmploymentInfo"
+							<li><a
+								href="/firstt/student/${stuInfo.sno}/listEmploymentInfo"
 								target="display"><i class="glyphicon glyphicon-eye-open"></i>
-									就业信息</a></li>
+									就业信息列表</a></li>
+							<li><a href="/firstt/student/newEmployInfo" target="display"><i
+									class="glyphicon glyphicon-eye-open"></i> 增加就业信息</a></li>
 						</ul></li>
 					<li><a href="/firstt/student/${stuInfo.sno}/detailResume"
 						target="display"> <i class="glyphicon glyphicon-credit-card"></i>

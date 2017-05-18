@@ -21,4 +21,6 @@ public interface NoticeService {
 	List<Notice> getAllNotice();
 	
 	List<Notice> selectByCode(Integer code);
+	
+	List<Notice> searchNotice(String jobtitle, String location);
 }

@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -416,6 +415,25 @@ public class AdminController {
 		return "跳向错误处理页面";
 	}
 
+	/**
+	 * 多条件查找招聘信息
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	@RequestMapping(value="/searchNotice")
+	public String searchNotice(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
+		//TODO 
+		String jobtitle = new String(request.getParameter("jobtitle").getBytes("iso-8859-1"), "utf-8");
+		String location = new String(request.getParameter("location").getBytes("iso-8859-1"), "utf-8");
+		
+		List<Notice> list = noticeService.searchNotice(jobtitle, location);
+		
+		model.addAttribute("list", list);
+		return "listNotice";
+	}
+	
 	/**
 	 * 删除招聘信息
 	 * 

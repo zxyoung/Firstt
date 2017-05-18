@@ -10,6 +10,10 @@ public class Notice implements Serializable {
 
     private String title;
 
+    private String jobtitle;
+
+    private String location;
+
     private String content;
 
     private Date fbtime;
@@ -38,6 +42,22 @@ public class Notice implements Serializable {
 
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
+    }
+
+    public String getJobtitle() {
+        return jobtitle;
+    }
+
+    public void setJobtitle(String jobtitle) {
+        this.jobtitle = jobtitle == null ? null : jobtitle.trim();
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
     }
 
     public String getContent() {

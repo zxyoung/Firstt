@@ -134,7 +134,7 @@
 	<div class="navbar navbar-duomi navbar-static-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="##########" id="logo">就业信息管理系统 </a>
+				<a class="navbar-brand" href="##########" id="logo">西安邮电就业信息追踪系统</a>
 			</div>
 		</div>
 	</div>

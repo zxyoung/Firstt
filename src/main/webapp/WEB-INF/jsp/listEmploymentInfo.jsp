@@ -97,17 +97,17 @@
 										</c:forEach>
 									</tbody>
 								</table>
-								<!-- 	<div class="widget-foot">
-										<ul class="pagination pull-right">
-											<li><a href="#">Prev</a></li>
-											<li><a href="#">1</a></li>
-											<li><a href="#">2</a></li>
-											<li><a href="#">3</a></li>
-											<li><a href="#">4</a></li>
-											<li><a href="#">Next</a></li>
-										</ul>
-										<div class="clearfix"></div>
-									</div> -->
+								<div class="widget-foot">
+									<ul class="pagination pull-right">
+										<li><a href="#">Prev</a></li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+<!-- 										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li> -->
+										<li><a href="#">Next</a></li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
 							</div>
 						</div>
 					</div>

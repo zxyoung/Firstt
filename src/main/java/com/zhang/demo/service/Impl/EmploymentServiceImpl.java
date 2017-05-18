@@ -45,7 +45,7 @@ public class EmploymentServiceImpl implements EmploymentService{
 		return employmentInfoDao.getAllEmail();
 	}
 
-	public EmploymentInfo selectBySno(Integer sno) {
+	public List<EmploymentInfo> selectBySno(Integer sno) {
 		return employmentInfoDao.selectBySno(sno);
 	}
 

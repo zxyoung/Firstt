@@ -17,26 +17,19 @@
 				<h2 align="center">${notice.title}</h2>
 			</div>
 		</div>
-
+		职位：${notice.jobtitle}<br><br>
+		工作地点：${notice.location}<br><br>
 		<div style="width: 100%; text-align: center">
 			<form action="######" class="form-horizontal">
-
-				<%-- 	<div class="form-group">
-					<label class="control-label col-lg-3" for="title">标题：</label>
-					<div class="col-lg-9">
-						<input type="text" class="form-control" readonly="readonly"
-							name="title" value="${notice.title}">
-					</div>
-				</div> --%>
-
-				<div class="form-group" style="text-align: center;">
+				<%-- <div class="form-group" style="text-align: center;">
 					<label class="control-label col-lg-3" for="email"></label>
 					<div class="col-lg-9">
 						<textarea class="form-control" rows="5" cols="15"
 							readonly="readonly" name="content">${notice.content}</textarea>
 					</div>
-				</div>
-
+				</div> --%>
+				<p class="form-control-static" style="text-align: left;">职位描述：<br>${notice.content}</p>
+				<br><br><br>
 				<p class="form-control-static" style="text-align: right;">
 					发布时间：
 					<fmt:formatDate value="${notice.fbtime}" type="date" />
