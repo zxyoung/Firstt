@@ -250,7 +250,9 @@ public class StudentController {
 		info.setPassport(passport);
 		info.setEmail(email);
 		info.setMajor(major);
+		info.setStatus(0);
 		info.setSalary(salary);
+		info.setGraYear(2017);
 		info.setGowhere(gowhere);
 		info.setCompanyname(companyname);
 		info.setCcode(ccode);

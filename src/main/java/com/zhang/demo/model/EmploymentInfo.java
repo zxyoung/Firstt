@@ -8,20 +8,12 @@ public class EmploymentInfo implements Serializable {
     private String name;
 
     private Integer sno;
-    
-    private Integer status;
 
-    public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
-
-	private String major;
+    private String major;
 
     private Integer graYear;
+
+    private Integer status;
 
     private String passport;
 
@@ -89,6 +81,14 @@ public class EmploymentInfo implements Serializable {
 
     public void setGraYear(Integer graYear) {
         this.graYear = graYear;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getPassport() {

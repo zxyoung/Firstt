@@ -99,10 +99,10 @@
 												</c:if></td>
 											<td><a
 												href="/firstt/admin/${employment.id}/employmentDetail"
-												target="_blank">详细信息</a> | <a
-												href="/firstt/admin/${employment.id}/agree" target="_blank">通过</a>
+												target="display">详细信息</a> | <a
+												href="/firstt/admin/${employment.id}/agree" target="display">通过</a>
 												| <a href="/firstt/admin/${employment.id}/reject"
-												target="_blank">驳回</a></td>
+												target="display">驳回</a></td>
 											<tr />
 										</c:forEach>
 									</tbody>

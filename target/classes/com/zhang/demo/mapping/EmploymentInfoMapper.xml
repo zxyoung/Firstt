@@ -7,11 +7,11 @@
 		<result column="sno" property="sno" jdbcType="INTEGER" />
 		<result column="major" property="major" jdbcType="CHAR" />
 		<result column="gra_year" property="graYear" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
 		<result column="passport" property="passport" jdbcType="CHAR" />
 		<result column="email" property="email" jdbcType="CHAR" />
 		<result column="gowhere" property="gowhere" jdbcType="CHAR" />
 		<result column="salary" property="salary" jdbcType="INTEGER" />
-		<result column="status" property="status" jdbcType="INTEGER" />
 		<result column="companyName" property="companyname" jdbcType="CHAR" />
 		<result column="ccode" property="ccode" jdbcType="INTEGER" />
 		<result column="cproperties" property="cproperties" jdbcType="CHAR" />
@@ -23,17 +23,18 @@
 			jdbcType="CHAR" />
 		<result column="cemail" property="cemail" jdbcType="CHAR" />
 	</resultMap>
-	
+
 	<resultMap id="PO" type="com.zhang.demo.model.PO">
-		<result column="salary" property="salary" jdbcType="INTEGER"/>
+		<result column="salary" property="salary" jdbcType="INTEGER" />
 	</resultMap>
-	
+
 	<sql id="Base_Column_List">
-		id, name, sno, major, gra_year, passport, email, gowhere,
-		salary,
-		companyName, ccode,
-		cproperties, ctrade, location, jobtitle,
-		contacts, contactsPhone, cemail
+		id, name, sno, major, gra_year, status, passport, email,
+		gowhere, salary,
+		companyName,
+		ccode, cproperties, ctrade, location,
+		jobtitle, contacts, contactsPhone,
+		cemail
 	</sql>
 
 	<select id="toCheck" resultMap="BaseResultMap">
@@ -74,14 +75,14 @@
 		from employmentinfo
 		where sno = #{sno,jdbcType=INTEGER}
 	</select>
-	
+
 	<!-- 获得所有通过审核的信息 -->
 	<select id="getAllEmployInfo" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from employmentinfo where status = 1 order by sno
 	</select>
-	
+
 	<!-- 通过审核 -->
 	<update id="agree" parameterType="java.lang.Integer">
 		update employmentinfo
@@ -89,8 +90,8 @@
 			status = 1
 		</set>
 		where id = #{id,jdbcType=INTEGER}
-	</update> 
-	
+	</update>
+
 	<!-- 驳回信息 -->
 	<update id="reject">
 		update employmentinfo
@@ -105,7 +106,7 @@
 		select email from
 		employmentinfo where 1=1
 	</select>
-	
+
 	<!-- 某个专业某一年的平均薪水 -->
 	<select id="optionsYearAndMajor" resultMap="BaseResultMap">
 		select major,
@@ -117,7 +118,7 @@
 			gra_year=#{gra_year,jdbcType=INTEGER}
 		</where>
 	</select>
-	
+
 	<!-- 某一年不同专业的薪水对比 -->
 	<select id="optionsYear" resultMap="BaseResultMap">
 		select major,
@@ -150,7 +151,6 @@
 		from employmentinfo
 		where id = #{id,jdbcType=INTEGER}
 	</select>
-
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from
 		employmentinfo
@@ -159,24 +159,27 @@
 	<insert id="insert" parameterType="com.zhang.demo.model.EmploymentInfo">
 		insert into employmentinfo
 		(id, name, sno, major,
-		gra_year, passport, email,
-		gowhere, salary,
-		companyName,
+		gra_year, status, passport,
+		email, gowhere,
+		salary, companyName,
 		ccode, cproperties, ctrade,
-		location, jobtitle, contacts,
+		location, jobtitle,
+		contacts,
 		contactsPhone, cemail)
 		values (#{id,jdbcType=INTEGER},
 		#{name,jdbcType=CHAR},
 		#{sno,jdbcType=INTEGER}, #{major,jdbcType=CHAR},
-		#{graYear,jdbcType=INTEGER}, #{passport,jdbcType=CHAR},
+		#{graYear,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
+		#{passport,jdbcType=CHAR},
 		#{email,jdbcType=CHAR},
-		#{gowhere,jdbcType=CHAR},
-		#{salary,jdbcType=INTEGER}, #{companyname,jdbcType=CHAR},
-		#{ccode,jdbcType=INTEGER}, #{cproperties,jdbcType=CHAR},
-		#{ctrade,jdbcType=CHAR},
-		#{location,jdbcType=CHAR},
-		#{jobtitle,jdbcType=CHAR}, #{contacts,jdbcType=CHAR},
-		#{contactsphone,jdbcType=CHAR}, #{cemail,jdbcType=CHAR})
+		#{gowhere,jdbcType=CHAR}, #{salary,jdbcType=INTEGER},
+		#{companyname,jdbcType=CHAR},
+		#{ccode,jdbcType=INTEGER},
+		#{cproperties,jdbcType=CHAR}, #{ctrade,jdbcType=CHAR},
+		#{location,jdbcType=CHAR}, #{jobtitle,jdbcType=CHAR},
+		#{contacts,jdbcType=CHAR},
+		#{contactsphone,jdbcType=CHAR},
+		#{cemail,jdbcType=CHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="com.zhang.demo.model.EmploymentInfo">
 		insert into employmentinfo
@@ -195,6 +198,9 @@
 			</if>
 			<if test="graYear != null">
 				gra_year,
+			</if>
+			<if test="status != null">
+				status,
 			</if>
 			<if test="passport != null">
 				passport,
@@ -252,6 +258,9 @@
 			<if test="graYear != null">
 				#{graYear,jdbcType=INTEGER},
 			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
 			<if test="passport != null">
 				#{passport,jdbcType=CHAR},
 			</if>
@@ -308,6 +317,9 @@
 			<if test="graYear != null">
 				gra_year = #{graYear,jdbcType=INTEGER},
 			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
 			<if test="passport != null">
 				passport = #{passport,jdbcType=CHAR},
 			</if>
@@ -359,19 +371,20 @@
 		major = #{major,jdbcType=CHAR},
 		gra_year =
 		#{graYear,jdbcType=INTEGER},
+		status = #{status,jdbcType=INTEGER},
 		passport = #{passport,jdbcType=CHAR},
 		email = #{email,jdbcType=CHAR},
 		gowhere = #{gowhere,jdbcType=CHAR},
-		salary = #{salary,jdbcType=INTEGER},
-		companyName =
-		#{companyname,jdbcType=CHAR},
+		salary =
+		#{salary,jdbcType=INTEGER},
+		companyName = #{companyname,jdbcType=CHAR},
 		ccode = #{ccode,jdbcType=INTEGER},
-		cproperties = #{cproperties,jdbcType=CHAR},
-		ctrade =
-		#{ctrade,jdbcType=CHAR},
+		cproperties =
+		#{cproperties,jdbcType=CHAR},
+		ctrade = #{ctrade,jdbcType=CHAR},
 		location = #{location,jdbcType=CHAR},
-		jobtitle
-		= #{jobtitle,jdbcType=CHAR},
+		jobtitle =
+		#{jobtitle,jdbcType=CHAR},
 		contacts = #{contacts,jdbcType=CHAR},
 		contactsPhone = #{contactsphone,jdbcType=CHAR},
 		cemail =
