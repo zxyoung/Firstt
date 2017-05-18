@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.zhang.demo.model.EmploymentInfo;
 import com.zhang.demo.model.Notes;
+import com.zhang.demo.model.Notice;
 import com.zhang.demo.model.Resume;
 import com.zhang.demo.model.StuInfo;
 import com.zhang.demo.service.EmploymentService;
 import com.zhang.demo.service.NotesService;
+import com.zhang.demo.service.NoticeService;
 import com.zhang.demo.service.ResumeService;
 import com.zhang.demo.service.StuService;
 
@@ -27,15 +29,14 @@ public class StudentController {
 
 	@Autowired
 	StuService stuService;
-
 	@Autowired
 	ResumeService resumeService;
-
 	@Autowired
 	EmploymentService employmentService;
-	
 	@Autowired
 	NotesService notesService;
+	@Autowired
+	NoticeService noticeService;
 
 	/**
 	 * 按id查看详细信息
@@ -52,7 +53,23 @@ public class StudentController {
 
 		return "detailStuInfo";
 	}
-
+	
+	/**
+	 * 查看招聘信息
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/listNoticeInfo")
+	public String getAllNoticeInfo(Model model) {
+		List<Notice> list = noticeService.getAllNotice();
+		if (list == null) {
+			return "跳向相应错误处理页面";
+		}
+		model.addAttribute("list", list);
+		return "listNoticeForStu";
+	}
+	
 	/**
 	 * 列出所有公告
 	 * 
@@ -297,7 +314,6 @@ public class StudentController {
 		if (flag != 1) {
 			return "errorPage";
 		}
-
 		return "redirect:/student/" + sno + "/EmploymentInfo";
 	}
 

@@ -32,4 +32,9 @@ public interface EmploymentService {
 	
 	List<PO> optionsMajor(String major);
 	
+	List<EmploymentInfo> toCheckList();
+	
+	int agree(Integer id);
+	
+	int reject(Integer id);
 }

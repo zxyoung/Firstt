@@ -36,4 +36,10 @@ public interface EmploymentInfoDao {
 	
 	List<PO> optionsMajor(@Param("major") String major);
 	
+	List<EmploymentInfo> toCheck();
+	
+	int agree(Integer id);
+	
+	int reject(Integer id);
+	
 }

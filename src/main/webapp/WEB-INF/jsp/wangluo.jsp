@@ -75,7 +75,7 @@
             },
             //X轴设置
             xAxis:{
-                data:['2013','2014','2015']
+                data:['2015','2016','2017']
             },
             yAxis:{
             },
@@ -83,7 +83,7 @@
             series:[{
                 name:'年薪',
                 type:'bar',
-                data:['12','15','18']
+                data:['15','18','12']
             }]
         };
     myChart.setOption(options);

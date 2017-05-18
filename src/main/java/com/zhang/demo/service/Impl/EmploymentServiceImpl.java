@@ -72,4 +72,19 @@ public class EmploymentServiceImpl implements EmploymentService{
 	public List<PO> optionsMajor(String major) {
 		return employmentInfoDao.optionsMajor(major);
 	}
+
+	@Override
+	public List<EmploymentInfo> toCheckList() {
+		return employmentInfoDao.toCheck();
+	}
+
+	@Override
+	public int agree(Integer id) {
+		return employmentInfoDao.agree(id);
+	}
+
+	@Override
+	public int reject(Integer id) {
+		return employmentInfoDao.reject(id);
+	}
 }

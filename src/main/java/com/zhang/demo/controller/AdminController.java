@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -167,7 +168,44 @@ public class AdminController {
 	public String toIndex2(){
 		return "index2";
 	}
+	/**
+	 * 通过审核
+	 * @return
+	 */
+	@RequestMapping(value="/{id}/agree")
+	public String agreeEmployInfo(@PathVariable("id") Integer id){
+		Integer flag = employmentService.agree(id);
+		
+		return "redirect:/admin/toCheck";
+	}
+	/**
+	 * 驳回信息
+	 * @return
+	 */
+	@RequestMapping(value="/{id}/reject")
+	public String rejectEmployInfo(@PathVariable("id") Integer id){
+		Integer flag = employmentService.reject(id);
+		return "redirect:/admin/toCheck";
+	}
 	
+	/**
+	 * 获得待审核列表
+	 * @return
+	 */
+	@RequestMapping(value="/toCheck")
+	public String toCheck(Model model){
+		List<EmploymentInfo> list = employmentService.toCheckList();
+		model.addAttribute("list", list);
+		System.out.println(list.get(0).getStatus());
+		return "toCheck";
+	}
+	
+	/**
+	 * 统计薪酬
+	 * @param request
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
 	@RequestMapping(value="/testEmploy")
 	public String optionsMajor(HttpServletRequest request) throws UnsupportedEncodingException{
 		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
@@ -182,7 +220,7 @@ public class AdminController {
 	}
 	
 	/**
-	 * m
+	 * 
 	 * @param model
 	 * @return
 	 */

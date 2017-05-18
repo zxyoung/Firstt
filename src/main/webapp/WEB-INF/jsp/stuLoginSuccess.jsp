@@ -151,17 +151,17 @@
 							<li><a href="/firstt/student/${stuInfo.id}/stuInfo"
 								target="display"><i class="glyphicon glyphicon-edit"></i>
 									修改信息</a></li>
-							<li><a href="/firstt/student/${stuInfo.sno}/EmploymentInfo" target="display"><i class="glyphicon glyphicon-eye-open"></i>
+							<li><a href="/firstt/student/${stuInfo.sno}/EmploymentInfo"
+								target="display"><i class="glyphicon glyphicon-eye-open"></i>
 									就业信息</a></li>
 						</ul></li>
 					<li><a href="/firstt/student/${stuInfo.sno}/detailResume"
 						target="display"> <i class="glyphicon glyphicon-credit-card"></i>
 							个人简历
 					</a></li>
-				<%-- 	<li><a href="/firstt/student/${stuInfo.sno}/EmploymentInfo"
-						target="display"> <i class="glyphicon glyphicon-globe"></i>
-							就业信息
-					</a></li> --%>
+					<li><a href="/firstt/student/listNoticeInfo" target="display">
+							<i class="glyphicon glyphicon-list-alt"></i> 查看招聘信息
+					</a></li>
 					<li><a href="/firstt/student/listAllNotes" target="display">
 							<i class="glyphicon glyphicon-calendar"></i> 系统公告
 					</a></li>

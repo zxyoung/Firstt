@@ -11,6 +11,7 @@
 		<result column="email" property="email" jdbcType="CHAR" />
 		<result column="gowhere" property="gowhere" jdbcType="CHAR" />
 		<result column="salary" property="salary" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
 		<result column="companyName" property="companyname" jdbcType="CHAR" />
 		<result column="ccode" property="ccode" jdbcType="INTEGER" />
 		<result column="cproperties" property="cproperties" jdbcType="CHAR" />
@@ -35,6 +36,15 @@
 		contacts, contactsPhone, cemail
 	</sql>
 
+	<select id="toCheck" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from employmentinfo
+		<where>
+			status = 0 or status = -1
+		</where>
+	</select>
+
 
 	<!-- 动态sql查找 -->
 	<select id="testList" resultMap="BaseResultMap">
@@ -42,7 +52,7 @@
 		<include refid="Base_Column_List" />
 		from employmentinfo
 		<where>
-			1=1
+			status = 1
 			<if test="name != null and name != '' ">
 				and name like CONCAT(CONCAT('%',
 				#{name,jdbcType=CHAR}),'%')
@@ -64,13 +74,31 @@
 		from employmentinfo
 		where sno = #{sno,jdbcType=INTEGER}
 	</select>
-
+	
+	<!-- 获得所有通过审核的信息 -->
 	<select id="getAllEmployInfo" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from employmentinfo order by sno
+		from employmentinfo where status = 1 order by sno
 	</select>
-
+	
+	<!-- 通过审核 -->
+	<update id="agree" parameterType="java.lang.Integer">
+		update employmentinfo
+		<set>
+			status = 1
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update> 
+	
+	<!-- 驳回信息 -->
+	<update id="reject">
+		update employmentinfo
+		<set>
+			status = -1
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
 
 	<!-- 列出所有的学生邮箱 -->
 	<select id="getAllEmail" resultType="java.lang.String">

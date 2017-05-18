@@ -8,8 +8,18 @@ public class EmploymentInfo implements Serializable {
     private String name;
 
     private Integer sno;
+    
+    private Integer status;
 
-    private String major;
+    public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	private String major;
 
     private Integer graYear;
 

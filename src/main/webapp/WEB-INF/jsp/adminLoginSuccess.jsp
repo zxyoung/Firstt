@@ -157,9 +157,12 @@
 							<li><a href="/firstt/admin/listEmploymentInfo"
 								target="display"><i class="glyphicon glyphicon-list-alt"></i>
 									学生就业信息</a></li>
+							<li><a href="/firstt/admin/toCheck"
+								target="display"><i class="glyphicon glyphicon-list-alt"></i>
+									待审核就业信息</a></li>
 							<li><a href="/firstt/admin/listResume" target="display"><i
 									class="glyphicon glyphicon-list-alt"></i> 学生简历</a></li>
-						<!-- 	<li><a href="/firstt/admin/searchBySno" target="display"><i
+							<!-- 	<li><a href="/firstt/admin/searchBySno" target="display"><i
 									class="glyphicon glyphicon-search"></i> 查找学生信息</a></li> -->
 
 							<li><a href="/firstt/admin/chars" target="display"><i

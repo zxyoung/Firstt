@@ -107,7 +107,7 @@
 		series : [ {
 			name : '计科',
 			type : 'bar',
-			data : [ 12, 16, 15 ],
+			data : [ 12, 18, 15 ],
 			markPoint : {
 				data : [ {
 					type : 'max',
@@ -126,7 +126,7 @@
 		}, {
 			name : '网络',
 			type : 'bar',
-			data : [ 13, 16, 14.6 ],
+			data : [ 15, 18, 12 ],
 			markPoint : {
 				data : [ {
 					type : 'max',
@@ -145,7 +145,7 @@
 		}, {
 			name : '软件',
 			type : 'bar',
-			data : [ 13, 16, 14.6 ],
+			data : [ 12, 18, 15 ],
 			markPoint : {
 				data : [ {
 					type : 'max',
