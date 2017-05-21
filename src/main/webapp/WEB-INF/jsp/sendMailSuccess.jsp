@@ -16,6 +16,6 @@
 <title>查找</title>
 </head>
 <body>
-你好
+<h1>邮件发送成功！</h1>
 </body>
 </html>

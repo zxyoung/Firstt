@@ -55,21 +55,25 @@
 									<table class="table table-striped table-bordered table-hover">
 										<thead>
 											<tr>
+
+											<tr>
 												<th>标题</th>
-												<th>创建时间</th>
-												<th>操作</th>
-											</tr>
+													<th>职位</th>
+													<th>工作地点</th>
+													<th>操作</th>
+												</tr></tr>
+											
 										</thead>
 										<tbody>
 											<c:forEach var="notice" items="${list}">
-												<td>${notice.title}</td>
-												<td><fmt:formatDate value="${notice.fbtime}"
-														pattern="yyyy-MM-dd" type="date" dateStyle="long" /></td>
-												<td><a href="/firstt/company/${notice.id}/noticeDetail"
+													<td>${notice.title}</td>
+													<td>${notice.jobtitle}</td>
+													<td>${notice.location}</td>
+													<td><a href="/firstt/company/${notice.id}/noticeDetail"
 													target="display">详细信息</a> | <a onclick="firm()"
 													href="/firstt/company/${notice.id}/deleteNotice">删除</a></td>
-												<tr />
-											</c:forEach>
+													<tr />
+												</c:forEach>
 										</tbody>
 									</table>
 

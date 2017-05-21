@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -86,10 +87,14 @@ public class CompanyController {
 
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		String jobtitle = request.getParameter("jobtitle");
+		String location = request.getParameter("location");
 
 		Notice notice = new Notice();
 
 		notice.setCode(code);
+		notice.setJobtitle(jobtitle);
+		notice.setLocation(location);
 		notice.setTitle(title);
 		notice.setContent(content);
 		notice.setFbtime(new Date());
@@ -103,7 +108,6 @@ public class CompanyController {
 		}
 		System.out.println("success");
 
-		// To-Do
 		return "redirect:/company/" + code + "/detailNotice";
 	}
 
@@ -138,21 +142,23 @@ public class CompanyController {
 	}
 
 	/**
-	 * 删除招聘信息 **************************跳转有错误**************************
+	 * 删除招聘信息 
 	 * 
 	 * @param id
 	 * @return
 	 */
 	@RequestMapping(value = "/{id}/deleteNotice")
-	public String deleteNotice(@PathVariable("id") Integer id) {
+	public String deleteNotice(@PathVariable("id") Integer id, HttpSession session) {
 		if (id == null) {
 			return "error";
 		}
+		Company company = (Company) session.getAttribute("companySession");
+		Integer code = company.getCode();
 		int delNotice = noticeService.deleteByPrimaryKey(id);
 		if (delNotice < 1) {
 			return "error";
 		}
-		return "redirect:/company/listNoticeInfo";
+		return "redirect:/company/" + code + "/detailNotice";
 	}
 
 	/**

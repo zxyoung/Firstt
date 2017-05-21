@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.zhang.demo.model.EmploymentInfo;
 import com.zhang.demo.model.PO;
+import com.zhang.demo.model.Shit;
 
 public interface EmploymentService {
 	int deleteByPrimaryKey(Integer id);
@@ -37,4 +38,6 @@ public interface EmploymentService {
 	int agree(Integer id);
 	
 	int reject(Integer id);
+	
+	List<Shit> getShitList(String major, Integer startYear, Integer endYear);
 }

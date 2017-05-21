@@ -11,7 +11,7 @@
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">按专业查询近三年薪酬</a>
+				<a class="navbar-brand" href="#">薪酬统计</a>
 			</div>
 			<div>
 				<form action="/firstt/admin/testEmploy"
@@ -24,22 +24,29 @@
 							<option>软工</option>
 						</select>
 					</div>
-					<button type="submit" class="btn btn-default">近三年薪酬查询</button>
+					<div class="form-group">
+						<input name="startYear" type="text" class="form-control"
+							placeholder="起始年份...">
+					</div>
+					<div class="form-group">
+						<input name="endYear" type="text" class="form-control"
+							placeholder="截止年份...">
+					</div>
+					<button type="submit" class="btn btn-default">查询</button>
 				</form>
 			</div>
-			
 			<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">综合对比</a>
-			</div>
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">综合对比</a>
+				</div>
 
-			<div>
-				<form action="/firstt/admin/testTongji"
-					class="navbar-form navbar-left" role="search">
-					<button type="submit" class="btn btn-default">薪酬对比</button>
-				</form>
+				<div>
+					<form action="/firstt/admin/testTongji"
+						class="navbar-form navbar-left" role="search">
+						<button type="submit" class="btn btn-default">薪酬对比</button>
+					</form>
+				</div>
 			</div>
-		</div>
 		</div>
 	</nav>
 	<div id="chart" style="float: left; width: 300px; height: 300px;"></div>
@@ -61,32 +68,30 @@
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    // 初始化图表标签
-    var myChart = echarts.init(document.getElementById('chart'));
+	// 初始化图表标签
+	var myChart = echarts.init(document.getElementById('chart'));
 
-    var options={
-            //定义一个标题
-            title:{
-                text:'网络工程',
-               	subtext:'单位（w）'
-            },
-            legend:{
-                data:['数量']
-            },
-            //X轴设置
-            xAxis:{
-                data:['2015','2016','2017']
-            },
-            yAxis:{
-            },
-            //name=legend.data的时候才能显示图例
-            series:[{
-                name:'年薪',
-                type:'bar',
-                data:['15','18','12']
-            }]
-        };
-    myChart.setOption(options);
-    
+	var options = {
+		//定义一个标题
+		title : {
+			text : '网络工程',
+			subtext : '单位（w）'
+		},
+		legend : {
+			data : [ '数量' ]
+		},
+		//X轴设置
+		xAxis : {
+			data : [ '2015', '2016', '2017' ]
+		},
+		yAxis : {},
+		//name=legend.data的时候才能显示图例
+		series : [ {
+			name : '年薪',
+			type : 'bar',
+			data : [ '15', '18', '12' ]
+		} ]
+	};
+	myChart.setOption(options);
 </script>
 </html>

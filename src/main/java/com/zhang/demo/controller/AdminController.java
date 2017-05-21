@@ -171,19 +171,26 @@ public class AdminController {
 	 * 通过审核
 	 * @return
 	 */
-	@RequestMapping(value="/{id}/agree")
-	public String agreeEmployInfo(@PathVariable("id") Integer id){
+	@RequestMapping(value = "/{id}/agree")
+	public String agreeEmployInfo(@PathVariable("id") Integer id) {
 		Integer flag = employmentService.agree(id);
-		
+		if (flag == 0) {
+			return "error";
+		}
 		return "redirect:/admin/toCheck";
 	}
+
 	/**
 	 * 驳回信息
+	 * 
 	 * @return
 	 */
-	@RequestMapping(value="/{id}/reject")
-	public String rejectEmployInfo(@PathVariable("id") Integer id){
+	@RequestMapping(value = "/{id}/reject")
+	public String rejectEmployInfo(@PathVariable("id") Integer id) {
 		Integer flag = employmentService.reject(id);
+		if (flag == 0) {
+			return "error";
+		}
 		return "redirect:/admin/toCheck";
 	}
 	
@@ -206,8 +213,9 @@ public class AdminController {
 	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping(value="/testEmploy")
-	public String optionsMajor(HttpServletRequest request) throws UnsupportedEncodingException{
+	public String optionsMajor(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
 		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
+
 		if (major.equals("计科")) {
 			return "jike";
 		}if (major.equals("网络")) {
@@ -302,7 +310,6 @@ public class AdminController {
 
 	/**
 	 * 查看详细就业信息
-	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -322,17 +329,12 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "/sendEmail")
 	public String sendEmail() {
-
-
 		String username = "15664646679@163.com";
 		String password = "woshi2k10";
-
 		String subject = "邮箱提醒：来自学校的一封邮件11";
-
 		String context = "您好！若您的工作有变动，请您回学校就业网站<a>www.xupt.edu.cn </a>更新就业信息(若无，则忽略此邮件)";
 
 		List<String> emailList = employmentService.getAllEmail();
-		
 		System.out.println(emailList.toString());
 
 		MailSenderInfo mailInfo = new MailSenderInfo();
@@ -345,17 +347,16 @@ public class AdminController {
 		mailInfo.setSubject(subject);
 		mailInfo.setContent(context);
 		SimpleMailSender sms = new SimpleMailSender();
+		mailInfo.setToAddress("359176585@qq.com");
 
 		// TODO 设置群发邮件，此处需加如下一个循环
 		// for (String mailItem : mail) {
 		// mailInfo.setToAddress(mailItem);
 		// sms.sendTextMail(mailInfo);
 		// }
-		mailInfo.setToAddress("359176585@qq.com");
-		// 这个类主要来发送邮件
 		sms.sendTextMail(mailInfo);// 发送文体格式
 		// sms.sendHtmlMail(mailInfo);// 发送html格式
-		return "redirect:/admin/adminLoginSuccess";
+		return "sendMailSuccess";
 	}
 
 	/*************************************** 企业信息操作 *********************************************/

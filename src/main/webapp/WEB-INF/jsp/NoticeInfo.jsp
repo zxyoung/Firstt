@@ -6,11 +6,7 @@
 <title>招聘信息详情</title>
 <%@include file="common/head.jsp"%>
 </head>
-
 <body>
-
-
-
 	<div class="container">
 		<div class="panel panel-default text-center">
 			<div class="panel-heading text-header">
@@ -28,7 +24,7 @@
 							readonly="readonly" name="content">${notice.content}</textarea>
 					</div>
 				</div> --%>
-				<p class="form-control-static" style="text-align: left;">职位描述：<br>${notice.content}</p>
+				<p class="form-control-static" style="text-align: left;">职位描述： ${notice.content}</p>
 				<br><br><br>
 				<p class="form-control-static" style="text-align: right;">
 					发布时间：

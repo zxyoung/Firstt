@@ -15,47 +15,11 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">筛选条件</a>
-			</div>
-			<div>
-				<form action="/firstt/admin/testList" class="navbar-form navbar-left" role="search">
-					<div class="form-group">
-						<select name="graYear" class="form-control">
-							<option value="null">选择毕业年份...</option>
-							<option>2014</option>
-							<option>2015</option>
-							<option>2016</option>
-							<option>2017</option>
-							<option>2018</option>
-						</select>
-					</div>
-					<div class="form-group">
-						 <select name="major" class="form-control">
-							<option value="null">选择专业...</option>
-							<option>计科</option>
-							<option>网络</option>
-							<option>软工</option>
-							<!-- <option>2017</option>
-							<option>2018</option> -->
-						</select>
-					</div>
-					<div class="form-group">
-						<input name="name" type="text" class="form-control"
-							placeholder="请输入姓名...">
-					</div>
-					<button type="submit" class="btn btn-default">查找</button>
-				</form>
-			</div>
-		</div>
-	</nav>
 	<div class="container">
 		<div class="panel panel-default">
-			<!-- 	<div class="panel-heading text-header">
-				<h2 align="center">学生就业信息</h2>
-			</div> -->
+			<div class="panel-heading text-header">
+				<h2 align="center">就业信息列表</h2>
+			</div>
 
 			<div class="matter">
 				<div class="container">
@@ -92,7 +56,7 @@
 												<td>${employment.graYear}</td>
 												<td>${employment.salary}</td>
 												<td><a
-													href="/firstt/admin/${employment.id}/employmentDetail"
+													href="/firstt/student/${employment.id}/employmentDetail"
 													target="_blank">详细信息</a></td>
 												<tr />
 											</c:forEach>

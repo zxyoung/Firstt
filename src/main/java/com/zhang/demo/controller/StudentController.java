@@ -41,7 +41,6 @@ public class StudentController {
 
 	/**
 	 * 按id查看详细信息
-	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -54,10 +53,9 @@ public class StudentController {
 
 		return "detailStuInfo";
 	}
-	
+
 	/**
 	 * 查看招聘信息
-	 * 
 	 * @param model
 	 * @return
 	 */
@@ -70,7 +68,7 @@ public class StudentController {
 		model.addAttribute("list", list);
 		return "listNoticeForStu";
 	}
-	
+
 	/**
 	 * 多条件查找招聘信息
 	 * @param request
@@ -78,21 +76,20 @@ public class StudentController {
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
-	@RequestMapping(value="/searchNotice")
-	public String searchNotice(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
-		//TODO 
+	@RequestMapping(value = "/searchNotice")
+	public String searchNotice(HttpServletRequest request, Model model) throws UnsupportedEncodingException {
+		// TODO
 		String jobtitle = new String(request.getParameter("jobtitle").getBytes("iso-8859-1"), "utf-8");
 		String location = new String(request.getParameter("location").getBytes("iso-8859-1"), "utf-8");
-		
+
 		List<Notice> list = noticeService.searchNotice(jobtitle, location);
-		
+
 		model.addAttribute("list", list);
 		return "listNoticeForStu";
 	}
-	
+
 	/**
 	 * 列出所有公告
-	 * 
 	 * @param model
 	 * @return
 	 */
@@ -108,7 +105,6 @@ public class StudentController {
 
 	/**
 	 * 根据学号查看自己的简历
-	 * 
 	 * @param id
 	 * @param model
 	 * @return
@@ -128,7 +124,6 @@ public class StudentController {
 
 	/**
 	 * 新增一个简历
-	 * 
 	 * @param request
 	 * @param session
 	 * @return
@@ -213,7 +208,6 @@ public class StudentController {
 
 	/**
 	 * 删除简历
-	 * 
 	 * @param id
 	 *            简历的id
 	 * @return 返回影响的数据的条数
@@ -222,15 +216,29 @@ public class StudentController {
 	public String deleteResumeById(@PathVariable("id") Integer id) {
 		int flag = resumeService.deleteByPrimaryKey(id);
 		if (flag != 1) {
-			// To-Do
 			return "errorPage";
 		}
 		return "newResume";
 	}
 
 	/**
-	 * 根据学号sno查看所有就业信息
-	 * 
+	 * 查看详细就业信息
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/{id}/employmentDetail")
+	public String detailEmployment(@PathVariable("id") Integer id, Model model) {
+		EmploymentInfo employmentInfo = employmentService.selectByPrimaryKey(id);
+		if (employmentInfo != null) {
+			model.addAttribute("employ", employmentInfo);
+			return "viewEmploymentInfo";
+		}
+		return "跳向错误处理页面";
+	}
+	
+	/**
+	 * 列出自己所有的就业信息
 	 * @param sno
 	 * @param model
 	 * @return
@@ -244,17 +252,18 @@ public class StudentController {
 			return "newEmploy";
 		}
 		model.addAttribute("list", list);
-		return "listEmploymentInfo";
+		return "listEmploymentInfoForStu";
 	}
+
 	/**
 	 * 增加就业信息
 	 * @return
 	 */
-	@RequestMapping(value="/newEmployInfo")
-	public String toNewEmployInfo(){
+	@RequestMapping(value = "/newEmployInfo")
+	public String toNewEmployInfo() {
 		return "newEmploy";
 	}
-	
+
 	/**
 	 * 增加就业信息
 	 * @param request
@@ -266,6 +275,7 @@ public class StudentController {
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
 		String passport = request.getParameter("passport");
 		String major = request.getParameter("major");
+		String name = request.getParameter("name");
 		Integer salary = Integer.parseInt(request.getParameter("salary"));
 		String email = request.getParameter("email").trim();
 		String gowhere = request.getParameter("gowhere");
@@ -278,6 +288,8 @@ public class StudentController {
 		String contacts = request.getParameter("contacts");
 		String contactsphone = request.getParameter("contactsphone");
 		String cemail = request.getParameter("cemail");
+		StuInfo stuInfo = (StuInfo) session.getAttribute("stu");
+		Integer graYear = stuInfo.getGraYear();
 
 		EmploymentInfo info = new EmploymentInfo();
 		info.setSno(sno);
@@ -286,7 +298,8 @@ public class StudentController {
 		info.setMajor(major);
 		info.setStatus(0);
 		info.setSalary(salary);
-		info.setGraYear(2017);
+		info.setName(name);
+		info.setGraYear(graYear);
 		info.setGowhere(gowhere);
 		info.setCompanyname(companyname);
 		info.setCcode(ccode);
@@ -303,13 +316,11 @@ public class StudentController {
 			System.out.println("insert error!");
 			return "errorPage";
 		}
-
 		return "redirect:/student/" + sno + "/listEmploymentInfo";
 	}
 
 	/**
 	 * 更新就业信息
-	 * 
 	 * @param id
 	 * @param request
 	 * @return
@@ -318,6 +329,10 @@ public class StudentController {
 	public String updateEmploymentInfo(@PathVariable("id") Integer id, HttpServletRequest request) {
 		Integer sno = Integer.parseInt(request.getParameter("sno"));
 		String passport = request.getParameter("passport");
+		String major = request.getParameter("major");
+		Integer salary = Integer.parseInt(request.getParameter("salary"));
+		String name = request.getParameter("name");
+		Integer graYear = Integer.parseInt(request.getParameter("graYear"));
 		String email = request.getParameter("email").trim();
 		String gowhere = request.getParameter("gowhere");
 		String companyname = request.getParameter("companyname").trim();
@@ -333,6 +348,10 @@ public class StudentController {
 		EmploymentInfo info = new EmploymentInfo();
 		info.setId(id);
 		info.setSno(sno);
+		info.setSalary(salary);
+		info.setMajor(major);
+		info.setName(name);
+		info.setGraYear(graYear);
 		info.setPassport(passport);
 		info.setEmail(email);
 		info.setGowhere(gowhere);
@@ -350,7 +369,6 @@ public class StudentController {
 		if (flag != 1) {
 			return "errorPage";
 		}
-		return "redirect:/student/" + sno + "/EmploymentInfo";
+		return "redirect:/student/" + sno + "/listEmploymentInfo";
 	}
-
 }

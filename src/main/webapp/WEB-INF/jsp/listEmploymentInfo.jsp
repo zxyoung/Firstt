@@ -77,7 +77,7 @@
 									<thead>
 										<tr>
 											<th>姓名</th>
-											<th>学号</th>
+											<th>就业公司</th>
 											<th>专业</th>
 											<th>毕业年份</th>
 											<th>年薪(w)</th>
@@ -86,7 +86,7 @@
 									<tbody>
 										<c:forEach var="employment" items="${list}">
 											<td>${employment.name}</td>
-											<td>${employment.sno}</td>
+											<td>${employment.companyname}</td>
 											<td>${employment.major}</td>
 											<td>${employment.graYear}</td>
 											<td>${employment.salary}</td>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.zhang.demo.dao.EmploymentInfoDao;
 import com.zhang.demo.model.EmploymentInfo;
 import com.zhang.demo.model.PO;
+import com.zhang.demo.model.Shit;
 import com.zhang.demo.service.EmploymentService;
 
 @Service("employmentService")
@@ -86,5 +87,10 @@ public class EmploymentServiceImpl implements EmploymentService{
 	@Override
 	public int reject(Integer id) {
 		return employmentInfoDao.reject(id);
+	}
+
+	@Override
+	public List<Shit> getShitList(String major, Integer startYear, Integer endYear) {
+		return employmentInfoDao.getShit(major, startYear, endYear);
 	}
 }

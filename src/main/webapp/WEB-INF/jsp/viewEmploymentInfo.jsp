@@ -33,7 +33,7 @@
 						<input type="text" class="form-control" name="major"
 							value="${employ.major}">
 					</div>
-					<label class="control-label col-lg-2" for="passport">毕业年份：</label>
+					<label class="control-label col-lg-2" for="graYear">毕业年份：</label>
 					<div class="col-lg-2">
 						<input type="text" class="form-control" name="graYear"
 							value="${employ.graYear}">

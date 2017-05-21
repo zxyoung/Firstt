@@ -29,7 +29,6 @@
 </script>
 
 <body>
-
 	<div class="container">
 		<div class="panel panel-default text-center">
 			<div class="panel-heading text-header">
@@ -37,22 +36,17 @@
 			</div>
 		</div>
 
-
 		<form action="/firstt/student/${resume.id}/updateResume" method="post"
 			id="formid" class="form-horizontal">
-			<!-- Registration form starts -->
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="name">姓名：</label>
-				<div class="col-lg-9">
+				<div class="col-lg-2">
 					<input type="text" class="form-control" id="name" name="name"
 						value="${resume.name}">
 				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="phone">电话：</label>
-				<div class="col-lg-9">
+				<label class="control-label col-lg-2" for="phone">电话：</label>
+				<div class="col-lg-2">
 					<input type="text" class="form-control" id="phone" name="phone"
 						value="${resume.phone}">
 				</div>
@@ -60,16 +54,12 @@
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="email">Email：</label>
-				<div class="col-lg-9">
+				<div class="col-lg-2">
 					<input type="text" class="form-control" id="email" name="email"
 						value="${resume.email}">
 				</div>
-			</div>
-
-
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="age">年龄：</label>
-				<div class="col-lg-9">
+				<label class="control-label col-lg-2" for="age">年龄：</label>
+				<div class="col-lg-2">
 					<input type="text" class="form-control" id="age" name="age"
 						value="${resume.age}">
 				</div>
@@ -77,15 +67,12 @@
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="major">专业：</label>
-				<div class="col-lg-9">
+				<div class="col-lg-2">
 					<input type="text" class="form-control" id="major" name="major"
 						value="${resume.major}">
 				</div>
-			</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-3" for="sno">学号：</label>
-				<div class="col-lg-9">
+				<label class="control-label col-lg-2" for="sno">学号：</label>
+				<div class="col-lg-2">
 					<input type="text" class="form-control" id="sno" name="sno"
 						value="${resume.sno}">
 				</div>
@@ -93,7 +80,7 @@
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="school">毕业院校：</label>
-				<div class="col-lg-9">
+				<div class="col-lg-2">
 					<input type="text" class="form-control" id="school" name="school"
 						value="${resume.school}">
 				</div>
@@ -101,7 +88,7 @@
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="experience">实习经历：</label>
-				<div class="col-lg-9">
+				<div class="col-lg-6">
 					<textarea class="form-control" rows="5" cols="25" id="experience"
 						name="experience">${resume.experience}</textarea>
 				</div>
@@ -109,7 +96,7 @@
 
 			<div class="form-group">
 				<label class="control-label col-lg-3" for="selfintro">自我介绍：</label>
-				<div class="col-lg-9">
+				<div class="col-lg-6">
 					<textarea class="form-control" rows="5" cols="25" id="selfintro"
 						name="selfintro">${resume.selfintro}</textarea>
 				</div>

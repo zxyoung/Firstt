@@ -144,7 +144,7 @@
 					</a>
 						<ul id="systemSetting" class="nav nav-list collapse secondmenu"
 							style="height: 0px;">
-							<li class="active"><a href="##########" target="display"><i
+							<li class="active"><a href="/firstt/student/${stuInfo.id}/stuInfo" target="display"><i
 									class="glyphicon glyphicon-user"></i>
 									${sessionScope.stu.getStuName()}</a></li>
 							<li><a href="/firstt/student/${stuInfo.id}/stuInfo"
@@ -158,7 +158,7 @@
 									class="glyphicon glyphicon-eye-open"></i> 增加就业信息</a></li>
 						</ul></li>
 					<li><a href="/firstt/student/${stuInfo.sno}/detailResume"
-						target="display"> <i class="glyphicon glyphicon-credit-card"></i>
+						target="_blank"> <i class="glyphicon glyphicon-credit-card"></i>
 							个人简历
 					</a></li>
 					<li><a href="/firstt/student/listNoticeInfo" target="display">
@@ -179,7 +179,7 @@
 			<!-- 写ifream -->
 			<div class="col-md-10">
 				主窗口
-				<iframe class="content" width="1100" height="800" name="display"></iframe>
+				<iframe class="content" width="1100" height="550" name="display"></iframe>
 			</div>
 		</div>
 	</div>

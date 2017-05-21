@@ -182,7 +182,7 @@
 					<li><a href="/firstt/admin/listAllNotes" target="display">
 							<i class="glyphicon glyphicon-list-alt"></i> 管理公告
 					</a></li>
-					<li><a href="/firstt/admin/sendEmail"> <i
+					<li><a href="/firstt/admin/sendEmail" target="display"><i
 							class="glyphicon glyphicon-envelope"></i> 发送邮件
 					</a></li>
 

@@ -10,7 +10,6 @@
 <body>
 	<div class="container">
 		<div class="panel panel-default text-center">
-		<!-- <label class="control-label col-lg-3">请输入招聘信息</label> -->
 			<div class="panel-heading text-header">
 				<h2 align="center">请输入招聘信息</h2>
 			</div>
@@ -20,22 +19,38 @@
 			class="form-horizontal">
 
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="email">标题：</label>
-				<div class="col-lg-9">
-					<input type="text" class="form-control" placeholder="请输入标题" name="title" value="">
+				<label class="control-label col-lg-2" for="title">标题：</label>
+				<div class="col-lg-2">
+					<input type="text" class="form-control" placeholder="请输入标题..."
+						name="title" value="">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-lg-3" for="email">招聘详情：</label>
-				<div class="col-lg-9">
-					<textarea class="form-control" placeholder="请输入详细信息" rows="5" cols="25" name="content"></textarea>
+				<label class="control-label col-lg-2" for="jobtitle">招聘职位：</label>
+				<div class="col-lg-2">
+					<input type="text" class="form-control" placeholder="请输入职位..."
+						name="jobtitle" value="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-2" for="location">工作地点：</label>
+				<div class="col-lg-2">
+					<input type="text" class="form-control" placeholder="请输入工作地点..."
+						name="location" value="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-lg-2" for="content">招聘详情：</label>
+				<div class="col-lg-2">
+					<textarea class="form-control" placeholder="招聘详情..." rows="5"
+						cols="25" name="content"></textarea>
 				</div>
 			</div>
 
 			<!-- Accept box and button s-->
 			<div class="form-group">
-				<div class="col-lg-9 col-lg-offset-3">
+				<div class="col-lg-3 col-lg-offset-3">
 					<br />
 					<button type="submit" class="btn btn-danger">添加</button>
 					<button type="reset" class="btn btn-success">重置</button>

@@ -5,12 +5,6 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- <link rel="stylesheet"
-	href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script
-	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link
@@ -181,7 +175,7 @@
 
 			<!-- 写ifream -->
 			<div class="col-md-10">
-				<iframe class="content" width="1100" height="500" name="display"></iframe>
+				<iframe class="content" width="1100" height="550" name="display"></iframe>
 			</div>
 		</div>
 	</div>
