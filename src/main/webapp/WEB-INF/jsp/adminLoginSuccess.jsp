@@ -5,32 +5,17 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- <link rel="stylesheet"
-	href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-<script
-	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js" ></script> -->
-<!-- 新 Bootstrap 核心 CSS 文件 -->
 <link
 	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet">
-
-<!-- 可选的Bootstrap主题文件（一般不使用） -->
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
-
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script
 	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script
 	src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>管理员界面</title>
-
 <style type="text/css">
 #main-nav {
 	margin-left: 1px;
@@ -78,12 +63,10 @@
 		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#4A515B', endColorstr='#3C4049')";
 	border-color: #2B2E33;
 }
-
 #main-nav.nav-tabs.nav-stacked>li.active>a, #main-nav.nav-tabs.nav-stacked>li>a:hover>span
 	{
 	color: #FFF;
 }
-
 #main-nav.nav-tabs.nav-stacked>li {
 	margin-bottom: 4px;
 }
@@ -98,7 +81,6 @@
 	background-color: #212121;
 	margin-bottom: 5px;
 }
-
 .navbar-brand {
 	background: url('') no-repeat 10px 8px;
 	display: inline-block;
@@ -117,14 +99,8 @@
 }
 </style>
 <script type="text/javascript">
-	function checkfun() {
-		var folder = document.getElementById("sno").value;
-		if (folder == "") {
-			alert('输入不能为空！');
-			return false;
-		}
-		document.getElementById("formid").submit();
-
+	function mailSuccess(){
+		alert("邮件发送成功！");
 	}
 </script>
 </head>
@@ -157,9 +133,8 @@
 							<li><a href="/firstt/admin/listEmploymentInfo"
 								target="display"><i class="glyphicon glyphicon-list-alt"></i>
 									学生就业信息</a></li>
-							<li><a href="/firstt/admin/toCheck"
-								target="display"><i class="glyphicon glyphicon-list-alt"></i>
-									待审核就业信息</a></li>
+							<li><a href="/firstt/admin/toCheck" target="display"><i
+									class="glyphicon glyphicon-list-alt"></i> 待审核就业信息</a></li>
 							<li><a href="/firstt/admin/listResume" target="display"><i
 									class="glyphicon glyphicon-list-alt"></i> 学生简历</a></li>
 							<!-- 	<li><a href="/firstt/admin/searchBySno" target="display"><i
@@ -182,11 +157,11 @@
 					<li><a href="/firstt/admin/listAllNotes" target="display">
 							<i class="glyphicon glyphicon-list-alt"></i> 管理公告
 					</a></li>
-					<li><a href="/firstt/admin/sendEmail" target="display"><i
-							class="glyphicon glyphicon-envelope"></i> 发送邮件
-					</a></li>
+					<li><a href="/firstt/admin/sendEmail" target="display"
+						onclick="mailSuccess()"><i
+							class="glyphicon glyphicon-envelope"></i> 发送邮件 </a></li>
 
-					<li><a href="/firstt/admin/testTongji" target="display"> <i
+					<li><a href="/firstt/admin/aboutSystem" target="_blank"> <i
 							class="glyphicon glyphicon-fire"></i> 关于系统
 					</a></li>
 					<li><a href="/firstt/login/adminlogout"> <i
@@ -197,7 +172,9 @@
 
 			<!-- 写ifream -->
 			<div class="col-md-10">
-				<iframe class="content" width="1100" height="550" name="display"></iframe>
+				<iframe class="content" width="1100" height="550" name="display">
+					欢迎使用本系统！
+				</iframe>
 			</div>
 		</div>
 	</div>

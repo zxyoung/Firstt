@@ -35,7 +35,7 @@
 		<include refid="Base_Column_List" />
 		,
 		<include refid="Blob_Column_List" />
-		from notes
+		from notes order by time desc
 	</select>
 
 

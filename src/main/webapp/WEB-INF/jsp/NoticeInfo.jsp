@@ -17,13 +17,6 @@
 		工作地点：${notice.location}<br><br>
 		<div style="width: 100%; text-align: center">
 			<form action="######" class="form-horizontal">
-				<%-- <div class="form-group" style="text-align: center;">
-					<label class="control-label col-lg-3" for="email"></label>
-					<div class="col-lg-9">
-						<textarea class="form-control" rows="5" cols="15"
-							readonly="readonly" name="content">${notice.content}</textarea>
-					</div>
-				</div> --%>
 				<p class="form-control-static" style="text-align: left;">职位描述： ${notice.content}</p>
 				<br><br><br>
 				<p class="form-control-static" style="text-align: right;">
@@ -35,6 +28,8 @@
 				<div class="form-group">
 					<div class="col-lg-9 col-lg-offset-3">
 						<br />
+						<button type="submit" class="btn btn-danger"
+							onclick="javascript:window.opener=null;window.history.back();">返回</button>
 						<button type="submit" class="btn btn-danger"
 							onclick="javascript:window.opener=null;window.close();">关闭</button>
 					</div>

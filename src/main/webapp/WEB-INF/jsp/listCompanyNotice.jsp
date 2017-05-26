@@ -8,9 +8,10 @@
 <%@include file="common/head.jsp"%>
 
 <script type="text/javascript">
-	//	function show() {
-	//		window.open('addUser.jsp');
-	//	}
+	function goBack() {
+		window.history.back();
+	}
+
 	function hide() {
 		document.getElementById("pic").style.visibility = "hidden";
 	}
@@ -55,28 +56,26 @@
 									<table class="table table-striped table-bordered table-hover">
 										<thead>
 											<tr>
-
 											<tr>
 												<th>标题</th>
-													<th>职位</th>
-													<th>工作地点</th>
-													<th>操作</th>
-												</tr></tr>
-											
+												<th>职位</th>
+												<th>工作地点</th>
+												<th>操作</th>
+											</tr>
+
 										</thead>
 										<tbody>
 											<c:forEach var="notice" items="${list}">
-													<td>${notice.title}</td>
-													<td>${notice.jobtitle}</td>
-													<td>${notice.location}</td>
-													<td><a href="/firstt/company/${notice.id}/noticeDetail"
+												<td>${notice.title}</td>
+												<td>${notice.jobtitle}</td>
+												<td>${notice.location}</td>
+												<td><a href="/firstt/company/${notice.id}/noticeDetail"
 													target="display">详细信息</a> | <a onclick="firm()"
 													href="/firstt/company/${notice.id}/deleteNotice">删除</a></td>
-													<tr />
-												</c:forEach>
+												<tr />
+											</c:forEach>
 										</tbody>
 									</table>
-
 									<div class="widget-foot">
 										<ul class="pagination pull-right">
 											<li><a href="#">Prev</a></li>
@@ -94,30 +93,6 @@
 					</div>
 				</div>
 			</div>
-
-
-			<%-- 	<div class="panel-body">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>标题</th>
-							<th>创建时间</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="notice" items="${list}">
-							<td>${notice.title}</td>
-							<td>
-									<fmt:formatDate value="${notice.fbtime}" type="both" /></td>
-							<td><a class="btn btn-info"
-								href="/firstt/company/${notice.id}/noticeDetail" target="_blank">详细信息</a></td>
-							<td><a class="btn btn-info" onclick="firm()"
-								href="/firstt/company/${notice.id}/deleteNotice">删除</a></td>
-							<tr />
-						</c:forEach>
-					</tbody>
-				</table>
-			</div> --%>
 		</div>
 	</div>
 </body>

@@ -11,14 +11,6 @@
 <title>毕业生就业追踪系统</title>
 
 </head>
-<!-- <link rel="stylesheet"
-	href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<script
-	src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script
-	src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <!-- 新 Bootstrap 核心 CSS 文件 -->
 <link
 	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -72,13 +64,13 @@
 			<!-- 巨幕 -->
 			<div class="col-md-8 column">
 				<div class="jumbotron">
-					<h2>西安邮电大学就业追踪系统</h2>
-					<p>西安邮电大学（Xi`an University of Posts &
-						Telecommunications）简称“西邮”，位于古都西安，创建于1950年，是国家工业和信息化部与陕西省政府共建高校，国家布点设立并重点建设的几所邮电高校之一。1959年3月经国务院批准开始本科教育并定名为西安邮电学院，成为邮电部、信息产业部（现工业和信息化部）直属重点高校；2000
-						年划归陕西省...</p>
+					<h2>西安邮电大学就业追踪系统</h2><br>
+					<p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;毕业生就业率和就业质量是衡量高校人才培养质量的一个重要因素，
+						加强毕业生就业后的跟踪与调查分析是高校就业部门的一项重要工作， 但是由于学生毕业后岗位的频繁变动，学校就业部门逐渐与毕业生失去联系，
+						对毕业生的跟踪与调查分析显得尤其困难。毕业生离校初期实践技能比较欠缺......</p>
 					<p>
 						<a class="btn btn-primary btn-large" target="_blank"
-							href="http://baike.baidu.com/link?url=dKnqHX5iYHs4msvil6b8uU9vLuEAgB_0xdih9diwJBDBI3v9ND2PrSmwecpQc_UtGGYG-OafIshsZ4MuBkE92UJVfWhUeQyZGIqGEfx3X5DsovE-j3lRNc74GCx470tfFF_Q66iSxn8xXLmmCMWIr_">了解更多</a>
+							href="/firstt/admin/aboutSystem">了解更多</a>
 					</p>
 				</div>
 			</div>

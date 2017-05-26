@@ -20,10 +20,10 @@
 		select
 		<include refid="Base_Column_List" />
 		from zhaopin
-		order by fbtime
+		order by fbtime desc
 	</select>
 
-	<!--  -->
+	<!-- 按条件查找招聘信息 -->
 	<select id="searchNotice" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -39,6 +39,7 @@
 				#{location,jdbcType=CHAR}),'%')
 			</if>
 		</where>
+		order by fbtime
 	</select>
 
 	<!-- 按公司编码查找 -->

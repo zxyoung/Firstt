@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.zhang.demo.Utils.MD5Utils;
 import com.zhang.demo.Utils.MailSenderInfo;
 import com.zhang.demo.Utils.SimpleMailSender;
@@ -24,6 +25,7 @@ import com.zhang.demo.model.Notes;
 import com.zhang.demo.model.Notice;
 import com.zhang.demo.model.PO;
 import com.zhang.demo.model.Resume;
+import com.zhang.demo.model.Shit;
 import com.zhang.demo.model.StuAccount;
 import com.zhang.demo.model.StuInfo;
 import com.zhang.demo.service.CompanyService;
@@ -64,7 +66,12 @@ public class AdminController {
 	@RequestMapping(value = "/chars")
 	public String Echars1() {
 		//TODO
-		return "Echars1";
+		return "jikeTest";
+	}
+	
+	@RequestMapping(value="/aboutSystem")
+	public String aboutSystem(){
+		return "aboutSystem";
 	}
 
 	/*************************************** 公告操作 *********************************************/
@@ -224,6 +231,28 @@ public class AdminController {
 			return "ruangong";
 		}
 		return "redirect:/firstt/admin/chars";
+	}
+	/**
+	 * 分年份统计
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	@RequestMapping(value="/hehe")
+	public String Shit(HttpServletRequest request, Model model) throws UnsupportedEncodingException{
+		String major = new String(request.getParameter("major").getBytes("iso-8859-1"), "utf-8");
+		Integer start = Integer.parseInt(request.getParameter("start"));
+		Integer end = Integer.parseInt(request.getParameter("end"));
+		
+		List<Shit> list = employmentService.getShitList(major, start, end);
+		
+		String str = JSONArray.toJSONString(list);
+		
+		model.addAttribute("list", list);
+		System.out.println(str);
+//		map.put("list", list);
+		return "jikeTest";
 	}
 	
 	/**

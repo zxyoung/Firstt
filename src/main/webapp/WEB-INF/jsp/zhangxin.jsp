@@ -31,7 +31,7 @@
 				<a class="navbar-brand" href="#">薪酬统计</a>
 			</div>
 			<div>
-				<form action="/firstt/user/hehe" id="form1"
+				<form action="/firstt/user/haha" id="form1"
 					class="navbar-form navbar-left" role="search">
 					<div class="form-group">
 						<select id="major" name="major" class="form-control">
@@ -49,7 +49,7 @@
 						<input name="end" id="end" type="text" class="form-control"
 							placeholder="截止年份...">
 					</div>
-					<button type="submit" class="btn btn-default">查询</button>
+					<button type="submit" onclick="fuck()" class="btn btn-default">查询</button>
 				</form>
 			</div>
 			<div class="container-fluid">
@@ -67,8 +67,58 @@
 		</div>
 	</nav>
 	<div id="chart" style="width: 600px; height: 400px;">你好啊</div>
-
 	<script type="text/javascript">
+		function fuck() {
+			var year = [];
+			var salary = [];
+
+			var major = $("#major").val();
+			var start = $("#start").val();
+			var end = $("#end").val();
+			console.log(major + start + end);
+			$.ajax({
+				type : "get",
+				async : true,
+				url : "/firstt/user/haha",
+				data : {},
+				dataType : "json",
+				contentType : application/json,
+				success : function(result) {
+					alter("1------------------");
+					console.log('slkfjds');
+					if (result) {
+						console.log(result)
+						for (var i = 0; i < result.length; i++) {
+							year.push(result[i].gra_Year);
+						}
+						for (var i = 0; i < result.length; i++) {
+							salary.push(result[i].avg_salary);
+						}
+						
+						//隐藏加载动画
+						myChart.hideLoading();
+						myChart.setOption({
+							xAxis : {
+								data : year,
+								name : '年份'
+							},
+							yAxis : {
+								name : '年薪(W)'
+							},
+							series : [ {
+								name : '年份',
+								data : salary
+							} ]
+						});
+					}
+				},
+				error : function(errorMsg) {
+					alert("数据请求失败！");
+					myChart.hideLoading();
+				}
+			})
+		}
+
 		//初始化图表标签
 		var myChart = echarts.init(document.getElementById('chart'));
 		myChart.setOption({
@@ -115,51 +165,6 @@
 
 		//数据加载完之前先显示一段简单的loading动画
 		myChart.showLoading();
-
-		var year = [];
-		var salary = [];
-
-		var major = $("#major").val();
-		var start = $("#start").val();
-		var end = $("#end").val();
-		$.ajax({
-			type : "get",
-			async : true,
-			url : "/firstt/user/hehe",
-			data : {},
-			dataType : "json",
-			success : function(result) {
-				console.log('slkfjds');
-				if (result) {
-					console.log(result)
-					for (var i = 0; i < result.length; i++) {
-						year.push(result[i].gra_Year);
-					}
-					for (var i = 0; i < result.length; i++) {
-						salary.push(result[i].avg_salary);
-					}
-					//隐藏加载动画
-					myChart.hideLoading();
-					myChart.setOption({
-						xAxis : {
-							data : year,
-							name : '年份'
-						},
-						yAxis : {
-							name : '年薪(W)'
-						},
-						series : [ {
-							name : '年份',
-							data : salary
-						} ]
-					});
-				}
-			},
-			error : function(errorMsg) {
-				alert("数据请求失败！");
-				myChart.hideLoading();
-			}
-		})
 	</script>
 </body>
 

@@ -14,8 +14,8 @@
 				<a class="navbar-brand" href="#">薪酬统计</a>
 			</div>
 			<div>
-				<form action="/firstt/admin/testEmploy"
-					class="navbar-form navbar-left" role="search">
+				<form action="/firstt/user/hehe" class="navbar-form navbar-left"
+					role="search">
 					<div class="form-group">
 						<select name="major" class="form-control">
 							<option value="null">选择专业...</option>
@@ -25,11 +25,11 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<input name="startYear" type="text" class="form-control"
+						<input name="start" type="text" class="form-control"
 							placeholder="起始年份...">
 					</div>
 					<div class="form-group">
-						<input name="endYear" type="text" class="form-control"
+						<input name="end" type="text" class="form-control"
 							placeholder="截止年份...">
 					</div>
 					<button type="submit" class="btn btn-default">查询</button>
@@ -133,7 +133,7 @@
 		}, {
 			name : '网络',
 			type : 'bar',
-			data : [ 15, 18, 12 ],
+			data : [ 19.6, 18, 21 ],
 			markPoint : {
 				data : [ {
 					type : 'max',
@@ -152,7 +152,7 @@
 		}, {
 			name : '软件',
 			type : 'bar',
-			data : [ 12, 18, 15 ],
+			data : [ 12, 18, 21 ],
 			markPoint : {
 				data : [ {
 					type : 'max',

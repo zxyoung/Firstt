@@ -43,7 +43,6 @@ public interface EmploymentInfoDao {
 
 	int reject(Integer id);
 
-	List<Shit> getShit(@Param(value = "major") String major, @Param("gra_year") Integer startYear,
-			@Param("gra_year") Integer endYear);
+	List<Shit> getShit(@Param("major")String major, @Param("start")Integer start, @Param("end")Integer end);
 
 }

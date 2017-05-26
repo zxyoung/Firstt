@@ -167,7 +167,7 @@
 					<li><a href="/firstt/student/listAllNotes" target="display">
 							<i class="glyphicon glyphicon-calendar"></i> 系统公告
 					</a></li>
-					<li><a href="########"> <i
+					<li><a href="/firstt/admin/aboutSystem" target="_blank"> <i
 							class="glyphicon glyphicon-fire"></i> 关于系统
 					</a></li>
 					<li><a href="/firstt/login/stulogout"> <i

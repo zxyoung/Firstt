@@ -27,6 +27,7 @@
 	<resultMap id="PO" type="com.zhang.demo.model.PO">
 		<result column="salary" property="salary" jdbcType="INTEGER" />
 	</resultMap>
+	
 	<resultMap id="Shit" type="com.zhang.demo.model.Shit">
 		<result column="avg_salary" property="avg_salary" jdbcType="INTEGER" />
 		<result column="gra_Year" property="gra_Year" jdbcType="INTEGER" />
@@ -42,7 +43,8 @@
 	</sql>
 
 	<!-- 列出某学生所有的就业信息 -->
-	<select id="getListBySno" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+	<select id="getListBySno" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
 		from employmentinfo
@@ -52,17 +54,16 @@
 	</select>
 
 	<!-- 条件统计薪酬 -->
-	<select id="shit" resultMap="Shit">
-		select gra_year, avg(salary) as
+	<select id="getShit" resultMap="Shit">
+		select major, gra_year, avg(salary) as
 		avg_salary from employmentinfo
 		<where>
 			major = #{major} and
-			gra_year &lt;= #{gra_year}
-			and gra_year &gt;= #{gra_year}
+			gra_year between #{start} and #{end}
 		</where>
 		group by gra_year
 	</select>
-	
+
 	<!-- 列出未通过审核的就业信息 -->
 	<select id="toCheck" resultMap="BaseResultMap">
 		select
@@ -71,6 +72,7 @@
 		<where>
 			status = 0 or status = -1
 		</where>
+		order by id desc
 	</select>
 
 	<!-- 动态sql查找 -->
@@ -108,7 +110,7 @@
 	<select id="getAllEmployInfo" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from employmentinfo where status = 1 order by sno
+		from employmentinfo where status = 1 order by id desc
 	</select>
 
 	<!-- 通过审核 -->

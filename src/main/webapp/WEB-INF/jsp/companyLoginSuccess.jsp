@@ -164,8 +164,8 @@
 					<li><a href="/firstt/company/listAllNotes" target="display">
 							<i class="glyphicon glyphicon-calendar"></i> 系统公告
 					</a></li>
-					<li><a href="####"> <i class="glyphicon glyphicon-fire"></i>
-							关于系统
+					<li><a href="/firstt/admin/aboutSystem" target="_blank"> <i
+							class="glyphicon glyphicon-fire"></i> 关于系统
 					</a></li>
 					<li><a href="/firstt/login/companylogout"> <i
 							class="glyphicon glyphicon-log-in"></i> 退出

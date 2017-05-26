@@ -30,18 +30,11 @@
 			<div class="panel-heading text-header">
 				<h2 align="center">学生账号列表</h2>
 			</div>
-
 			<div class="matter">
 				<div class="container">
-
-					<!-- Table -->
-
 					<div class="row">
-
 						<div class="col-md-12">
-
 							<div class="widget">
-
 								<div class="widget-head">
 									<div class="pull-left">Tables</div>
 									<div class="widget-icons pull-right">
@@ -50,7 +43,6 @@
 									</div>
 									<div class="clearfix"></div>
 								</div>
-
 								<div class="widget-content">
 
 									<table class="table table-striped table-bordered table-hover">
@@ -60,6 +52,7 @@
 												<th>学号</th>
 												<th>专业</th>
 												<th>毕业年份</th>
+												<th>操作</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -69,8 +62,7 @@
 												<td>${stu.major}</td>
 												<td>${stu.graYear}</td>
 												<td><a href="/firstt/admin/${stu.sno}/detailStuInfo"
-													target="_blank">详细信息</a></td>
-												<td><a onclick="firm()"
+													target="_blank">详细信息</a> | <a onclick="firm()"
 													href="/firstt/admin/${stu.sno}/deleteStuAccount">删除</a></td>
 												<tr />
 											</c:forEach>

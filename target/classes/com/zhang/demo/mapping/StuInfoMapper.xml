@@ -35,7 +35,7 @@
   <select id="getAllStuInfo" resultMap="BaseResultMap">
   	select
   	<include refid="Base_Column_List" />
-  	from stu_info
+  	from stu_info order by gra_year desc
   </select>
   
   <!-- 按学号查找 -->
